@@ -17,7 +17,7 @@ jobs:
       NEXT_TELEMETRY_DISABLED: '1'
       STORYBOOK_DISABLE_TELEMETRY: '1'
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
       - uses: actions/setup-node@v7
         with:
@@ -34,7 +34,7 @@ jobs:
       - run: pnpm build-storybook
       - run: pnpm test:e2e
       - if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: test-evidence
           path: |
@@ -43,7 +43,7 @@ jobs:
   local-stack:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
@@ -58,7 +58,7 @@ jobs:
   duplication:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
       - uses: actions/setup-node@v7
         with:
