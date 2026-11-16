@@ -32,9 +32,10 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
+          package-manager-cache: false
       - id: ref
         run: node scripts/release-ref.mjs
         env:
@@ -65,9 +66,10 @@ jobs:
         with:
           ref: ${{ needs.resolve.outputs.sha }}
       - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
+          package-manager-cache: false
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm db:migrate
