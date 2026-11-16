@@ -11,7 +11,11 @@ Existing design/architecture documents remain the source of truth. REVIEW.md kee
 The owner approved the review standards and public repository on 2026-11-16. The scaffold and existing design history are published at https://github.com/juanchaopan/lingocurrent on main.
 Install the [Claude GitHub App](https://github.com/apps/claude).
 Set either CLAUDE_CODE_OAUTH_TOKEN (from your Claude subscription) or ANTHROPIC_API_KEY using GitHub's secret UI/gh; never paste keys into chat.
-Without that setup the AI review workflows cannot run successfully.
+Either credential is sufficient. When neither secret is available, Claude code review,
+security review, and the @claude job report skipped. The shared credential check
+reports only availability, never credential values, and does not check out PR code.
+Configured credentials still run Claude normally; authentication or review errors
+remain failures. The required ci, risk-gate, and commit-lint checks still run.
 
 Auto-merge, automatic merged-branch deletion, and type:feature/type:bug/type:refactor/type:chore/type:spike labels are enabled. The approved default/main branch ruleset is activated at setup completion. GitHub Free supports rulesets on this public repository.
 Required checks: ci, risk-gate, commit-lint; resolve review threads before merging.
