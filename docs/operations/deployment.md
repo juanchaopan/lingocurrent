@@ -1,5 +1,7 @@
 # Deployment setup
 
+For guided setup and the GitHub-only source of static configuration, follow [the R1 walkthrough](setup-walkthrough.md). The [five-issue roadmap](../roadmap.md) groups environment, staging, pipeline and channel-input work in R1; source selection comes from the combined R2 spike. These are plans, not completed hosted setup.
+
 No hosted environments or credentials have been created. Workflows are disabled until repository variable DEPLOY_ENABLED=true is set deliberately after setup.
 
 ## Environments and release

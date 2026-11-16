@@ -1,5 +1,7 @@
 # 全文 RSS 与多话题频道 Spike 计划
 
+2026-11-16 Roadmap更新：用户最新要求尽量合并spike，本文下方旧的“独立issue、不与TTS/Speak合并”安排被覆盖；本计划作为[合并R2 spike](../roadmap/02-spikes.md)中的RSS部分，[GitHub #7](https://github.com/juanchaopan/lingocurrent/issues/7)已创建。直接复用[频道候选交接清单](channel-candidates.md)，全文/来源条件的独立证据与用户选择门槛保留。尚未执行。
+
 日期：2026-11-16（America/Toronto）。状态：**仅记录，等待 Roadmap 创建 type:spike Issue；当前不执行调查或探针**。用户明确澄清“不是让你现在做，是先记一下，后面Roadmap会列出这个Spike任务在Issues里面的”。本计划不是研究结果，也不代表批准任何来源接入。
 
 ## 要回答的问题

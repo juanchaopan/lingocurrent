@@ -1,5 +1,7 @@
 # TTS 试听 spike 计划
 
+2026-11-16 Roadmap更新：按用户最新合并要求，本计划作为[合并R2 spike](../roadmap/02-spikes.md)中的TTS部分，不另建issue；样音、时间盒和用户试听选型门槛保留。尚未执行。
+
 来源：用户明确将朗读 demo 放入 TTS spike，并在架构阶段另外确认 Speak 候选也独立 spike，见 speak-spike-plan.md。本文只覆盖 TTS；完整集成和 D-014 仍在 staging，不增加独立全站性能 spike。
 
 状态：计划随 kickoff 于 2026-11-15 最终确认，尚未执行。实际样音与音色选择是后续产出，不以计划确认冒充实测。

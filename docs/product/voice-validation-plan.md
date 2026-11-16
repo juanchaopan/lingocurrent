@@ -1,5 +1,7 @@
 # 语音验证分工：TTS/Speak 候选 spike 与 staging
 
+2026-11-16 Roadmap更新：TTS/Speak各自验证但与RSS共用[合并R2 issue](../roadmap/02-spikes.md)，不分别建单；完整集成/真机/性能仍在正常staging，归[路线图R5](../roadmap.md)。尚未取得实测结果。
+
 来源：用户已确认 TTS/Speak 分别做小范围候选 spike；Speak 验证真实 Vercel Hobby。完整应用交互及 D-014 留 staging，不做独立全站性能 spike。覆盖早先只有 TTS 做 spike 的安排，尚未实测。
 
 状态：验证计划于 2026-11-15 随 kickoff 最终确认；AI 建议作为起始测试基线，实际结果尚未获得。
