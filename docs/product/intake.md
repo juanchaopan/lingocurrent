@@ -1,5 +1,11 @@
 # LingoCurrent 历史需求输入与访谈记录
 
+2026-11-16最终确认：用户明确“ok, finalize design”。Design已确认并定稿，最新复习只保留review_progress；删除review_sessions/review_session_items/review_prompts/review_attempts，不设phase或短练标记。答错round减1最低0并延10分钟，答对加1查间隔；逐题实时查询，通用mutation_receipts仅作有期限的请求去重。下方历史记录中的旧表、共享例句或待审状态均不优先于当前data-model/API及Design确认记录。实现、RSS/语音Spike、部署和真机验证尚未执行。
+
+2026-11-16最新复习修订：删除phase、短练标记及review_sessions/review_session_items。每次取下一题实时查询该模式已到期与未开始词；答错round=max(0,round−1)、due_at=本次提交时间+10分钟，答对round+1并按所得轮次查间隔，终点due_at=NULL。轮次最低0，可回退，不再称累计已完成轮数。当前规则覆盖下方历史描述中的冲突项。
+
+2026-11-16用户纠正原意：下方历史整理中的“每次运行记录”不代表永久历史。Source/Channel/采集计划是稳定配置；到点写临时频道任务和所需逐篇明细，完成即全部删除。此前将其扩展为永久采集记录是AI误解，已撤回；历史整理文字保留供追溯，以本澄清及当前REQ-003为准。
+
 记录日期：2026-11-15（America/Toronto）。来源：用户在 kickoff 中的初始描述及各轮回答。
 
 本文是历史访谈存档，保留各轮当时的“待确认”、旧解释和纠正过程，不作为现行规格。Kickoff 已获用户“同意你的计划。Let's finalize kick off.”最终确认，最终行为以 [requirements.md](requirements.md)、[review-defaults.md](review-defaults.md) 和 [刷新规则](refresh-behavior-proposal.md) 为准；来源见 [provenance-review.md](provenance-review.md)。

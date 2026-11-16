@@ -1,5 +1,7 @@
 # 架构检查、需求覆盖与验证门槛
 
+2026-11-16最终确认：用户明确“ok, finalize design”。Design已确认并定稿，最新复习只保留review_progress；删除review_sessions/review_session_items/review_prompts/review_attempts，不设phase或短练标记。答错round减1最低0并延10分钟，答对加1查间隔；逐题实时查询，通用mutation_receipts仅作有期限的请求去重。下方历史记录中的旧表、共享例句或待审状态均不优先于当前data-model/API及Design确认记录。实现、RSS/语音Spike、部署和真机验证尚未执行。
+
 日期：2026-11-15。依据 architect 架构检查清单，对 [overview](overview.md) 作设计审查。用户已完成最终审阅，并明确文章/音频同时删除，例句只清音频、文本留表、下次点击重建；已纳入设计。这里的“覆盖”表示有责任方，不表示已实现或实测通过。ADR-0015 已接受，语音引擎 ADR-0016 仍待 spike。
 
 ## 需求覆盖
@@ -8,7 +10,7 @@
 |---|---|---|
 | REQ-001 | Web、共享 UI | 响应式英文 UI/中文学习内容、令牌与关键界面稿、手机截图/设备检查 |
 | REQ-002 | identity、Route Handlers | Clerk 邀请制 Google 登录；逐请求成员授权/owner 隔离 |
-| REQ-003 | content、Schedule/worker | 每频道独立时区/时点/数量，计划/运行入库，唯一运行键、租约和补偿 |
+| REQ-003 | content、Schedule/worker | 每频道独立时区/时点/数量，配置/计划持久化，到点临时任务/明细，建任务与推进next_run_at原子提交，完成即删、租约和补偿 |
 | REQ-004 | content、media、reading | 正文/来源/段落持久化；FIFO 淘汰文章当前音频时同事务删除文章及访问记录，例句只清音频/引用，个人学习文本保留 |
 | REQ-005 | content、media | TTS spike；正文/完整音频/时间轴齐备后原子发布 |
 | REQ-006 | content、reading、Web | 稳定最新列表、打开即访问、历史；淘汰后不可见 |
@@ -22,24 +24,28 @@
 | REQ-014 | lookup | 个人持久解释缓存、显式刷新固定含义；与词卡独立，失败保留 |
 | REQ-015 | 浮层栈、lookup、播放器 | 嵌套查词/收藏、空白/Escape 退一层；解释不暂停文章 |
 | REQ-016 | lookup、review、选区/media 授权 | AI 目标位置校验、隐藏目标不可点/跨选、作答前不放整句泄题音频 |
-| REQ-017 | vocabulary、review | 完整快照原子收藏；重复显式确认及版本核对，替换保留三模式进度 |
+| REQ-017 | vocabulary、review | 完整快照原子收藏；重复显式确认及应用事务重查，替换保留三模式进度 |
 | REQ-018 | vocabulary、AI 适配器 | 收藏时四项及正确项有效性；必要时合并重建，失败不部分保存 |
 | REQ-019 | vocabulary、review、Web | due/new、三个模式状态、三模式完成才 Archive |
 | REQ-020 | vocabulary、media、lookup | 固定词义换例句，题目仍有效则复用；例句音频可重建缓存 |
 | REQ-021 | vocabulary、review、客户端队列 | 原子删卡/题目/全部复习记录，缓存不删，不单模式重置；迟到请求不复活 |
-| REQ-022 | review、Web | 三独立入口 All/Due/New，到期优先；新词下次会话、到期短练可当前重入 |
+| REQ-022 | review、Web | 三独立入口，每题实时查询到期优先再未开始词，无session |
 | REQ-023 | review、语音适配器 | 中文词性/挖空、语音答规范形式；真实 Hobby Speak spike，不保存长期原录音 |
 | REQ-024 | review、Spell 组件 | 规范词形及已接受拼写容错，领域规则测试 |
-| REQ-025 | review、vocabulary | 四选一对应收藏词义；选项唯一正确与版本绑定 |
+| REQ-025 | review、vocabulary | 四选一对应收藏词义；选项唯一正确与词卡/题面绑定 |
 | REQ-026 | review/domain | 独立已完成轮次、首次 1/初始 0，统一 1/2/4/7/15/30 天常量；终点索引 Design 明定 |
-| REQ-027 | review/domain | 错后 10 分钟短练，短练成功留阶段重等原间隔，技术故障不计错 |
-| REQ-028 | review、DB | attempt 去重/进度版本同事务，中断保留短练；多设备/删除竞争真实 DB 验证 |
+| REQ-027 | review/domain | 错后round减1最低0并延10分钟，正确round加1查间隔，技术故障不计错 |
+| REQ-028 | review、DB | 通用operation去重/实际进度同事务，中断保留round/due_at；多设备/删除竞争真实 DB 验证 |
 | REQ-029 | identity、infrastructure、交付工作流 | 指定平台、GitHub 配置、Vercel 计算，所有环境共享一把 OpenAI key，其他凭据隔离 |
 | REQ-030 | 全部写用例 | 失败保留旧值、条件提交；完整资产才发布、任务完成即删 |
 | REQ-031 | 部署/资源计划、全模块 | 目标规模/响应与免费支出边界；容量估算非承载证据，staging 检查 |
 | REQ-032 | 验证计划/测试工具 | TTS/Speak 分别 spike；完整集成/D-014 正常 staging，视觉/Storybook 已选 |
 | REQ-033 | 持久播放器、media | 浏览器媒体能力与短期私有 URL/Range，真实手机后台/锁屏实测 |
 | REQ-034 | usage、AI 适配器 | 每次外部尝试用量/费用口径入库；未知不当零，不做费用看板 |
+| REQ-035 | media、lookup、vocabulary | 词头/短语独立音频缓存，同一任务/容量/FIFO机制；不删文字 |
+| REQ-036 | Web/共享查询容器 | 鼠标表格页码、触控连续加载/键盘Load more，平板输入适配；只阅读页媒体UI |
+| REQ-037 | vocabulary、review查询 | 中文/词/例句/词性搜索、7列排序、3轮次组合过滤，下一轮/Practice语义 |
+| REQ-038 | content、来源适配器 | Source图标、独立频道feed_url配置；全文RSS来源Spike仅计划，后续Roadmap创建Issue |
 
 ## 漏洞检查结果
 
@@ -49,7 +55,7 @@
 | 多实例/进程状态 | 进程内锁/缓存不能保证幂等 | DB 计划键、租约/fencing、版本、操作 ID；本地双副本验证 | 实现后做真实 DB 竞争/崩溃测试 |
 | 发布事务 | 抓到文章后未入队即崩溃；上传后未发布 | 文章+任务原子写；不可变对象，条件发布+删任务原子提交；孤儿对账 | 检查各崩溃点，不宣称外部模型恰好调用一次 |
 | 顺序/兼容性 | 重复唤醒、租约旧 worker、任务跨版本 | payload 版本、检查点、截止时间；新旧应用兼容迁移 | staging 回滚及旧任务恢复验证 |
-| 个人数据竞争 | 删除中迟到 AI 结果/重复成绩复活或双推进 | CAS、存在检查、不 upsert、attempt 去重；删关联记录同事务 | 词义集合并发变化/跨设备复习专项用例 |
+| 个人数据竞争 | 删除中迟到 AI 结果/重复成绩复活或双推进 | 应用事务锁/重查、存在检查、不 upsert、通用operationId去重；删关联记录同事务 | 词义集合并发变化/跨设备复习专项用例 |
 | 时钟/计划 | DST、不同实例时间、重复时点 | IANA 时区配置、DB UTC、唯一计划运行键；DST 规则在 Design 明定 | 频道配置前确认具体时点，测试 DST 边界 |
 | 网络/背压 | 来源/AI 拖满函数，重试风暴 | 超时、有限退避、并发控制、任务检查点，事务不跨 AI | 参数基于 spike/staging 调整，无个人月度额度 |
 | 存储删除/恢复 | SQL/S3 非原子、软删除或分支仍占空间 | 同事务删文章/访问/引用并保留最小资产清理状态，提交后幂等物理删除；例句留表、下次点击生成；实际计量与并发预留 | 正常集成验证事务回滚/提交后崩溃、删除重试、旧 worker 不复活、例句重建与实际 quota 释放；不成立须重新选择 |
@@ -72,7 +78,7 @@
 | 阶段 | 必须得到的结果 | 当前状态 |
 |---|---|---|
 | 最终架构审阅 | 用户确认其余方案，并明确文章/音频共同删除、例句文本留表/下次点读重建；ADR-0015 定稿 | 已完成（2026-11-15）；不表示引擎 spike 已通过 |
-| Design | 数据/接口、领域状态与视觉设计；语音未定项保留适配端口及验证门槛 | 未开始；Architecture 后的下一阶段 |
+| Design | 数据/接口、领域状态与视觉设计；语音未定项保留适配端口及验证门槛 | 2026-11-16已获用户确认并定稿，见 ../design/README.md；工程验证未执行 |
 | scaffold / GitHub | 工具版本、规范与架构检查、CI/环境骨架，准备并推送 GitHub 仓库；不实现未验证引擎 | 未开始；Design 后 |
 | roadmap | 首版里程碑及 issues；TTS/Speak 分别建 type:spike 任务并标明依赖 | 未开始；GitHub 仓库就绪后创建 issues |
 | TTS spike（roadmap issue） | 可播放样音/用户选择、自然度与压缩、对齐、真实 Vercel CPU/内存/包体/延迟/月量证据；排在依赖它的正式实现前 | 仅计划；先 Design、scaffold/GitHub、roadmap，再执行 |

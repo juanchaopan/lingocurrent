@@ -1,14 +1,16 @@
 # LingoCurrent 文档
 
-项目目录：`C:\Users\juanc\AI Projects\english`。产品暂名 LingoCurrent，由 AI 按用户授权命名；不创建下一级项目目录。
+状态：Kickoff与Architecture于2026-11-15确认，Design于2026-11-16（America/Toronto）获用户“ok, finalize design”确认并定稿。
 
-Kickoff 与 architecture 均已于 2026-11-15（America/Toronto）完成确认。最终删除规则：文章当前音频淘汰时文章同步删除，例句只删音频、文本留表、下次点击朗读重建。语音引擎仍待 TTS/Speak 分别 spike；尚无应用、部署或实测。
+当前入口：[Design规格](design/README.md)、[最终确认与交接](design/finalization.md)、[数据模型](design/data-model.md)、[复习逐步示例](design/stateless-review.md)。全部界面源码已在[仓库mockups](design/mockups/README.md)，聊天目录只是镜像。
+
+复习仅review_progress，无session/prompt/attempt业务表或phase；错误减轮最低0并延10分钟，正确加轮查间隔。Lookup与词卡分别拥有例句，选择索引不入库；Source/Channel稳定配置，频道任务及明细完成即删。以当前规格优先于历史变更记录。
 
 | 文件 | 内容 |
 |---|---|
 | [product/vision.md](product/vision.md) | 产品定位、首版范围和约束 |
-| [product/requirements.md](product/requirements.md) | REQ-001–REQ-034 用户故事和验收标准 |
-| [product/provenance-review.md](product/provenance-review.md) | 34 条需求逐条来源、D/E 建议及最新确认状态 |
+| [product/requirements.md](product/requirements.md) | REQ-001–REQ-039 用户故事和验收标准 |
+| [product/provenance-review.md](product/provenance-review.md) | 需求来源及最新确认、D/E 建议及最新确认状态 |
 | [product/review-defaults.md](product/review-defaults.md) | 已确认的补足规则，保留 AI 建议来源 |
 | [product/intake.md](product/intake.md) | 原始需求整理、已确认决定与各轮问答记录 |
 | [product/open-questions.md](product/open-questions.md) | 待明确的业务规则、约束和验证事项 |
@@ -36,7 +38,15 @@ Kickoff 与 architecture 均已于 2026-11-15（America/Toronto）完成确认�
 | [adr/0008-package-and-migrations.md](adr/0008-package-and-migrations.md) | 已接受 pnpm 及版本化 SQL 迁移 |
 | [adr/0009-web-technical-details.md](adr/0009-web-technical-details.md) | 已接受前端状态、样式与分层 |
 
-/architect 已定稿：整体设计见 overview，覆盖及风险见 review。Vercel/Neon 坚持 Free；任务成功即删；音频 FIFO/95%/90%，文章/音频共同删除，例句及个人学习文本保留；免费 OTel 与弱恢复边界已明确。下一步进入 Design，再 scaffold 搭骨架并准备/推送 GitHub 仓库，随后 roadmap 创建任务。TTS/Speak 保持提议，由 roadmap 分别创建 type:spike issue，执行后再实现依赖它们的功能；完整集成与 D-014 留 staging。
+Kickoff、Architecture及Design均已确认。下一阶段为scaffold/GitHub准备，再roadmap拆完整首版和TTS/Speak/全文RSS Spike；本次未执行后续阶段。引擎/来源、实际Free容量及真机结果仍待取证，不视为Design完成即已验证。
+
+| 已确认Design | 内容 |
+|---|---|
+| [design/experience.md](design/experience.md) | 紧凑工作区、导航/阅读/解释/词库/三模式复习、令牌与可访问性 |
+| [design/data-model.md](design/data-model.md) | 数据表、身份/键/索引、快照与删除矩阵 |
+| [design/api-contracts.md](design/api-contracts.md) | REST、搜索/分页/固定队列、幂等与模型端口 |
+| [design/state-machines.md](design/state-machines.md) | 复习常量/错后短练、调度/任务/发布/清理、用量恢复 |
+| [design/validation.md](design/validation.md) | 39条需求追踪、实际检查与工程验证门槛 |
 
 | 架构汇总/后续决策 | 内容 |
 |---|---|
@@ -47,5 +57,8 @@ Kickoff 与 architecture 均已于 2026-11-15（America/Toronto）完成确认�
 | [adr/0012-environments-and-release.md](adr/0012-environments-and-release.md) | 已接受四环境、自动 staging/手动生产及配置隔离 |
 | [adr/0013-free-recovery.md](adr/0013-free-recovery.md) | 已接受 Neon Free 的较弱恢复，不保证原 24 小时 RPO/RTO |
 | [adr/0014-observability.md](adr/0014-observability.md) | 条件核实后采用 Vercel 免费 OpenTelemetry/Tracing |
-| [adr/0015-consistency-and-boundaries.md](adr/0015-consistency-and-boundaries.md) | 已接受模块边界、版本/幂等与文章/音频删除对账 |
+| [adr/0015-consistency-and-boundaries.md](adr/0015-consistency-and-boundaries.md) | 已接受模块边界、事务/去重与文章/音频删除对账 |
 | [adr/0016-speech-engines-pending-spike.md](adr/0016-speech-engines-pending-spike.md) | 引擎与音色提议，须分别 spike 后定 |
+| [adr/0017-input-presentations-and-word-audio.md](adr/0017-input-presentations-and-word-audio.md) | 鼠标/触控展示及词头音频缓存 |
+| [adr/0018-lean-lookup-and-vocabulary.md](adr/0018-lean-lookup-and-vocabulary.md) | 查词/词卡精简，顶部最新五表规则覆盖历史方案 |
+| [adr/0019-stateless-review-and-round-rollback.md](adr/0019-stateless-review-and-round-rollback.md) | 复习只存进度、轮次回退及通用请求去重 |
