@@ -1,5 +1,7 @@
 # Speak 候选 spike：实际 Vercel Hobby 可行性
 
+2026-11-16 Roadmap更新：按用户最新合并要求，本计划作为[合并R2 spike](../roadmap/02-spikes.md)中的Speak部分，不另建issue；真实Hobby、质量/负样本与免费月容量验证门槛保留。尚未执行。
+
 状态：用户于 2026-11-15 明确选择 TTS 与 Speak 分别做候选 spike，并要求测试 Vercel 免费 tier 是否跑得起来。尚未开始执行；没有部署、用户录音、模型下载或付费 API 调用结果。本计划记录范围，执行时再按 spike 技能建立隔离分支、SPIKE.md 与明确时间盒。
 
 ## 要回答的问题

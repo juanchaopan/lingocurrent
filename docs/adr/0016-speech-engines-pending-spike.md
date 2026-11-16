@@ -1,5 +1,7 @@
 # ADR-0016 TTS 与 Speak 引擎等待分别验证
 
+2026-11-16 Roadmap组织更新：用户要求尽量合并spike，TTS/Speak与全文RSS共用[GitHub #7](https://github.com/juanchaopan/lingocurrent/issues/7)（[R2规格](../roadmap/02-spikes.md)），各自验证与选择仍分别完成。本文旧文中的“分别创建issue”安排被覆盖；引擎/音色状态仍为提议，未取得实测结论。
+
 - 状态：提议（须经 spike 证据及用户选择后定引擎/音色）
 - 日期：2026-11-15
 - 相关需求：REQ-005、REQ-023、REQ-029、REQ-031–REQ-033
