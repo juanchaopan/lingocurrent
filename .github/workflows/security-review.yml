@@ -16,8 +16,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  security-review:
-    name: security-review
+  credentials:
     if: >-
       ${{
         !github.event.pull_request.draft &&
@@ -26,6 +25,15 @@ jobs:
         !startsWith(github.event.pull_request.head.ref, 'release/') &&
         github.event.pull_request.head.ref != 'main' && github.event.pull_request.head.ref != 'master'
       }}
+    uses: ./.github/workflows/claude-credentials.yml
+    secrets:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+
+  security-review:
+    name: security-review
+    needs: credentials
+    if: needs.credentials.outputs.available == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: read

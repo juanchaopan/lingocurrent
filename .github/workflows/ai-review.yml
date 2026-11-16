@@ -45,9 +45,7 @@ jobs:
           HEAD_REF: ${{ github.event.pull_request.head.ref }}
           HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
 
-  claude-review:
-    name: claude-review
-    needs: risk
+  credentials:
     if: >-
       ${{
         github.event.action != 'labeled' && github.event.action != 'unlabeled' &&
@@ -57,6 +55,15 @@ jobs:
         !startsWith(github.event.pull_request.head.ref, 'release/') &&
         github.event.pull_request.head.ref != 'main' && github.event.pull_request.head.ref != 'master'
       }}
+    uses: ./.github/workflows/claude-credentials.yml
+    secrets:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+
+  claude-review:
+    name: claude-review
+    needs: [risk, credentials]
+    if: needs.credentials.outputs.available == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: read
