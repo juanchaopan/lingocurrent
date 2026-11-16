@@ -1,0 +1,25 @@
+:root {
+  color-scheme: light dark;
+  --background: light-dark(#f4f6f9, #151b25);
+  --surface: light-dark(#fff, #1d2634);
+  --foreground: light-dark(#26344b, #e2e9f4);
+  --muted: light-dark(#637187, #a9b7cb);
+  --border: light-dark(#d8dfe9, #3b475b);
+  --primary: light-dark(#245ab8, #9bbdff);
+  --on-primary: light-dark(#fff, #15284a);
+  --soft: light-dark(#edf3fe, #263a58);
+  --danger: light-dark(#ba3c40, #ff9b9e);
+  --warning: light-dark(#89590b, #f8cb75);
+  --success: light-dark(#24745a, #83d5b7);
+  --font-interface: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Microsoft YaHei', sans-serif;
+  --text-body: 0.875rem;
+  --text-title: 1.5rem;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --radius-panel: 0.4375rem;
+  --content-width: 64rem;
+}
