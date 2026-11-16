@@ -4,14 +4,15 @@
 
 Node 24.22.1, pnpm 10.24.0; install using the committed lockfile. Run `pnpm dev`.
 The generated scaffold renders a simple workspace shell, not the complete approved product mockup.
-Authentication, business APIs, migrations, speech engines, stores and external integrations are roadmap work.
+R1-A introduces the authenticated reading fixture, private APIs and migrations; speech engines and the remaining product features are roadmap work.
+
+R1-A adds the invited reading fixture path and versioned migrations; setup and remaining cloud checks are recorded in [R1 status](r1-status.md). A local Clerk-enabled standalone build should use `APP_HOST=localhost` and be opened at `http://localhost:3000`. Next currently normalizes loopback rewrite URLs to localhost; explicitly binding only 127.0.0.1 can turn Clerk's internal rewrite into a failing network proxy. See the [upstream issue](https://github.com/vercel/next.js/issues/94745). This override is for native local verification; Vercel and container listeners retain their platform configuration.
 
 ## Compose
 
 `docker compose -f infra/docker-compose.yml config --quiet` validates the definition without a running engine.
 `docker compose -f infra/docker-compose.yml up --build -d --wait` starts two app replicas behind Nginx, Postgres 17, Adobe S3Mock, a local test bucket and a fail-closed AI stub.
-No Clerk/AI account is bypassed: only the public scaffold shell and liveness endpoint exist.
-Real private routes must add authorization with their implementation issues.
+No Clerk/AI account is bypassed: without Clerk configuration, the public shell and liveness endpoint remain available while private APIs fail closed. Compose's public smoke checks do not prove the authenticated reading path.
 
 Optional overrides: copy `infra/.env.example` to `infra/.env` and pass `--env-file infra/.env`.
 Default local credentials are development fixtures: DB lingocurrent / local-only, S3 local-s3 / local-s3-secret (dummy values accepted by the simulator).

@@ -1,5 +1,7 @@
 # LingoCurrent 文档
 
+R1-A 的实际云资源、账号验证和剩余验收见[环境与连通记录](operations/r1-status.md)。
+
 2026-11-16 Roadmap：用户已确认[五个 issue 的合并路线图](roadmap.md)，GitHub 已创建 #6–#10 和 M0/M1；配套有[GitHub 配置逐步操作说明](operations/setup-walkthrough.md)与[频道候选交接清单](product/channel-candidates.md)，后续复用精确feed及证据，不重做初筛。Scaffold/GitHub/CI 已完成，证据见[scaffold](scaffold.md)；下一阶段为云端环境与产品实现。历史文档中“分别创建 TTS/Speak/RSS issue”的任务组织方式由本路线图覆盖，三组验证范围及各自选型门槛保留，尚未执行。
 
 状态：Kickoff与Architecture于2026-11-15确认，Design于2026-11-16（America/Toronto）获用户“ok, finalize design”确认并定稿。
