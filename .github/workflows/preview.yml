@@ -37,6 +37,7 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
+          package-manager-cache: false
       - id: validate
         run: node scripts/preview-validate.mjs
         env:
@@ -86,6 +87,7 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version-file: app/.nvmrc
+          package-manager-cache: false
           cache: pnpm
           cache-dependency-path: app/pnpm-lock.yaml
       - run: pnpm install --frozen-lockfile
