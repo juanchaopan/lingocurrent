@@ -28,7 +28,7 @@ jobs:
     outputs:
       sha: ${{ steps.ref.outputs.sha }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           ref: main
           fetch-depth: 0
@@ -61,7 +61,7 @@ jobs:
       SCHEDULE_ENABLED: 'false'
       NEXT_TELEMETRY_DISABLED: '1'
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           ref: ${{ needs.resolve.outputs.sha }}
       - uses: pnpm/action-setup@v4
