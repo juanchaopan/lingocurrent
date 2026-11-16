@@ -41,7 +41,13 @@ Existing approved documents are not reformatted.
 - Official actionlint: all workflow files passed without diagnostics.
 - Hook scripts pass node --check; invalid Conventional Commit rejected; format hook passed on a real TSX file; risk examples classified low/medium/high as expected.
 - Compose config parses successfully. Adobe S3Mock 5.2.3 registry manifest verified. Actual two-replica container startup is blocked by Docker Desktop remaining in Engine starting / API HTTP 500; WSL status also hangs. No reset, software installation or system configuration changes were made.
-- Linux baseline and CI validation await repository creation approval. Hosted deployment and preview lifecycle require platform credentials and remain disabled.
+- The owner approved public publication and review standards on 2026-11-16. Repository: https://github.com/juanchaopan/lingocurrent. The Linux screenshot baseline was generated successfully by workflow 43923539648 and committed. Hosted deployment and preview lifecycle require platform credentials and remain disabled.
 
 - A temporary presentation component importing a server use case was rejected by both client-no-server and presentation-no-data. After removing the probe, the 17-module graph passed.
-- Linux CI also builds the actual Compose stack and checks two distinct upstreams plus the fixture bucket. This job is prepared but has not run while repository approval is pending.
+- Linux CI also builds the actual Compose stack and checks two distinct upstreams plus the fixture bucket. The first CI run exposed automatic package-manager caching in setup-node without an installed pnpm; explicit cache configuration fixes that setup failure. The corrected main CI run 43923942387 passed all jobs, including application checks, Linux screenshot regression, duplication, and actual Compose verification.
+
+## Published verification
+
+Main CI: https://github.com/juanchaopan/lingocurrent/actions/runs/43923942387 (passed on commit 89bf2e5). Container evidence: Postgres, S3Mock, AI stub, both app replicas and proxy healthy; verification confirmed two upstreams and the S3 fixture bucket. The local Windows Docker engine remains stuck, while the same committed Compose stack passed on the hosted Linux runner.
+
+The owner confirmed REVIEW.md. Public repository auto-merge, merged-branch cleanup and issue-type labels are enabled; the approved protected-branch ruleset is activated at setup completion. Claude App/authentication and Vercel/Neon environment credentials remain owner setup; hosted deployments and previews remain disabled. Run /roadmap next.
