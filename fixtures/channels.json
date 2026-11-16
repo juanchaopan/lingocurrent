@@ -1,0 +1,20 @@
+{
+  "sources": [
+    {
+      "name": "LingoCurrent fixture",
+      "allowedOrigin": "https://example.org",
+      "termsReviewedAt": null,
+      "enabled": false,
+      "channels": [
+        {
+          "name": "Reading fixture",
+          "feedUrl": "https://example.org/lingocurrent-fixture.xml",
+          "category": "Practice",
+          "timezone": "America/Toronto",
+          "enabled": false,
+          "schedules": [{ "localTime": "09:00", "targetCount": 1 }]
+        }
+      ]
+    }
+  ]
+}
