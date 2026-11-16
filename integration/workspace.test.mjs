@@ -82,6 +82,11 @@ test('database authorization, transactions and fixture lifecycle', async (t) => 
       assert.ok(responses.every((value) => value.lastVisitedAt === responses[0].lastVisitedAt));
       assert.equal((await db.select().from(visits)).length, 1);
       assert.equal((await db.select().from(mutationReceipts)).length, 1);
+      const refreshed = await run(alice.clerkUserId, ({ member, reading }) =>
+        reading.visit(member.id, fixture.articleId, randomUUID()),
+      );
+      assert.ok(new Date(refreshed.lastVisitedAt) > new Date(responses[0].lastVisitedAt));
+      assert.equal((await db.select().from(visits)).length, 1);
     });
     await t.test('another member never receives the first member visit', async () => {
       const aliceArticles = await run(alice.clerkUserId, ({ member, content }) =>

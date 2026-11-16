@@ -2,8 +2,10 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { readingApi } from './workspace';
 
-export function useReadingWorkspace(userId: string) {
-  const [selection, setSelection] = useState<{ id: string; operationId: string }>();
+export function useReadingWorkspace(userId: string, initialArticleId?: string) {
+  const [selection, setSelection] = useState<{ id: string; operationId: string } | undefined>(() =>
+    initialArticleId ? { id: initialArticleId, operationId: crypto.randomUUID() } : undefined,
+  );
   const [wantsAudio, setWantsAudio] = useState(false);
   const queryClient = useQueryClient();
   const list = useQuery({

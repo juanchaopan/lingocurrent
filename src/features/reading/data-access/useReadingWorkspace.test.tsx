@@ -8,6 +8,24 @@ import { readingApi } from './workspace';
 vi.mock('./workspace', () => ({ readingApi: { list: vi.fn(), open: vi.fn(), play: vi.fn() } }));
 afterEach(() => vi.clearAllMocks());
 
+it('opens a deep-linked article again with a fresh operation when the page reloads', async () => {
+  vi.mocked(readingApi.list).mockResolvedValue([]);
+  const open = vi.mocked(readingApi.open).mockRejectedValue(new Error('Test save.'));
+  const client = new QueryClient();
+  const wrapper = ({ children }: { children: ReactNode }) => (
+    <QueryClientProvider client={client}>{children}</QueryClientProvider>
+  );
+  const first = renderHook(() => useReadingWorkspace('user-a', 'article-id'), { wrapper });
+  await waitFor(() => expect(open).toHaveBeenCalledTimes(1));
+  first.unmount();
+  const second = renderHook(() => useReadingWorkspace('user-a', 'article-id'), { wrapper });
+  await waitFor(() => expect(open).toHaveBeenCalledTimes(2));
+  expect(open.mock.calls.map(([id]) => id)).toEqual(['article-id', 'article-id']);
+  expect(open.mock.calls[0][1]).not.toBe(open.mock.calls[1][1]);
+  second.unmount();
+  client.clear();
+});
+
 it('keeps the same operation ID on a save retry and refreshes visits on returning', async () => {
   const list = vi.mocked(readingApi.list).mockResolvedValue([]);
   const open = vi
