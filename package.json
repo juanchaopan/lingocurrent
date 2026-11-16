@@ -20,7 +20,9 @@
     "format:check": "prettier --check .",
     "duplication": "jscpd .",
     "db:generate": "drizzle-kit generate",
-    "db:migrate": "node scripts/migrate.mjs"
+    "db:migrate": "node scripts/migrate.mjs",
+    "workspace:admin": "node --conditions=react-server --env-file-if-exists=.env.local scripts/workspace-admin.mjs",
+    "test:database": "node --conditions=react-server --test integration/workspace.test.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "3.1169.0",

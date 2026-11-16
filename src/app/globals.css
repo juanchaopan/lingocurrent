@@ -44,3 +44,76 @@ a:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: var(--space-1);
 }
+
+.workspace-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+.workspace-header h1 {
+  margin: 0;
+}
+.reading-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-panel);
+  padding: var(--space-6);
+}
+.article-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.article-list li + li {
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-4);
+}
+.article-list p {
+  margin-block: var(--space-2);
+}
+.article-title {
+  color: var(--primary);
+  text-align: start;
+}
+.article-body {
+  color: var(--foreground);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+button,
+summary {
+  cursor: pointer;
+  font: inherit;
+}
+button {
+  background: var(--soft);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-panel);
+  padding: var(--space-2) var(--space-3);
+}
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: var(--space-1);
+}
+button:disabled {
+  cursor: wait;
+}
+.account-menu {
+  position: relative;
+}
+.account-menu button {
+  position: absolute;
+  right: 0;
+  min-width: 6rem;
+  z-index: 1;
+}
+audio {
+  display: block;
+  max-width: 100%;
+}

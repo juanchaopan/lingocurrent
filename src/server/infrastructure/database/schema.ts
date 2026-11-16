@@ -1,2 +1,4 @@
-// Module-owned tables and reviewed SQL migrations are introduced with their roadmap issues.
-export {};
+export * from './identity-schema.ts';
+export * from './content-schema.ts';
+export * from './reading-schema.ts';
+export * from './media-schema.ts';
