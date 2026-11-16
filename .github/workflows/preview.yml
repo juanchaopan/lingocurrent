@@ -1,0 +1,100 @@
+name: preview
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: Same-repository PR number
+        required: true
+        type: string
+      approved_sha:
+        description: Exact reviewed PR head SHA approved to receive testing credentials
+        required: true
+        type: string
+permissions:
+  contents: read
+  pull-requests: read
+  actions: read
+concurrency:
+  group: preview-${{ inputs.pr || github.event.pull_request.number }}
+  cancel-in-progress: false
+jobs:
+  instructions:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "After review and CI, dispatch preview from main with the PR number and approved head SHA." >> "$GITHUB_STEP_SUMMARY"
+  validate:
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && vars.PREVIEW_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    outputs:
+      sha: ${{ steps.validate.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+      - id: validate
+        run: node scripts/preview-validate.mjs
+        env:
+          PR_NUMBER: ${{ inputs.pr }}
+          APPROVED_SHA: ${{ inputs.approved_sha }}
+          GH_TOKEN: ${{ github.token }}
+  deploy:
+    needs: validate
+    environment: preview
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
+      NEON_PROJECT_ID: ${{ vars.NEON_PROJECT_ID }}
+      NEON_SEED_BRANCH: ${{ vars.NEON_SEED_BRANCH }}
+      NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      CLERK_SECRET_KEY: ${{ secrets.CLERK_SECRET_KEY }}
+      NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ vars.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
+      S3_BUCKET: ${{ vars.S3_BUCKET }}
+      PREVIEW_PR: ${{ inputs.pr }}
+      SCHEDULE_ENABLED: 'false'
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+          path: control
+      - run: node control/scripts/preview-config.mjs
+      - id: branch
+        uses: neondatabase/create-branch-action@v6
+        with:
+          project_id: ${{ vars.NEON_PROJECT_ID }}
+          parent_branch: ${{ vars.NEON_SEED_BRANCH }}
+          branch_name: pr-${{ inputs.pr }}
+          api_key: ${{ secrets.NEON_API_KEY }}
+      - run: node control/scripts/preview-storage.mjs
+        env:
+          NEON_BRANCH_ID: ${{ steps.branch.outputs.branch_id }}
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ needs.validate.outputs.sha }}
+          path: app
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: app/package.json
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: app/.nvmrc
+          cache: pnpm
+          cache-dependency-path: app/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+        working-directory: app
+      - run: pnpm db:migrate
+        working-directory: app
+        env:
+          DATABASE_URL: ${{ steps.branch.outputs.db_url }}
+      - run: node ../control/scripts/deploy.mjs
+        working-directory: app
+        env:
+          DATABASE_URL: ${{ steps.branch.outputs.db_url }}

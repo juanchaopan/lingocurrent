@@ -1,0 +1,15 @@
+{
+  "rules": [
+    {
+      "dir": ".",
+      "extensions": [".ts", ".tsx", ".mjs", ".cjs"],
+      "format": "pnpm exec prettier --write {file}",
+      "lint": "pnpm exec eslint {file}"
+    },
+    {
+      "dir": ".",
+      "extensions": [".css", ".json", ".yaml", ".yml"],
+      "format": "pnpm exec prettier --write {file}"
+    }
+  ]
+}

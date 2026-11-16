@@ -1,0 +1,34 @@
+name: preview-cleanup
+on:
+  pull_request_target:
+    types: [closed]
+permissions:
+  contents: read
+concurrency:
+  group: preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+jobs:
+  cleanup:
+    if: vars.PREVIEW_ENABLED == 'true' && github.event.pull_request.head.repo.full_name == github.repository
+    environment: preview
+    runs-on: ubuntu-latest
+    steps:
+      # Only base-branch code executes in this privileged cleanup workflow.
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+      - run: node scripts/preview-cleanup.mjs
+        env:
+          PREVIEW_PR: ${{ github.event.pull_request.number }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
+      - if: always()
+        uses: neondatabase/delete-branch-action@v3
+        with:
+          project_id: ${{ vars.NEON_PROJECT_ID }}
+          branch: pr-${{ github.event.pull_request.number }}
+          api_key: ${{ secrets.NEON_API_KEY }}
