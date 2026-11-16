@@ -39,6 +39,20 @@ jobs:
           path: |
             test-results/
             playwright-report/
+  local-stack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+      - run: docker compose -f infra/docker-compose.yml config --quiet
+      - run: docker compose -f infra/docker-compose.yml up --build -d --wait --wait-timeout 180
+      - run: node scripts/check-local-stack.mjs
+      - if: failure()
+        run: docker compose -f infra/docker-compose.yml logs --no-color
+      - if: always()
+        run: docker compose -f infra/docker-compose.yml down --volumes
   duplication:
     runs-on: ubuntu-latest
     steps:
@@ -52,9 +66,9 @@ jobs:
       - run: pnpm duplication
   ci:
     if: always()
-    needs: [app, duplication]
+    needs: [app, duplication, local-stack]
     runs-on: ubuntu-latest
     steps:
       - env:
           RESULTS: ${{ join(needs.*.result, ',') }}
-        run: test "$RESULTS" = "success,success"
+        run: test "$RESULTS" = "success,success,success"

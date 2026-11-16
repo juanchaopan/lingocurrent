@@ -20,10 +20,11 @@ The production build/CLI command uses environment-scoped credentials; it never r
 
 ## Variables and secrets
 
-| Scope                | Variables                                                                                              | Secrets                                                                              |
-| -------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| Repository           | DEPLOY_ENABLED (false initially)                                                                       | OPENAI_API_KEY (one shared key, inherited by environment jobs)                       |
-| staging / production | VERCEL_ORG_ID, VERCEL_PROJECT_ID, NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY, S3_ENDPOINT, S3_REGION, S3_BUCKET | VERCEL_TOKEN, DATABASE_URL, CLERK_SECRET_KEY, S3_ACCESS_KEY_ID, S3_SECRET_ACCESS_KEY |
+| Scope                | Variables                                                                                                                                                                | Secrets                                                                              |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| Repository           | DEPLOY_ENABLED and PREVIEW_ENABLED (false initially)                                                                                                                     | OPENAI_API_KEY (one shared key inherited by environment jobs)                        |
+| staging / production | VERCEL_ORG_ID, VERCEL_PROJECT_ID, NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY, S3_ENDPOINT, S3_REGION, S3_BUCKET                                                                   | VERCEL_TOKEN, DATABASE_URL, CLERK_SECRET_KEY, S3_ACCESS_KEY_ID, S3_SECRET_ACCESS_KEY |
+| preview              | VERCEL_ORG_ID, VERCEL_PROJECT_ID (staging project), NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY, NEON_PROJECT_ID (testing project), NEON_SEED_BRANCH (nonpersonal seed), S3_BUCKET | VERCEL_TOKEN, NEON_API_KEY, CLERK_SECRET_KEY (testing)                               |
 
 Keep production and testing Clerk/DB/storage credentials isolated. Only public Clerk configuration belongs in NEXT_PUBLIC_*.
 Neon storage credentials are branch-scoped: token_id maps to S3_ACCESS_KEY_ID and s3_secret_access_key to S3_SECRET_ACCESS_KEY.

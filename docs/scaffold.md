@@ -31,16 +31,17 @@ The transitive Storybook tsconfck package still declares a TypeScript 5 peer ran
 Archived design HTML is excluded from lint/format/duplication because it is a reference artifact, not application source.
 Existing approved documents are not reformatted.
 
-Validation results and external setup status will be recorded after running the checks.
-
 ## Validation evidence
 
 - Formatting, ESLint, TypeScript, production Next build and Storybook build passed on Windows/Node 24.22.1.
 - dependency-cruiser inspected 17 modules with zero violations; the wrapper rejects empty analysis.
 - Vitest/RTL plus Chromium Storybook/accessibility: 2 files, 7 tests passed.
 - Playwright production-shell functional and screenshot checks: 2 tests passed on Windows; screenshot is explicitly platform-specific.
-- Duplication: 31 analyzed files, zero clones; threshold remains the supplied 2 percent.
+- Duplication: 33 analyzed files, zero clones; threshold remains the supplied 2 percent.
 - Official actionlint: all workflow files passed without diagnostics.
 - Hook scripts pass node --check; invalid Conventional Commit rejected; format hook passed on a real TSX file; risk examples classified low/medium/high as expected.
 - Compose config parses successfully. Adobe S3Mock 5.2.3 registry manifest verified. Actual two-replica container startup is blocked by Docker Desktop remaining in Engine starting / API HTTP 500; WSL status also hangs. No reset, software installation or system configuration changes were made.
 - Linux baseline and CI validation await repository creation approval. Hosted deployment and preview lifecycle require platform credentials and remain disabled.
+
+- A temporary presentation component importing a server use case was rejected by both client-no-server and presentation-no-data. After removing the probe, the 17-module graph passed.
+- Linux CI also builds the actual Compose stack and checks two distinct upstreams plus the fixture bucket. This job is prepared but has not run while repository approval is pending.
