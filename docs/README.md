@@ -36,7 +36,7 @@ Kickoff 与 architecture 均已于 2026-11-15（America/Toronto）完成确认�
 | [adr/0008-package-and-migrations.md](adr/0008-package-and-migrations.md) | 已接受 pnpm 及版本化 SQL 迁移 |
 | [adr/0009-web-technical-details.md](adr/0009-web-technical-details.md) | 已接受前端状态、样式与分层 |
 
-/architect 已定稿：整体设计见 overview，覆盖及风险见 review。Vercel/Neon 坚持 Free；任务成功即删；音频 FIFO/95%/90%，文章/音频共同删除，例句及个人学习文本保留；免费 OTel 与弱恢复边界已明确。TTS/Speak 引擎保持提议，下一步先做两个候选 spike，完整集成与 D-014 留 staging，之后 scaffold。
+/architect 已定稿：整体设计见 overview，覆盖及风险见 review。Vercel/Neon 坚持 Free；任务成功即删；音频 FIFO/95%/90%，文章/音频共同删除，例句及个人学习文本保留；免费 OTel 与弱恢复边界已明确。下一步进入 Design，再 scaffold 搭骨架并准备/推送 GitHub 仓库，随后 roadmap 创建任务。TTS/Speak 保持提议，由 roadmap 分别创建 type:spike issue，执行后再实现依赖它们的功能；完整集成与 D-014 留 staging。
 
 | 架构汇总/后续决策 | 内容 |
 |---|---|

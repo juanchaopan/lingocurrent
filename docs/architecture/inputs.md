@@ -69,5 +69,5 @@
 - 第六轮：Drizzle、Zod 已选；例句音频也缓存，按对象创建时间 FIFO，命中播放、未命中生成（ADR-0005）。
 - 第七轮：Neon Object Storage、Vercel-managed Neon、pnpm、Drizzle schema 生成 SQL 迁移；压缩优先自然清楚（ADR-0007/0008）。
 - 第八至后续轮：已选择 TanStack Query、Zustand、Tailwind/令牌、容器/展示分层、原生语义组件、自有样式、AI 设计稿先确认、Storybook、Vitest/RTL、Playwright 功能/截图；四环境及 main 自动 staging/标签后手动生产；HTTP/JSON REST、英文 FTS；免费 OTel 条件核实采用，数据库坚持 Free/弱恢复。ADR-0009–0014。
-- 最终审阅：用户明确文章当前音频淘汰须同时删文章；例句只删音频、例句留表、下次点朗读重建，其余方案通过并要求 finalize architecture。已更新 overview、ADR-0005/0015 与产品边界；下一步分别做语音候选 spike。
+- 最终审阅：用户明确文章当前音频淘汰须同时删文章；例句只删音频、例句留表、下次点朗读重建，其余方案通过并要求 finalize architecture。已更新 overview、ADR-0005/0015 与产品边界。后续用户澄清顺序：先 Design、scaffold/GitHub，再 roadmap 创建两个 type:spike 任务，按依赖执行，不在架构完成后立即开探针。
 - TTS/Speak 分别按已接受计划 spike，Speak 必须测真实 Hobby；完整集成、手机行为与 D-014 留 staging，不另加全站性能 spike。

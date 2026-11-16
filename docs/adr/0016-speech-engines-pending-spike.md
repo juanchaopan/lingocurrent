@@ -20,6 +20,8 @@ Speak 研究 Vosk 小型可调词图候选与更小模型的质量/兼容性取�
 
 TTS 实际样音供用户试听，比较低码率/单声道自然度、体积、时间轴与编码成本。Speak 包含正确、错误、近音、低频词/短语及无效录音；不得仅凭通用 WER 判定短词匹配可靠。具体计划及主要来源见 [候选研究](../architecture/speech-candidates.md)、[TTS 计划](../product/tts-spike-plan.md)、[Speak 计划](../product/speak-spike-plan.md)。完整集成/真实手机与 D-014 仍在 staging。
 
-## 后果
+## 排期与后果
+
+用户在架构定稿后明确执行顺序：先 Design，再 scaffold/准备并推送 GitHub 仓库，由 roadmap 分别创建 TTS/Speak 的 type:spike issue；探针排在依赖其结论的正式实现之前，不在 architecture 结束后立即执行。适配端口允许其他设计/骨架工作先推进。
 
 在证据前保留候选，不作已通过或零成本承载承诺。spike 结果必须回写本 ADR，选定音色/引擎后再正式接入；整体架构获确认也不自动使本 ADR 变为已接受。
