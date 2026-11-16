@@ -39,7 +39,7 @@ jobs:
 
       # ---- 项目专属：装好运行自检命令需要的工具，和 ci.yml 里各组件 job 的准备步骤一样 ----
       - uses: pnpm/action-setup@v6
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           package-manager-cache: false
