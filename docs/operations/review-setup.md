@@ -6,14 +6,14 @@ Project-specific Next.js rules, pnpm commands, GitHub Flow and sensitive paths a
 The reviewer checks user isolation, no hidden target/answer leakage, transaction rechecks after external calls, no resurrection of deleted cards, stateless review progression, complete-before-publish articles and FIFO cache retention.
 Existing design/architecture documents remain the source of truth. REVIEW.md keeps the skill's anti-bloat criteria.
 
-## GitHub setup remaining
+## Published GitHub setup
 
-After the owner approves repository name and visibility, push the initial scaffold and workflow files to main.
+The owner approved the review standards and public repository on 2026-11-16. The scaffold and existing design history are published at https://github.com/juanchaopan/lingocurrent on main.
 Install the [Claude GitHub App](https://github.com/apps/claude).
 Set either CLAUDE_CODE_OAUTH_TOKEN (from your Claude subscription) or ANTHROPIC_API_KEY using GitHub's secret UI/gh; never paste keys into chat.
 Without that setup the AI review workflows cannot run successfully.
 
-With owner approval, enable auto-merge and automatic branch deletion, create type:feature/type:bug/type:refactor/type:chore/type:spike labels, and apply the skill's default/main branch ruleset where the repository plan supports it.
+Auto-merge, automatic merged-branch deletion, and type:feature/type:bug/type:refactor/type:chore/type:spike labels are enabled. The approved default/main branch ruleset is activated at setup completion. GitHub Free supports rulesets on this public repository.
 Required checks: ci, risk-gate, commit-lint; resolve review threads before merging.
 Medium/high-risk changes require maintainer human-reviewed confirmation for the current head; code pushes invalidate it.
 Repository visibility and plan determine which GitHub rules are enforceable; verify when applying, never silently upgrade.
@@ -23,3 +23,5 @@ The local commit-msg hook is enabled with git config core.hooksPath .githooks an
 To try the workflow, submit a small documentation PR after the GitHub setup is finished.
 
 Skill source: C:/Users/juanc/.agents/skills/setup-ai-review/SKILL.md.
+
+Repository protection requires pull requests, passing ci/risk-gate/commit-lint, resolved review threads, no force pushes, and no deletion of protected branches. No paid plan or upgrade was used.
