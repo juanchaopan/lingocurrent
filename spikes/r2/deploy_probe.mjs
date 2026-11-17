@@ -65,8 +65,18 @@ function sizes(directory) {
 if (process.argv[2] === 'cleanup') {
   const completed = path.join(reportRoot, 'deployment.json');
   const pending = path.join(reportRoot, 'pending-deployment.json');
-  if (!existsSync(completed) && !existsSync(pending)) process.exit(0);
-  const record = JSON.parse(readFileSync(existsSync(completed) ? completed : pending, 'utf8'));
+  const explicitUrl = process.env.PROBE_CLEANUP_URL;
+  if (!explicitUrl && !existsSync(completed) && !existsSync(pending)) process.exit(0);
+  const record = explicitUrl
+    ? { url: explicitUrl }
+    : JSON.parse(readFileSync(existsSync(completed) ? completed : pending, 'utf8'));
+  if (
+    record.url &&
+    (new URL(record.url).protocol !== 'https:' ||
+      !new URL(record.url).hostname.endsWith('.vercel.app'))
+  ) {
+    throw new Error('Cleanup requires an exact HTTPS Vercel probe URL.');
+  }
   const identifier = record.id ?? new URL(record.url).hostname;
   const remote = await api(`/v13/deployments/${identifier}?teamId=${team}`);
   if (

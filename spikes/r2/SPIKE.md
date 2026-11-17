@@ -79,6 +79,12 @@ Use `vosk-small` only if the lgraph candidate needs a smaller alternative.
 The workflow uploads only fixed-text demos and smoke metrics and removes its
 temporary deployment afterward. No cloud run has been dispatched yet.
 
+For the owner's private corpus, dispatch with `-f keep_deployment=true` and keep
+the returned signed endpoint only for that test window. After local corpus runs,
+dispatch the same reviewed SHA with `-f operation=cleanup -f cleanup_url=<exact-url>`
+and the same engine. Cleanup checks the project, SHA and nonproduction target.
+Do not leave a retained probe running after the experiment.
+
 Local independent checks:
 
 ```powershell

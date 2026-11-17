@@ -13,6 +13,20 @@ on:
         required: true
         type: choice
         options: [vosk-lgraph, vosk-small, kokoro, openai]
+      operation:
+        description: Run a probe, or remove one matching retained deployment
+        required: true
+        default: run
+        type: choice
+        options: [run, cleanup]
+      keep_deployment:
+        description: Keep the signed probe temporarily for private owner-corpus requests
+        default: false
+        type: boolean
+      cleanup_url:
+        description: Exact retained probe URL, used only for cleanup
+        required: false
+        type: string
 permissions:
   contents: read
   checks: read
@@ -57,6 +71,7 @@ jobs:
           node-version-file: .nvmrc
           package-manager-cache: false
       - name: Prepare one model without cloud credentials
+        if: inputs.operation == 'run'
         env:
           ENGINE: ${{ inputs.engine }}
         run: |
@@ -69,6 +84,7 @@ jobs:
           python -m pip freeze > .ai-review-context/r2-output/installed-packages.txt
           cp spikes/r2/evidence/*-preparation.json .ai-review-context/r2-output/
       - name: Build and deploy an isolated nonproduction probe
+        if: inputs.operation == 'run'
         id: deploy
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
@@ -77,16 +93,21 @@ jobs:
           OPENAI_API_KEY: ${{ inputs.engine == 'openai' && secrets.OPENAI_API_KEY || '' }}
         run: node spikes/r2/deploy_probe.mjs
       - name: Collect synthetic smoke or original-text demos
+        if: inputs.operation == 'run'
         env:
           PROBE_URL: ${{ steps.deploy.outputs.url }}
           ENGINE: ${{ inputs.engine }}
         run: node spikes/r2/runner.mjs smoke "$PROBE_URL" "$ENGINE"
       - name: Remove only this probe deployment
-        if: always() && steps.deploy.outcome != 'skipped'
+        if: >-
+          always() && (inputs.operation == 'cleanup' ||
+          (steps.deploy.outcome != 'skipped' &&
+          (!inputs.keep_deployment || failure())))
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
+          PROBE_CLEANUP_URL: ${{ inputs.operation == 'cleanup' && inputs.cleanup_url || '' }}
         run: node spikes/r2/deploy_probe.mjs cleanup
       - uses: actions/upload-artifact@v7
         if: always()

@@ -111,6 +111,9 @@ the exact approved current SHA and successful CI before testing credentials.
 It builds one isolated Flask function, uses the staging project without `--prod`,
 and checks ownership/SHA/nonproduction target before cleanup. It does not use DB,
 Clerk or storage credentials, and does not enable general PR previews.
+The default run removes the probe after smoke measurements. An explicit
+`keep_deployment` option retains the signed endpoint for private local owner
+samples; the manual cleanup operation removes that exact deployment afterward.
 
 Signed requests require an Ed25519 private key kept in ignored local files or an
 ephemeral runner key. Only public keys reach the function. Request bodies and
