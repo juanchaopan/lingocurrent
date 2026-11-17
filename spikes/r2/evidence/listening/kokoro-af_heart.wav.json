@@ -1,0 +1,20 @@
+{
+  "engine": "kokoro",
+  "version": "0.6.1",
+  "voice": "af_heart",
+  "text": "On Wednesday, NASA tested a small aircraft above the coast. Dr. Lee checked the results at 4:45 p.m., then compared all 23 samples. The new system costs $12.50 per unit, but careful testing matters more than speed.",
+  "generated_at_utc": "2026-11-17T05:37:03.174736+00:00",
+  "runtime": "Windows-11-10.0.26200-SP0",
+  "execution": "local CPU; not Vercel evidence",
+  "sample_rate": 24000,
+  "seconds": 17.549958333333333,
+  "encoding": "uncompressed mono PCM16 WAV at engine-native sample rate",
+  "audio_compression": "none; owner must select voice before compression tests",
+  "model_load_ms": 6128.951100166887,
+  "synthesis_wall_ms": 100958.79720011726,
+  "process_cpu_ms": 599203.125,
+  "peak_amplitude": 0.3826645612716675,
+  "bytes": 842442,
+  "sha256": "3dacddb0ca875be59dcd81c9a613a43a5336edf66065f807f9c2188c9e4caae1",
+  "model_variant": "INT8 ONNX"
+}

@@ -4,6 +4,21 @@ Status: in progress. Experimental code stays on `codex/spike-7-validation`;
 only conclusions and selected evidence may reach main through a reviewed PR.
 Keep this branch after the experiment, as requested by the owner.
 
+## Owner's execution order (2026-11-17)
+
+1. Generate native, uncompressed listening samples from different **free third-party
+   libraries** first. The owner listens and participates in selection.
+2. Test audio compression only after a voice is selected, to evaluate S3 space
+   savings against that selected original. No compression experiment has run.
+3. Paid OpenAI TTS is a fallback **only if the owner finds the free options
+   unsatisfactory**, with separate authorization then. Do not run it as an initial
+   reference or assume the earlier cloud-run question was approved.
+4. Speak also requires the owner's real word/phrase recordings. Synthetic smoke
+   checks and CI cannot complete the quality gate or replace participation.
+
+Four real free samples and the local microphone lab are now available; no voice
+has been selected and the spike remains open.
+
 ## Questions and gates
 
 - RSS: do the five saved feeds contain complete English article text? Compare
@@ -65,6 +80,21 @@ BeautifulSoup/httpx versions. No global Python installation was changed.
 
 ## Review and run
 
+Start with the local listening/recording page:
+
+```powershell
+$env:PYTHONUTF8 = '1'
+.ai-review-context/python-embed/python.exe spikes/r2/local_lab.py
+```
+
+Open <http://127.0.0.1:8765>. The four original WAV files live in
+`spikes/r2/evidence/listening/`. The page records the owner's voice choice locally,
+and only starts microphone capture on a click. Recognizer requests and optional
+human-labeled recordings stay on this computer. No paid/cloud API is involved.
+Sample generation is reproducible with `listening.py kokoro` and
+`listening.py supertonic`; `download_supertonic.py` fetches and verifies the archived
+free weights. The local model directories and runtime stay ignored.
+
 Read [interim results](RESULTS.md) before approval. The branch's
 `.github/workflows/deploy.yml` is an **experimental replacement**, not a main
 pipeline change, and must never be merged. After owner review of an exact SHA,
@@ -74,10 +104,14 @@ successful PR CI, and temporary staging branch permission:
 gh workflow run deploy.yml --ref codex/spike-7-validation -f approved_sha=<reviewed-sha> -f engine=vosk-lgraph
 ```
 
-Run `kokoro` next, then `openai` for two voices/six billable sentence calls.
+Cloud fit/capacity validation follows the owner's listening participation.
+Do not run `openai` before the owner rejects free voices and authorizes the paid
+fallback. That optional runner makes two voices/six billable sentence calls.
 Use `vosk-small` only if the lgraph candidate needs a smaller alternative.
 The workflow uploads only fixed-text demos and smoke metrics and removes its
-temporary deployment afterward. No cloud run has been dispatched yet.
+temporary deployment afterward. An attempted cloud dispatch was rejected by
+automatic approval before execution; no branch policy changed, deployment ran,
+or paid model call occurred. The owner then reaffirmed the free-first order above.
 
 For the owner's private corpus, dispatch with `-f keep_deployment=true` and keep
 the returned signed endpoint only for that test window. After local corpus runs,

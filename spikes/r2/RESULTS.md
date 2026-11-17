@@ -1,7 +1,39 @@
 # R2 interim evidence — not a completed spike
 
-Checked 2026-11-16, America/Toronto. Issue #7 remains open. No engine, voice,
+RSS checked 2026-11-16; free listening round 2026-11-17, America/Toronto.
+Issue #7 remains open. No engine, voice,
 source configuration or production capacity is approved by this report.
+
+## Free original samples ready for owner listening
+
+The owner clarified the order: compare free third-party libraries first; consider
+paid OpenAI TTS only if those voices are unsatisfactory; test compression only
+after choosing the voice. These real, same-text samples were generated locally:
+
+| Sample | Free library / voice           | Duration | Native rate | Original file                                         |
+| ------ | ------------------------------ | -------- | ----------- | ----------------------------------------------------- |
+| A      | Kokoro ONNX 0.6.1 / af_heart   | 17.55 s  | 24 kHz      | [PCM16 WAV](evidence/listening/kokoro-af_heart.wav)   |
+| B      | Kokoro ONNX 0.6.1 / am_michael | 19.57 s  | 24 kHz      | [PCM16 WAV](evidence/listening/kokoro-am_michael.wav) |
+| C      | Supertonic 1.3.1 / F1          | 17.41 s  | 44.1 kHz    | [PCM16 WAV](evidence/listening/supertonic-F1.wav)     |
+| D      | Supertonic 1.3.1 / M1          | 17.48 s  | 44.1 kHz    | [PCM16 WAV](evidence/listening/supertonic-M1.wav)     |
+
+They are uncompressed mono WAV at each engine's native rate. No MP3, low-bitrate,
+resampling or audio-compression comparison has been generated. Kokoro used INT8
+model weights (model quantization, separate from audio-file compression); Supertonic
+used the archived, hash-verified Supertonic 3 weights. Each WAV has a JSON receipt
+with original text, version, parameters, local timings, size and SHA-256. Local CPU
+timings are neither Vercel measurements nor an adoption recommendation.
+
+The loopback lab at <http://127.0.0.1:8765> plays these four files and records the
+owner's selection without choosing automatically. It also provides real microphone
+capture, playback, local Vosk lgraph recognition, target matching at K=1/3/5, and
+explicit human labeling. Recordings remain private and untracked. Browser QA used
+a synthetic microphone only and saved no owner corpus or voice preference. All
+four audio files load; mobile layout and recording/playback/recognition were checked.
+
+Owner listening/selection, real correct/wrong/invalid recordings, actual Vercel
+deployment/resource evidence, chosen-voice compression and final source selection
+remain unfinished. No OpenAI model call or cloud probe deployment has occurred.
 
 ## RSS observations
 
@@ -82,14 +114,15 @@ not inference or deployment evidence.
   is archived and says development/support ended. Its archived weights remain
   available under their own OpenRAIL-M license. This creates maintenance and
   ordinary-bundle pressure, but does **not** prove that every deployment strategy
-  is impossible. It is held as the third candidate rather than silently adopted.
+  is impossible. Its free local voices are now included for owner listening;
+  deployment and adoption remain undecided.
 - [OpenAI's current TTS guide](https://developers.openai.com/api/docs/guides/text-to-speech)
   confirms the old Speech API models shut down January 6, 2027. The prepared
   reference uses the current Realtime workflow, with `marin` and `cedar`, rather
   than placing a Realtime model name into `/audio/speech`. Account/model access,
-  fidelity, actual usage and costs remain untested. The demo run makes six
+  fidelity, actual usage and costs remain untested. An optional fallback run makes six
   sentence-level calls, each with its own pending/result record and no automatic
-  retry. No paid model calls have been made during this preparation.
+  retry. The owner requires free voices first; no paid fallback is authorized or run.
 - Vosk lgraph and small English models remain the ordered Speak candidates.
   Five synthetic silence requests in the prepared smoke runner test invocation
   and no-speech handling only; they cannot satisfy the owner's speech-quality
@@ -127,9 +160,10 @@ deployment is also needed despite general PR previews remaining deferred. Both
 actions await the owner's review of the concrete head. If Vercel deployment
 protection blocks automated requests, report it without disabling protection.
 
-After cloud feasibility/demos, obtain the owner's listening choice and private,
+Obtain the owner's listening choice from the free originals and private,
 human-labeled 10 correct + 10 wrong + 3 invalid recordings, with wrong-target
-controls. The prepared corpus runner reports K=1/3/5 separately and refuses an
+controls. Do not make cloud deployment a prerequisite for listening to local free
+samples. The prepared corpus runner reports K=1/3/5 separately and refuses an
 initial pass when samples are missing, technical failures remain, invalid samples
 are accepted or a wrong-target control passes. Real recordings are never uploaded
 to public GitHub artifacts. A voice/engine recommendation and results-only main
