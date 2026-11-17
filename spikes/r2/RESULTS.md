@@ -1,8 +1,9 @@
 # R2 interim evidence — not a completed spike
 
 RSS checked 2026-11-16; free listening round 2026-11-17, America/Toronto.
-Issue #7 remains open. No engine, voice,
-source configuration or production capacity is approved by this report.
+Issue #7 remains open. The owner selected sample C / Supertonic F1 for its voice.
+Compression acceptance, production deployment/capacity and source configuration
+remain undecided.
 
 ## Free original samples ready for owner listening
 
@@ -17,8 +18,8 @@ after choosing the voice. These real, same-text samples were generated locally:
 | C      | Supertonic 1.3.1 / F1          | 17.41 s  | 44.1 kHz    | [PCM16 WAV](evidence/listening/supertonic-F1.wav)     |
 | D      | Supertonic 1.3.1 / M1          | 17.48 s  | 44.1 kHz    | [PCM16 WAV](evidence/listening/supertonic-M1.wav)     |
 
-They are uncompressed mono WAV at each engine's native rate. No MP3, low-bitrate,
-resampling or audio-compression comparison has been generated. Kokoro used INT8
+Those originals are uncompressed mono WAV at each engine's native rate. The owner
+selected C in chat before the compression round below. Kokoro used INT8
 model weights (model quantization, separate from audio-file compression); Supertonic
 used the archived, hash-verified Supertonic 3 weights. Each WAV has a JSON receipt
 with original text, version, parameters, local timings, size and SHA-256. Local CPU
@@ -31,9 +32,29 @@ explicit human labeling. Recordings remain private and untracked. Browser QA use
 a synthetic microphone only and saved no owner corpus or voice preference. All
 four audio files load; mobile layout and recording/playback/recognition were checked.
 
-Owner listening/selection, real correct/wrong/invalid recordings, actual Vercel
-deployment/resource evidence, chosen-voice compression and final source selection
-remain unfinished. No OpenAI model call or cloud probe deployment has occurred.
+Real correct/wrong/invalid recordings, actual Vercel deployment/resource evidence,
+compression listening acceptance and final source selection remain unfinished.
+No OpenAI model call or cloud probe deployment has occurred.
+
+## Selected C compression comparison (2026-11-17)
+
+The [owner's selection](evidence/listening/voice-choice.json) is Supertonic F1.
+These variants encode that exact original without generating new speech:
+
+| Variant            | File bytes | Reduction from original | Listen                                                |
+| ------------------ | ---------- | ----------------------- | ----------------------------------------------------- |
+| Original PCM16 WAV | 1,536,044  | —                       | [Original](evidence/listening/supertonic-F1.wav)      |
+| Mono MP3, 32 kbps  | 70,025     | 95.44%                  | [32 kbps](evidence/compression/supertonic-F1-32k.mp3) |
+| Mono MP3, 48 kbps  | 104,925    | 93.17%                  | [48 kbps](evidence/compression/supertonic-F1-48k.mp3) |
+
+Both variants retain the 44.1 kHz native sample rate. FFmpeg gapless decoding
+returns exactly the original's 768,000 mono frames for each. MP3 container padding
+and browser playback timing are separate considerations; this is not full timeline
+or device compatibility certification. The [receipt](evidence/compression/measurements.json)
+records encoder/version, reproducible commands, sizes, SHA-256 and per-encode wall
+time. The two single encodes are observations, not a latency distribution or cloud
+benchmark. File reduction does not establish acceptable sound quality; the owner
+must compare clarity against the original before choosing a setting.
 
 ## RSS observations
 
@@ -106,8 +127,8 @@ not inference or deployment evidence.
 - Kokoro's ONNX INT8 release plus its voice table totals 142,333,725 bytes before
   runtime dependencies. The release advertises SHA-256 digests, checked by the
   preparation script. The ONNX implementation is a separate community project
-  from the original model author. Compare `af_heart` and `am_michael`; neither is
-  selected yet. Actual package size, native dependencies and Hobby behavior
+  from the original model author. The owner chose Supertonic F1 after the
+  `af_heart` / `am_michael` comparison. Actual package size, native dependencies and Hobby behavior
   still need the isolated deployment.
 - Supertonic 3's four ONNX weights total 398,075,273 bytes before dependencies.
   The [author's repository](https://github.com/supertone-oss-archive/supertonic)
@@ -160,7 +181,7 @@ deployment is also needed despite general PR previews remaining deferred. Both
 actions await the owner's review of the concrete head. If Vercel deployment
 protection blocks automated requests, report it without disabling protection.
 
-Obtain the owner's listening choice from the free originals and private,
+The owner provided the free voice choice. Still obtain private,
 human-labeled 10 correct + 10 wrong + 3 invalid recordings, with wrong-target
 controls. Do not make cloud deployment a prerequisite for listening to local free
 samples. The prepared corpus runner reports K=1/3/5 separately and refuses an

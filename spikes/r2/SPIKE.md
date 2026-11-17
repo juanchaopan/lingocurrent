@@ -9,15 +9,17 @@ Keep this branch after the experiment, as requested by the owner.
 1. Generate native, uncompressed listening samples from different **free third-party
    libraries** first. The owner listens and participates in selection.
 2. Test audio compression only after a voice is selected, to evaluate S3 space
-   savings against that selected original. No compression experiment has run.
+   savings against that selected original. The owner selected C / Supertonic F1
+   on November 17; its 32/48 kbps mono MP3 comparisons are now ready for listening.
 3. Paid OpenAI TTS is a fallback **only if the owner finds the free options
    unsatisfactory**, with separate authorization then. Do not run it as an initial
    reference or assume the earlier cloud-run question was approved.
 4. Speak also requires the owner's real word/phrase recordings. Synthetic smoke
    checks and CI cannot complete the quality gate or replace participation.
 
-Four real free samples and the local microphone lab are now available; no voice
-has been selected and the spike remains open.
+Four real free samples and the local microphone lab are available. The owner
+selected Supertonic F1; compression acceptance and deployment fit remain undecided,
+and the spike remains open.
 
 ## Questions and gates
 
@@ -94,6 +96,11 @@ human-labeled recordings stay on this computer. No paid/cloud API is involved.
 Sample generation is reproducible with `listening.py kokoro` and
 `listening.py supertonic`; `download_supertonic.py` fetches and verifies the archived
 free weights. The local model directories and runtime stay ignored.
+
+`compress_selected.py` encodes the chosen original at 32/48 kbps mono MP3, retaining
+44.1 kHz. Its receipt records file sizes, encoder wall time, hashes and decoded
+frame counts. The local page offers original/32/48 kbps listening and an explicit
+compression choice. No compression setting is adopted before the owner responds.
 
 Read [interim results](RESULTS.md) before approval. The branch's
 `.github/workflows/deploy.yml` is an **experimental replacement**, not a main

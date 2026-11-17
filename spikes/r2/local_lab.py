@@ -16,6 +16,7 @@ DIRECTORY = Path(__file__).resolve().parent
 ROOT = DIRECTORY.parents[1]
 PRIVATE = ROOT / ".ai-review-context"
 LISTENING = DIRECTORY / "evidence/listening"
+COMPRESSION = DIRECTORY / "evidence/compression"
 CORPUS = PRIVATE / "r2-owner-corpus"
 VOICES = ["kokoro-af_heart", "kokoro-am_michael", "supertonic-F1", "supertonic-M1"]
 MODEL_PATH = PRIVATE / "r2-models/vosk-lgraph/vosk-model-en-us-0.22-lgraph"
@@ -61,6 +62,24 @@ def audio(voice):
     return send_file(LISTENING / (voice + ".wav"), mimetype="audio/wav", conditional=True)
 
 
+@app.get("/compression/<variant>")
+def compressed_audio(variant):
+    if variant not in ["32k", "48k"]:
+        abort(404)
+    return send_file(COMPRESSION / f"supertonic-F1-{variant}.mp3", mimetype="audio/mpeg", conditional=True)
+
+
+@app.post("/compression-choice")
+def compression_choice():
+    data = request.get_json()
+    if data.get("variant") not in ["32k", "48k", "original", "undecided"]:
+        abort(400)
+    choice = {"voice": "supertonic-F1", "variant": data["variant"],
+              "chosen_at_utc": dt.datetime.now(dt.timezone.utc).isoformat()}
+    (PRIVATE / "r2-compression-choice.json").write_text(json.dumps(choice, indent=2) + "\n")
+    return jsonify(saved=True)
+
+
 @app.post("/voice-choice")
 def voice_choice():
     data = request.get_json()
@@ -68,7 +87,8 @@ def voice_choice():
         abort(400)
     choice = {"voice": data["voice"], "comment": str(data.get("comment", ""))[:1000],
               "chosen_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
-              "compression": "not tested; owner chooses voice first"}
+              "compression": "comparison ready; awaiting owner choice" if data["voice"] == "supertonic-F1"
+              else "not tested for this voice"}
     (PRIVATE / "r2-listening-choice.json").write_text(json.dumps(choice, indent=2) + "\n", encoding="utf-8")
     return jsonify(saved=True)
 

@@ -28,9 +28,20 @@ for (const button of document.querySelectorAll('[data-voice]')) {
   button.addEventListener('click', async () => {
     try {
       await post('/voice-choice', { voice: button.dataset.voice });
-      element('choice-status').textContent = `已记录：${button.textContent}。尚未开始压缩。`;
+      element('choice-status').textContent = `音色选择已记录：${button.textContent}。`;
     } catch (error) {
       element('choice-status').textContent = '选择未保存：' + error.message;
+    }
+  });
+}
+
+for (const button of document.querySelectorAll('[data-compression]')) {
+  button.addEventListener('click', async () => {
+    try {
+      await post('/compression-choice', { variant: button.dataset.compression });
+      element('compression-status').textContent = `已记录：${button.textContent}。`;
+    } catch (error) {
+      element('compression-status').textContent = '选择未保存：' + error.message;
     }
   });
 }

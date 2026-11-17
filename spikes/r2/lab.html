@@ -126,11 +126,11 @@
   </head>
   <body>
     <main>
-      <div class="tag">语音实验 · 先听原始音色</div>
-      <h1>先听免费第三方库，再决定下一步</h1>
+      <div class="tag">语音实验 · 已选 C：Supertonic F1</div>
+      <h1>已选音色，现在对照压缩效果</h1>
       <p class="muted">
-        两种库，各两种声线。相同英文，原生采样率的未压缩 WAV。本页不调用
-        OpenAI；选好音色之后才测试压缩。
+        两种库，各两种声线。相同英文，原生采样率的未压缩 WAV。本页不调用 OpenAI。你已在聊天中选择
+        C，下方提供这个音色的原音和压缩版对照。
       </p>
       <blockquote lang="en">
         On Wednesday, NASA tested a small aircraft above the coast. Dr. Lee checked the results at
@@ -168,6 +168,31 @@
         这是本机 CPU 生成的听感对比，尚不代表已通过 Vercel 部署和免费容量验证。Supertonic
         的代码库已归档，选型时会保留这个维护风险。
       </p>
+      <h2>只比较已选 C：原音与两个压缩版</h2>
+      <p>三段来自同一个原始文件。请留意单词是否清楚、齿音是否刺耳，以及数字和缩写是否容易听懂。</p>
+      <div class="cards">
+        <section class="card">
+          <h3>C 原始 WAV · 1.54 MB</h3>
+          <audio controls preload="metadata" src="/audio/supertonic-F1"></audio
+          ><button data-compression="original">保留原音</button>
+        </section>
+        <section class="card">
+          <h3>MP3 32 kbps · 70.0 KB</h3>
+          <p class="muted">单声道，体积减少 95.4%</p>
+          <audio controls preload="metadata" src="/compression/32k"></audio
+          ><button data-compression="32k">32 kbps 听感可以</button>
+        </section>
+        <section class="card">
+          <h3>MP3 48 kbps · 104.9 KB</h3>
+          <p class="muted">单声道，体积减少 93.2%</p>
+          <audio controls preload="metadata" src="/compression/48k"></audio
+          ><button data-compression="48k">48 kbps 听感可以</button>
+        </section>
+      </div>
+      <div class="row">
+        <button class="secondary" data-compression="undecided">压缩方案暂不决定</button
+        ><span id="compression-status" role="status">等你试听后决定，不自动采用。</span>
+      </div>
       <h2>你说一个词，看看它听成什么</h2>
       <section class="panel">
         <p>

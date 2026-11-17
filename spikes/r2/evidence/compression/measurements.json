@@ -1,0 +1,118 @@
+{
+  "created_at_utc": "2026-11-17T15:19:28.066749+00:00",
+  "choice": {
+    "voice": "supertonic-F1",
+    "sample": "C",
+    "date": "2026-11-17",
+    "source": "explicit owner selection in chat",
+    "compression": "awaiting owner comparison",
+    "scope": "voice preference; Vercel deployment/capacity is not yet validated"
+  },
+  "original": {
+    "file": "evidence/listening/supertonic-F1.wav",
+    "bytes": 1536044,
+    "sha256": "d98b84e5ea10c660791a02560d17abdc93535cbac71c6d33e4566dfdd703e611",
+    "sample_rate": 44100,
+    "frames": 768000,
+    "seconds": 17.41496598639456
+  },
+  "variants": [
+    {
+      "file": "supertonic-F1-32k.mp3",
+      "bitrate_kbps": 32,
+      "bytes": 70025,
+      "saving_percent": 95.44121131946741,
+      "encode_wall_ms": 493.4419998899102,
+      "decoded_frames": 768000,
+      "decoded_frame_delta": 0,
+      "sha256": "c690a9a80fa558ad10e5f01f92b821c798f4f98e150a835fb4aa971484cae5f0",
+      "ffprobe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "mp3",
+            "sample_rate": "44100",
+            "channels": 1,
+            "start_time": "0.025057",
+            "duration": "17.414966",
+            "bit_rate": "32000"
+          }
+        ],
+        "format": {
+          "duration": "17.414966",
+          "size": "70025"
+        }
+      },
+      "command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-y",
+        "-i",
+        "spikes/r2/evidence/listening/supertonic-F1.wav",
+        "-map_metadata",
+        "-1",
+        "-ac",
+        "1",
+        "-ar",
+        "44100",
+        "-codec:a",
+        "libmp3lame",
+        "-b:a",
+        "32k",
+        "spikes/r2/evidence/compression/supertonic-F1-32k.mp3"
+      ]
+    },
+    {
+      "file": "supertonic-F1-48k.mp3",
+      "bitrate_kbps": 48,
+      "bytes": 104925,
+      "saving_percent": 93.16914098814878,
+      "encode_wall_ms": 324.89649998024106,
+      "decoded_frames": 768000,
+      "decoded_frame_delta": 0,
+      "sha256": "0d780517f1cfbd1cc1fa33bb11ceb00dfb984ab05fcac9a69e0acd80c158808b",
+      "ffprobe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "mp3",
+            "sample_rate": "44100",
+            "channels": 1,
+            "start_time": "0.025057",
+            "duration": "17.414966",
+            "bit_rate": "48000"
+          }
+        ],
+        "format": {
+          "duration": "17.414966",
+          "size": "104925"
+        }
+      },
+      "command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-y",
+        "-i",
+        "spikes/r2/evidence/listening/supertonic-F1.wav",
+        "-map_metadata",
+        "-1",
+        "-ac",
+        "1",
+        "-ar",
+        "44100",
+        "-codec:a",
+        "libmp3lame",
+        "-b:a",
+        "48k",
+        "spikes/r2/evidence/compression/supertonic-F1-48k.mp3"
+      ]
+    }
+  ],
+  "ffmpeg_version": "ffmpeg version 8.0-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers"
+}
