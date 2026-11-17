@@ -1,0 +1,653 @@
+{
+  "checked_at_utc": "2026-11-17T01:30:35.973055+00:00",
+  "comparison": "NFKC, smart quotes, whitespace; image captions excluded",
+  "overlap": [
+    {
+      "left": "nasa-technology",
+      "right": "nasa-aeronautics",
+      "shared_links": [
+        "https://www.nasa.gov/centers-and-facilities/armstrong/nasa-navigation-experiment-shows-promise-for-planetary-landings/"
+      ]
+    }
+  ],
+  "feeds": [
+    {
+      "channel": "nasa-technology",
+      "request": {
+        "requested_url": "https://www.nasa.gov/technology/feed/",
+        "final_url": "https://www.nasa.gov/technology/feed/",
+        "status": 200,
+        "bytes": 392004,
+        "sha256": "101603da3508ea1b49813b6e310bde23feaf890c90e41d991ac31b5f31da0c5d",
+        "content_type": "application/rss+xml; charset=UTF-8",
+        "elapsed_ms": 1644
+      },
+      "samples": [
+        {
+          "title": "NASA Announces Ka-Band Satellite Relay Awards for Space Communications",
+          "url": "https://www.nasa.gov/news-release/nasa-announces-ka-band-satellite-relay-awards-for-space-communications/",
+          "guid": "https://www.nasa.gov/?post_type=press-release&p=1062160",
+          "published": "Wed, 04 Nov 2026 18:00:02 +0000",
+          "field": "content:encoded",
+          "feed_words": 276,
+          "page_words": 264,
+          "feed_text_sha256": "3074e9ad278589a90a8a9da86c97ea15d8f46c6cf2d4455a13912d1835e6e52b",
+          "page_text_sha256": "89b323af6672b255a2c1ea4761f20a9ca286c521161741582185d95c4552cd55",
+          "feed_blocks": 17,
+          "feed_blocks_found_on_page": 12,
+          "feed_last_block_found_on_page": false,
+          "feed_last_block_sha256": "db5ab986032eff93ff4cd1c439fbebb942a0a5ae005a3592bf505c49226d60a6",
+          "page_blocks_missing_from_feed": [],
+          "page_selector": ".hds-wysiwyg, .entry-content",
+          "icons": [
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-16x16.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-32x32.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-57x57.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-76x76.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-96x96.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-128x128.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-192x192.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-196x196.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-228x228.png"
+          ],
+          "page_request": {
+            "requested_url": "https://www.nasa.gov/news-release/nasa-announces-ka-band-satellite-relay-awards-for-space-communications/",
+            "final_url": "https://www.nasa.gov/news-release/nasa-announces-ka-band-satellite-relay-awards-for-space-communications/",
+            "status": 200,
+            "bytes": 280110,
+            "sha256": "f50c113b9ff330a0a37e6f7769b6f64b4d514fbb9449a0be52ac7cd6551b4f3d",
+            "content_type": "text/html; charset=UTF-8",
+            "elapsed_ms": 1183
+          },
+          "automated_verdict": "manual comparison required; metrics do not establish full text"
+        },
+        {
+          "title": "NASA Navigation Experiment Shows Promise for Planetary Landings",
+          "url": "https://www.nasa.gov/centers-and-facilities/armstrong/nasa-navigation-experiment-shows-promise-for-planetary-landings/",
+          "guid": "https://www.nasa.gov/?p=1061412",
+          "published": "Wed, 04 Nov 2026 16:52:43 +0000",
+          "field": "content:encoded",
+          "feed_words": 468,
+          "page_words": 419,
+          "feed_text_sha256": "7146ffe1dc5320aaddc8036f5454d79b9781ceec8f7a6eef4e1f0ed9c6d93bc1",
+          "page_text_sha256": "5b1a9829e0bfc4a80a6c265c738b98c090c77e338c91a39d8cda9fde4460cdca",
+          "feed_blocks": 18,
+          "feed_blocks_found_on_page": 9,
+          "feed_last_block_found_on_page": false,
+          "feed_last_block_sha256": "ce235d3b153c3b80109d0eaf526e207313703c2adb2e61455aab5bf4c54997af",
+          "page_blocks_missing_from_feed": [],
+          "page_selector": ".hds-wysiwyg, .entry-content",
+          "icons": [
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-16x16.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-32x32.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-57x57.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-76x76.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-96x96.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-128x128.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-192x192.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-196x196.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-228x228.png"
+          ],
+          "page_request": {
+            "requested_url": "https://www.nasa.gov/centers-and-facilities/armstrong/nasa-navigation-experiment-shows-promise-for-planetary-landings/",
+            "final_url": "https://www.nasa.gov/centers-and-facilities/armstrong/nasa-navigation-experiment-shows-promise-for-planetary-landings/",
+            "status": 200,
+            "bytes": 306493,
+            "sha256": "97780d30641cf4039d07164bf98416fa38d394465872ed3069f333c92f7b0ace",
+            "content_type": "text/html; charset=UTF-8",
+            "elapsed_ms": 1483
+          },
+          "automated_verdict": "manual comparison required; metrics do not establish full text"
+        },
+        {
+          "title": "The Pacific\u2019s Busy Storm Season",
+          "url": "https://science.nasa.gov/earth/earth-observatory/the-pacifics-busy-storm-season/",
+          "guid": "https://science.nasa.gov/earth/earth-observatory/the-pacifics-busy-storm-season/",
+          "published": "Tue, 03 Nov 2026 05:01:00 +0000",
+          "field": "content:encoded",
+          "feed_words": 1117,
+          "page_words": 980,
+          "feed_text_sha256": "dc95171931a27a13534602f9d3482d69d25b232febe31d76c12572f15ca2c184",
+          "page_text_sha256": "8e4238f00ed6be97cf8198c2ffe74ba5b92d6ea3e442069656c14d293f01b84d",
+          "feed_blocks": 44,
+          "feed_blocks_found_on_page": 31,
+          "feed_last_block_found_on_page": false,
+          "feed_last_block_sha256": "b0f1a78a02543abfcb3dec159c4fb6a8808e6b163bad5f7b2148d2b3060d55ae",
+          "page_blocks_missing_from_feed": [],
+          "page_selector": ".hds-wysiwyg, .entry-content",
+          "icons": [
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-16x16.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-32x32.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-57x57.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-76x76.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-96x96.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-128x128.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-192x192.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-196x196.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-228x228.png"
+          ],
+          "page_request": {
+            "requested_url": "https://science.nasa.gov/earth/earth-observatory/the-pacifics-busy-storm-season/",
+            "final_url": "https://science.nasa.gov/earth/earth-observatory/the-pacifics-busy-storm-season/",
+            "status": 200,
+            "bytes": 319806,
+            "sha256": "e38349d0e11db0ad85a6636aac1ece4385be697e2d29093044327a461e08c8c7",
+            "content_type": "text/html; charset=UTF-8",
+            "elapsed_ms": 1074
+          },
+          "automated_verdict": "manual comparison required; metrics do not establish full text"
+        }
+      ],
+      "total_entries": 10,
+      "all_guids": [
+        "https://www.nasa.gov/?post_type=press-release&p=1062160",
+        "https://www.nasa.gov/?p=1061412",
+        "https://science.nasa.gov/earth/earth-observatory/the-pacifics-busy-storm-season/",
+        "https://science.nasa.gov/earth/earth-observatory/fires-char-new-guinea/",
+        "https://science.nasa.gov/science-research/science-enabling-technology/technology-highlights/nasas-casals-instrument-bridges-gaps-in-3d-maps-of-earths-surface/",
+        "https://science.nasa.gov/earth/earth-observatory/extratropical-cyclone-whips-past-iceland/",
+        "https://www.nasa.gov/?p=1057550",
+        "https://science.nasa.gov/earth/earth-observatory/fires-arrive-in-the-amazon-rainforest/",
+        "https://www.nasa.gov/?p=1056228",
+        "https://science.nasa.gov/earth/earth-observatory/hurricane-simon-lurks-off-the-mexican-coast/"
+      ],
+      "all_links": [
+        "https://www.nasa.gov/news-release/nasa-announces-ka-band-satellite-relay-awards-for-space-communications/",
+        "https://www.nasa.gov/centers-and-facilities/armstrong/nasa-navigation-experiment-shows-promise-for-planetary-landings/",
+        "https://science.nasa.gov/earth/earth-observatory/the-pacifics-busy-storm-season/",
+        "https://science.nasa.gov/earth/earth-observatory/fires-char-new-guinea/",
+        "https://science.nasa.gov/science-research/science-enabling-technology/technology-highlights/nasas-casals-instrument-bridges-gaps-in-3d-maps-of-earths-surface/",
+        "https://science.nasa.gov/earth/earth-observatory/extratropical-cyclone-whips-past-iceland/",
+        "https://www.nasa.gov/centers-and-facilities/glenn/sr-1-freedom-advances-with-progress-on-nuclear-power-module/",
+        "https://science.nasa.gov/earth/earth-observatory/fires-arrive-in-the-amazon-rainforest/",
+        "https://www.nasa.gov/centers-and-facilities/langley/nasa-develops-batteries-to-power-humanitys-return-to-moon/",
+        "https://science.nasa.gov/earth/earth-observatory/hurricane-simon-lurks-off-the-mexican-coast/"
+      ],
+      "published_dates": [
+        "Wed, 04 Nov 2026 18:00:02 +0000",
+        "Wed, 04 Nov 2026 16:52:43 +0000",
+        "Tue, 03 Nov 2026 05:01:00 +0000",
+        "Thu, 22 Oct 2026 04:01:00 +0000",
+        "Wed, 21 Oct 2026 12:17:58 +0000",
+        "Wed, 21 Oct 2026 04:01:00 +0000",
+        "Tue, 20 Oct 2026 18:11:33 +0000",
+        "Thu, 15 Oct 2026 04:01:00 +0000",
+        "Wed, 14 Oct 2026 14:41:21 +0000",
+        "Wed, 14 Oct 2026 04:01:00 +0000"
+      ],
+      "feed_image": null
+    },
+    {
+      "channel": "nasa-aeronautics",
+      "request": {
+        "requested_url": "https://www.nasa.gov/aeronautics/feed/",
+        "final_url": "https://www.nasa.gov/aeronautics/feed/",
+        "status": 200,
+        "bytes": 232717,
+        "sha256": "bc858da179930c367147a11537fbc181954c87af83d904ee66e1fe306271768a",
+        "content_type": "application/rss+xml; charset=UTF-8",
+        "elapsed_ms": 1578
+      },
+      "samples": [
+        {
+          "title": "Through NASA\u2019s Lens: Capturing Space Shuttle Endeavour\u2019s Move to LA",
+          "url": "https://www.nasa.gov/centers-and-facilities/armstrong/through-nasas-lens-capturing-space-shuttle-endeavours-move-to-la/",
+          "guid": "https://www.nasa.gov/?p=1064883",
+          "published": "Thu, 12 Nov 2026 13:00:00 +0000",
+          "field": "content:encoded",
+          "feed_words": 645,
+          "page_words": 572,
+          "feed_text_sha256": "f2dc5bd868f67548673e913ded82e5cc46f406c66da768a40ebb20a4f065ecf9",
+          "page_text_sha256": "cee2845a3166dc9347f8cbfafea50ef24cbff35d0dc5b5b6f2be7c3eadb03a11",
+          "feed_blocks": 29,
+          "feed_blocks_found_on_page": 13,
+          "feed_last_block_found_on_page": false,
+          "feed_last_block_sha256": "ae656bd93660ea41de376396fb6eecd5199589af56520db00fa3d75c4ac988a3",
+          "page_blocks_missing_from_feed": [],
+          "page_selector": ".hds-wysiwyg, .entry-content",
+          "icons": [
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-16x16.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-32x32.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-57x57.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-76x76.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-96x96.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-128x128.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-192x192.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-196x196.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-228x228.png"
+          ],
+          "page_request": {
+            "requested_url": "https://www.nasa.gov/centers-and-facilities/armstrong/through-nasas-lens-capturing-space-shuttle-endeavours-move-to-la/",
+            "final_url": "https://www.nasa.gov/centers-and-facilities/armstrong/through-nasas-lens-capturing-space-shuttle-endeavours-move-to-la/",
+            "status": 200,
+            "bytes": 317478,
+            "sha256": "a4beaf53ba6bf4bdc6b76e7a4e2326c0c8210c06a4cea227b3ed3ea3a16b22b7",
+            "content_type": "text/html; charset=UTF-8",
+            "elapsed_ms": 1192
+          },
+          "automated_verdict": "manual comparison required; metrics do not establish full text"
+        },
+        {
+          "title": "MAX POWER: NASA\u2019s Inaugural Aerospace Expo Ignites America\u2019s Future",
+          "url": "https://www.nasa.gov/general/max-power-nasas-inaugural-aerospace-expo-ignites-americas-future/",
+          "guid": "https://www.nasa.gov/?p=1063656",
+          "published": "Mon, 09 Nov 2026 16:07:10 +0000",
+          "field": "content:encoded",
+          "feed_words": 695,
+          "page_words": 695,
+          "feed_text_sha256": "6eef233ffd6619c6df6ebba49506e07cae4318e60cdd8f157ca2bc755abca955",
+          "page_text_sha256": "6eef233ffd6619c6df6ebba49506e07cae4318e60cdd8f157ca2bc755abca955",
+          "feed_blocks": 15,
+          "feed_blocks_found_on_page": 15,
+          "feed_last_block_found_on_page": true,
+          "feed_last_block_sha256": "639a6da94698ad1a2274a8d490f69c4a97615e451e0f70ebbf0d35b4c43c7a5f",
+          "page_blocks_missing_from_feed": [],
+          "page_selector": ".hds-wysiwyg, .entry-content",
+          "icons": [
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-16x16.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-32x32.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-57x57.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-76x76.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-96x96.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-128x128.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-192x192.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-196x196.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-228x228.png"
+          ],
+          "page_request": {
+            "requested_url": "https://www.nasa.gov/general/max-power-nasas-inaugural-aerospace-expo-ignites-americas-future/",
+            "final_url": "https://www.nasa.gov/general/max-power-nasas-inaugural-aerospace-expo-ignites-americas-future/",
+            "status": 200,
+            "bytes": 314568,
+            "sha256": "305a133964ab747fb6ade16f301ec0143c066bed9cb12bd47022532a9780ab11",
+            "content_type": "text/html; charset=UTF-8",
+            "elapsed_ms": 1356
+          },
+          "automated_verdict": "manual comparison required; metrics do not establish full text"
+        },
+        {
+          "title": "NASA Announces X-70 Experimental Aircraft to Advance Flight Research\u00a0",
+          "url": "https://www.nasa.gov/news-release/nasa-announces-x-70-experimental-aircraft-to-advance-flight-research/",
+          "guid": "https://www.nasa.gov/?post_type=press-release&p=1062503",
+          "published": "Thu, 05 Nov 2026 01:43:21 +0000",
+          "field": "content:encoded",
+          "feed_words": 407,
+          "page_words": 379,
+          "feed_text_sha256": "b655eb4295d65774438ded03ec8356ece6f67550c17c7413157fb61fec927f6a",
+          "page_text_sha256": "5c5c0d869906ac62272b7dad6522a21aa35d04494984422c4660abd4fa9c2cd3",
+          "feed_blocks": 25,
+          "feed_blocks_found_on_page": 15,
+          "feed_last_block_found_on_page": true,
+          "feed_last_block_sha256": "745900f95ffec3ebfa2a0847f41c7cca56211ee5a7b0a738b9a873666f097e0e",
+          "page_blocks_missing_from_feed": [],
+          "page_selector": ".hds-wysiwyg, .entry-content",
+          "icons": [
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-16x16.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-32x32.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-57x57.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-76x76.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-96x96.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-128x128.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-192x192.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-196x196.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-228x228.png"
+          ],
+          "page_request": {
+            "requested_url": "https://www.nasa.gov/news-release/nasa-announces-x-70-experimental-aircraft-to-advance-flight-research/",
+            "final_url": "https://www.nasa.gov/news-release/nasa-announces-x-70-experimental-aircraft-to-advance-flight-research/",
+            "status": 200,
+            "bytes": 285565,
+            "sha256": "eb00f4f080993a845170bd1e43e3cc471bafb0dbc821c9e4d8524bb6c21f0f40",
+            "content_type": "text/html; charset=UTF-8",
+            "elapsed_ms": 1081
+          },
+          "automated_verdict": "manual comparison required; metrics do not establish full text"
+        }
+      ],
+      "total_entries": 10,
+      "all_guids": [
+        "https://www.nasa.gov/?p=1064883",
+        "https://www.nasa.gov/?p=1063656",
+        "https://www.nasa.gov/?post_type=press-release&p=1062503",
+        "https://www.nasa.gov/?p=1061412",
+        "https://www.nasa.gov/?post_type=press-release&p=1060823",
+        "https://www.nasa.gov/?p=1059815",
+        "https://www.nasa.gov/?post_type=image-article&p=1058909",
+        "https://www.nasa.gov/?post_type=press-release&p=1058161",
+        "https://www.nasa.gov/?p=1056679",
+        "https://www.nasa.gov/?p=1057581"
+      ],
+      "all_links": [
+        "https://www.nasa.gov/centers-and-facilities/armstrong/through-nasas-lens-capturing-space-shuttle-endeavours-move-to-la/",
+        "https://www.nasa.gov/general/max-power-nasas-inaugural-aerospace-expo-ignites-americas-future/",
+        "https://www.nasa.gov/news-release/nasa-announces-x-70-experimental-aircraft-to-advance-flight-research/",
+        "https://www.nasa.gov/centers-and-facilities/armstrong/nasa-navigation-experiment-shows-promise-for-planetary-landings/",
+        "https://www.nasa.gov/news-release/nasa-releases-max-power-key-events-for-media-participants/",
+        "https://www.nasa.gov/aeronautics/nasa-challenge-drone-entrepreneur/",
+        "https://www.nasa.gov/image-article/nasas-x-59-aircraft-and-test-pilot/",
+        "https://www.nasa.gov/news-release/nasa-to-conduct-ncaa-flyover-engage-fans-at-university-of-alabama/",
+        "https://www.nasa.gov/general/nasa-to-conduct-low-altitude-flights-over-texas-farmland/",
+        "https://www.nasa.gov/science-research/aeronautics-research/nasa-experimental-mars-helicopter-blade-designs-target-longer-flights/"
+      ],
+      "published_dates": [
+        "Thu, 12 Nov 2026 13:00:00 +0000",
+        "Mon, 09 Nov 2026 16:07:10 +0000",
+        "Thu, 05 Nov 2026 01:43:21 +0000",
+        "Wed, 04 Nov 2026 16:52:43 +0000",
+        "Fri, 30 Oct 2026 19:31:02 +0000",
+        "Wed, 28 Oct 2026 18:00:28 +0000",
+        "Mon, 26 Oct 2026 15:25:47 +0000",
+        "Wed, 21 Oct 2026 16:31:11 +0000",
+        "Tue, 20 Oct 2026 20:21:36 +0000",
+        "Tue, 20 Oct 2026 16:02:35 +0000"
+      ],
+      "feed_image": null
+    },
+    {
+      "channel": "nasa-news-releases",
+      "request": {
+        "requested_url": "https://www.nasa.gov/news-release/feed/",
+        "final_url": "https://www.nasa.gov/news-release/feed/",
+        "status": 200,
+        "bytes": 243519,
+        "sha256": "f58c5841322cf3348065bb9b92ccb42d4f90152bfd3aeda31204c5576936a8f1",
+        "content_type": "application/rss+xml; charset=UTF-8",
+        "elapsed_ms": 1568
+      },
+      "samples": [
+        {
+          "title": "Perseverance Update: The Ghostly Rocks of \u2018Idubi\u2019 \u2014 Bright Remnants of Aqueous Systems from Long Ago",
+          "url": "https://science.nasa.gov/blog/perseverance-update-the-ghostly-rocks-of-idubi-bright-remnants-of-aqueous-systems-from-long-ago/",
+          "guid": "https://science.nasa.gov/blog/perseverance-update-the-ghostly-rocks-of-idubi-bright-remnants-of-aqueous-systems-from-long-ago/",
+          "published": "Mon, 16 Nov 2026 23:12:45 +0000",
+          "field": "content:encoded",
+          "feed_words": 451,
+          "page_words": 312,
+          "feed_text_sha256": "327f9a8223eb08da2ad59d05dafd9c7765b82c01dba72daceba268e334fce2b1",
+          "page_text_sha256": "df0d02fd980476840fd6351d888e8bb841674b91b4ea9b6158b7b90b99ed0927",
+          "feed_blocks": 31,
+          "feed_blocks_found_on_page": 13,
+          "feed_last_block_found_on_page": false,
+          "feed_last_block_sha256": "79647a3f9f7fcfd5892f34b27bc9cf82b682c99b0815361ec1e687c996673552",
+          "page_blocks_missing_from_feed": [],
+          "page_selector": ".hds-wysiwyg, .entry-content",
+          "icons": [
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-16x16.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-32x32.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-57x57.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-76x76.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-96x96.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-128x128.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-192x192.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-196x196.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-228x228.png"
+          ],
+          "page_request": {
+            "requested_url": "https://science.nasa.gov/blog/perseverance-update-the-ghostly-rocks-of-idubi-bright-remnants-of-aqueous-systems-from-long-ago/",
+            "final_url": "https://science.nasa.gov/blog/perseverance-update-the-ghostly-rocks-of-idubi-bright-remnants-of-aqueous-systems-from-long-ago/",
+            "status": 200,
+            "bytes": 309804,
+            "sha256": "0bb38979f38eb12292374deecf20ec41e27115f20cb9ee7c53c5ef85195453fb",
+            "content_type": "text/html; charset=UTF-8",
+            "elapsed_ms": 1406
+          },
+          "automated_verdict": "manual comparison required; metrics do not establish full text"
+        },
+        {
+          "title": "A Collage Showing 49 Drill Holes Made by NASA\u2019s Curiosity Mars Rover",
+          "url": "https://science.nasa.gov/photojournal/a-collage-showing-49-drill-holes-made-by-nasas-curiosity-mars-rover/",
+          "guid": "https://science.nasa.gov/photojournal/a-collage-showing-49-drill-holes-made-by-nasas-curiosity-mars-rover/",
+          "published": "Mon, 16 Nov 2026 22:05:23 +0000",
+          "field": "content:encoded",
+          "feed_words": 170,
+          "page_words": 158,
+          "feed_text_sha256": "a299ba1611b4888d7ecba9e163afcd69c1e3c454cfc689e2d48186349d181f83",
+          "page_text_sha256": "e21303242413bbef77a72efa5ee83c22cdfa4ab54b473bd5cf1b377ae7c11a58",
+          "feed_blocks": 14,
+          "feed_blocks_found_on_page": 9,
+          "feed_last_block_found_on_page": false,
+          "feed_last_block_sha256": "aac77df347205252b074d45aff7891debdba0ff1466cc0c351416d1662bb71ab",
+          "page_blocks_missing_from_feed": [],
+          "page_selector": ".hds-wysiwyg, .entry-content",
+          "icons": [
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-16x16.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-32x32.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-57x57.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-76x76.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-96x96.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-128x128.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-192x192.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-196x196.png",
+            "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-228x228.png"
+          ],
+          "page_request": {
+            "requested_url": "https://science.nasa.gov/photojournal/a-collage-showing-49-drill-holes-made-by-nasas-curiosity-mars-rover/",
+            "final_url": "https://science.nasa.gov/photojournal/a-collage-showing-49-drill-holes-made-by-nasas-curiosity-mars-rover/",
+            "status": 200,
+            "bytes": 260787,
+            "sha256": "4e998f4ff37b444249b3d9d07f6ee89246938230fe63bb2d92e020838e2a9e15",
+            "content_type": "text/html; charset=UTF-8",
+            "elapsed_ms": 1146
+          },
+          "automated_verdict": "manual comparison required; metrics do not establish full text"
+        },
+        {
+          "title": "NASA Receives 16th Consecutive \u2018Clean\u2019 Financial Audit Opinion",
+          "url": "https://www.nasa.gov/news-release/nasa-receives-16th-consecutive-clean-financial-audit-opinion/",
+          "guid": "https://www.nasa.gov/?post_type=press-release&p=1065302",
+          "published": "Mon, 16 Nov 2026 20:30:40 +0000",
+          "field": "content:encoded",
+          "feed_words": 415,
+          "page_words": 400,
+          "feed_text_sha256": "705ff85191494ec089771c7dea9aaf21ae4f9e55e99edc0cba8ae853144d1312",
+          "page_text_sha256": "ce9022d7b39bc9a98e9ec5b963e5042efc6c01e9db085d68bba88db649924798",
+          "feed_blocks": 16,
+          "feed_blocks_found_on_page": 11,
+          "feed_last_block_found_on_page": false,
+          "feed_last_block_sha256": "4f1c294340fe0363afcbc056c074e01867cc1a30277cccd72298bc9b9eeb943b",
+          "page_blocks_missing_from_feed": [],
+          "page_selector": ".hds-wysiwyg, .entry-content",
+          "icons": [
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-16x16.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-32x32.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-57x57.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-76x76.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-96x96.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-128x128.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-192x192.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-196x196.png",
+            "https://www.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/favicon-228x228.png"
+          ],
+          "page_request": {
+            "requested_url": "https://www.nasa.gov/news-release/nasa-receives-16th-consecutive-clean-financial-audit-opinion/",
+            "final_url": "https://www.nasa.gov/news-release/nasa-receives-16th-consecutive-clean-financial-audit-opinion/",
+            "status": 200,
+            "bytes": 280070,
+            "sha256": "94d210cd25ce71677d7e5dafa92d0c572b779e1e48c75037f5707d452e831a59",
+            "content_type": "text/html; charset=UTF-8",
+            "elapsed_ms": 1033
+          },
+          "automated_verdict": "manual comparison required; metrics do not establish full text"
+        }
+      ],
+      "total_entries": 10,
+      "all_guids": [
+        "https://science.nasa.gov/blog/perseverance-update-the-ghostly-rocks-of-idubi-bright-remnants-of-aqueous-systems-from-long-ago/",
+        "https://science.nasa.gov/photojournal/a-collage-showing-49-drill-holes-made-by-nasas-curiosity-mars-rover/",
+        "https://www.nasa.gov/?post_type=press-release&p=1065302",
+        "https://science.nasa.gov/photojournal/sentinel-6b-in-orbit-around-earth/",
+        "https://www.nasa.gov/?post_type=image-article&p=1065435",
+        "https://www.nasa.gov/?p=1065392",
+        "https://science.nasa.gov/image-article/apod-2026-november-16-ngc-7129-star-formation-with-jets-from-webb/",
+        "https://science.nasa.gov/earth/earth-observatory/the-last-ice-on-puncak-jaya/",
+        "https://www.nasa.gov/?post_type=image-article&p=1065123",
+        "https://www.nasa.gov/?post_type=image-article&p=1064726"
+      ],
+      "all_links": [
+        "https://science.nasa.gov/blog/perseverance-update-the-ghostly-rocks-of-idubi-bright-remnants-of-aqueous-systems-from-long-ago/",
+        "https://science.nasa.gov/photojournal/a-collage-showing-49-drill-holes-made-by-nasas-curiosity-mars-rover/",
+        "https://www.nasa.gov/news-release/nasa-receives-16th-consecutive-clean-financial-audit-opinion/",
+        "https://science.nasa.gov/photojournal/sentinel-6b-in-orbit-around-earth/",
+        "https://www.nasa.gov/image-article/thunderbirds-in-formation/",
+        "https://www.nasa.gov/centers-and-facilities/stennis/contractor-to-civil-servant-jim-mirandy/",
+        "https://science.nasa.gov/image-article/apod-2026-november-16-ngc-7129-star-formation-with-jets-from-webb/",
+        "https://science.nasa.gov/earth/earth-observatory/the-last-ice-on-puncak-jaya/",
+        "https://www.nasa.gov/image-article/outbursts-from-a-massive-star/",
+        "https://www.nasa.gov/image-article/gemini-astronaut-photos-inspired-early-earth-observation-program/"
+      ],
+      "published_dates": [
+        "Mon, 16 Nov 2026 23:12:45 +0000",
+        "Mon, 16 Nov 2026 22:05:23 +0000",
+        "Mon, 16 Nov 2026 20:30:40 +0000",
+        "Mon, 16 Nov 2026 18:52:32 +0000",
+        "Mon, 16 Nov 2026 18:34:47 +0000",
+        "Mon, 16 Nov 2026 15:22:09 +0000",
+        "Mon, 16 Nov 2026 05:05:00 +0000",
+        "Mon, 16 Nov 2026 05:00:00 +0000",
+        "Fri, 13 Nov 2026 16:39:33 +0000",
+        "Fri, 13 Nov 2026 16:05:54 +0000"
+      ],
+      "feed_image": null
+    },
+    {
+      "channel": "hackaday-technology",
+      "request": {
+        "requested_url": "https://hackaday.com/blog/feed/",
+        "final_url": "https://hackaday.com/blog/feed/",
+        "status": 200,
+        "bytes": 63031,
+        "sha256": "60fa671dd454a6c76a2de18ed6f51c594de082530ce923a4396163c9c081d835",
+        "content_type": "application/rss+xml; charset=UTF-8",
+        "elapsed_ms": 936
+      },
+      "samples": [
+        {
+          "title": "Can\u2019t Get the Right Cassette Mechanism? Have a Go at Making Your Own!",
+          "url": "https://hackaday.com/2026/11/16/cant-get-the-right-cassette-mechanism-have-a-go-at-making-your-own/",
+          "guid": "https://hackaday.com/?p=1428327",
+          "published": "Tue, 17 Nov 2026 00:00:27 +0000",
+          "field": "content:encoded",
+          "feed_words": 220,
+          "page_words": 220,
+          "feed_text_sha256": "2136b3fe5ec47db0b21b075be758dc78b215e18213d9e01c26191e42bf9f0f98",
+          "page_text_sha256": "2136b3fe5ec47db0b21b075be758dc78b215e18213d9e01c26191e42bf9f0f98",
+          "feed_blocks": 3,
+          "feed_blocks_found_on_page": 3,
+          "feed_last_block_found_on_page": true,
+          "feed_last_block_sha256": "a355caa8a3f7b792d7df760eeda28b3b2c0fc95870ae8274613c4cd3a8792097",
+          "page_blocks_missing_from_feed": [],
+          "page_selector": ".entry-content",
+          "icons": ["https://hackaday.com/wp-content/themes/hackaday-2/favicon.ico?v=3"],
+          "page_request": {
+            "requested_url": "https://hackaday.com/2026/11/16/cant-get-the-right-cassette-mechanism-have-a-go-at-making-your-own/",
+            "final_url": "https://hackaday.com/2026/11/16/cant-get-the-right-cassette-mechanism-have-a-go-at-making-your-own/",
+            "status": 200,
+            "bytes": 90154,
+            "sha256": "f5ac64beec199d2742276bf0d7369cb82c040f1c1fbd2c9381f2cfcb81e72fb0",
+            "content_type": "text/html; charset=UTF-8",
+            "elapsed_ms": 1064
+          },
+          "automated_verdict": "manual comparison required; metrics do not establish full text"
+        },
+        {
+          "title": "Binocular Chair Lets You Stargaze in Comfort",
+          "url": "https://hackaday.com/2026/11/16/binocular-chair-lets-you-stargaze-in-comfort/",
+          "guid": "https://hackaday.com/?p=1164016",
+          "published": "Mon, 16 Nov 2026 21:00:55 +0000",
+          "field": "content:encoded",
+          "feed_words": 186,
+          "page_words": 186,
+          "feed_text_sha256": "6a65837cd1469e177bdfda6916bfacffebe6832a3ccd261fa7aec4f383d5395c",
+          "page_text_sha256": "6a65837cd1469e177bdfda6916bfacffebe6832a3ccd261fa7aec4f383d5395c",
+          "feed_blocks": 4,
+          "feed_blocks_found_on_page": 4,
+          "feed_last_block_found_on_page": true,
+          "feed_last_block_sha256": "f560a4f1c3a1f5b093e9fae4111250ee037055b59740189335321eac887124f9",
+          "page_blocks_missing_from_feed": [],
+          "page_selector": ".entry-content",
+          "icons": ["https://hackaday.com/wp-content/themes/hackaday-2/favicon.ico?v=3"],
+          "page_request": {
+            "requested_url": "https://hackaday.com/2026/11/16/binocular-chair-lets-you-stargaze-in-comfort/",
+            "final_url": "https://hackaday.com/2026/11/16/binocular-chair-lets-you-stargaze-in-comfort/",
+            "status": 200,
+            "bytes": 96903,
+            "sha256": "78635d016643c051029138bfe4fe90bdf9aca6f8de8dda93720da768e324219e",
+            "content_type": "text/html; charset=UTF-8",
+            "elapsed_ms": 1020
+          },
+          "automated_verdict": "manual comparison required; metrics do not establish full text"
+        },
+        {
+          "title": "Making a Universal, Self-Centering Tap Wrench",
+          "url": "https://hackaday.com/2026/11/16/making-a-universal-self-centering-tap-wrench/",
+          "guid": "https://hackaday.com/?p=1428241",
+          "published": "Mon, 16 Nov 2026 19:00:46 +0000",
+          "field": "content:encoded",
+          "feed_words": 254,
+          "page_words": 254,
+          "feed_text_sha256": "3765776067c877b29986ff89d2e81c5646ef1a708c55a59e872adf79322e45f5",
+          "page_text_sha256": "3765776067c877b29986ff89d2e81c5646ef1a708c55a59e872adf79322e45f5",
+          "feed_blocks": 5,
+          "feed_blocks_found_on_page": 5,
+          "feed_last_block_found_on_page": true,
+          "feed_last_block_sha256": "e8c13041e1b0021eef4735f7052560fd09374cb9d86aefaccc196ef54b82c4b3",
+          "page_blocks_missing_from_feed": [],
+          "page_selector": ".entry-content",
+          "icons": ["https://hackaday.com/wp-content/themes/hackaday-2/favicon.ico?v=3"],
+          "page_request": {
+            "requested_url": "https://hackaday.com/2026/11/16/making-a-universal-self-centering-tap-wrench/",
+            "final_url": "https://hackaday.com/2026/11/16/making-a-universal-self-centering-tap-wrench/",
+            "status": 200,
+            "bytes": 115287,
+            "sha256": "4c2dd4b7e914140a25d4de0247d909ed7829b2126217a3fd95ce580d87cdbbfc",
+            "content_type": "text/html; charset=UTF-8",
+            "elapsed_ms": 986
+          },
+          "automated_verdict": "manual comparison required; metrics do not establish full text"
+        }
+      ],
+      "total_entries": 7,
+      "all_guids": [
+        "https://hackaday.com/?p=1428327",
+        "https://hackaday.com/?p=1164016",
+        "https://hackaday.com/?p=1428241",
+        "https://hackaday.com/?p=1425183",
+        "https://hackaday.com/?p=1428227",
+        "https://hackaday.com/?p=902793",
+        "https://hackaday.com/?p=1427995"
+      ],
+      "all_links": [
+        "https://hackaday.com/2026/11/16/cant-get-the-right-cassette-mechanism-have-a-go-at-making-your-own/",
+        "https://hackaday.com/2026/11/16/binocular-chair-lets-you-stargaze-in-comfort/",
+        "https://hackaday.com/2026/11/16/making-a-universal-self-centering-tap-wrench/",
+        "https://hackaday.com/2026/11/16/how-metal-foam-could-make-cars-safer/",
+        "https://hackaday.com/2026/11/16/new-super-magnets-turbocharge-the-large-hadron-collider/",
+        "https://hackaday.com/2026/11/16/on-demand-development-boards-with-remote-access-methods/",
+        "https://hackaday.com/2026/11/16/esp32-wifi-jam-detector-finds-the-raspberry/"
+      ],
+      "published_dates": [
+        "Tue, 17 Nov 2026 00:00:27 +0000",
+        "Mon, 16 Nov 2026 21:00:55 +0000",
+        "Mon, 16 Nov 2026 19:00:46 +0000",
+        "Mon, 16 Nov 2026 18:00:23 +0000",
+        "Mon, 16 Nov 2026 16:30:32 +0000",
+        "Mon, 16 Nov 2026 15:00:56 +0000",
+        "Mon, 16 Nov 2026 12:00:47 +0000"
+      ],
+      "feed_image": null
+    },
+    {
+      "channel": "nih-research-matters",
+      "request": {
+        "requested_url": "https://www.nih.gov/nih-research-matters/feed.xml",
+        "final_url": "https://www.nih.gov/nih-research-matters/feed.xml",
+        "status": 403,
+        "bytes": 5627,
+        "sha256": "2cf25b4b3f92fbead27f433d5c11a901a0f5b25a96cba138c22751c8c6c4cf92",
+        "content_type": "text/html; charset=UTF-8",
+        "elapsed_ms": 1110
+      },
+      "samples": []
+    }
+  ]
+}

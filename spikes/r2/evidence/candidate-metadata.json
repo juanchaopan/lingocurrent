@@ -1,0 +1,1934 @@
+{
+  "checked_at_utc": "2026-11-17T01:30:14.094200+00:00",
+  "packages": [
+    {
+      "name": "vosk",
+      "version": "0.3.45",
+      "source": "https://pypi.org/pypi/vosk/json",
+      "requires_dist": ["cffi (>=1.0)", "requests", "tqdm", "srt", "websockets"],
+      "wheels": [
+        {
+          "filename": "vosk-0.3.45-py3-none-manylinux2014_aarch64.whl",
+          "bytes": 2368543,
+          "sha256": "54efb47dd890e544e9e20f0316413acec7f8680d04ec095c6140ab4e70262704",
+          "url": "https://files.pythonhosted.org/packages/a4/23/3130a69fa0bf4f5566a52e415c18cd854bf561547bb6505666a6eb1bb625/vosk-0.3.45-py3-none-manylinux2014_aarch64.whl"
+        },
+        {
+          "filename": "vosk-0.3.45-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.whl",
+          "bytes": 7173758,
+          "sha256": "25e025093c4399d7278f543568ed8cc5460ac3a4bf48c23673ace1e25d26619f",
+          "url": "https://files.pythonhosted.org/packages/fc/ca/83398cfcd557360a3d7b2d732aee1c5f6999f68618d1645f38d53e14c9ff/vosk-0.3.45-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.whl"
+        }
+      ]
+    },
+    {
+      "name": "kokoro-onnx",
+      "version": "0.6.1",
+      "source": "https://pypi.org/pypi/kokoro-onnx/json",
+      "requires_dist": [
+        "espeakng-loader>=0.2.4",
+        "numpy>=2.0.2",
+        "onnxruntime>=1.20.1",
+        "phonemizer>=3.4.0",
+        "onnxruntime-gpu>=1.20.1; (platform_machine == \"x86_64\" and sys_platform != \"darwin\") and extra == \"gpu\""
+      ],
+      "wheels": [
+        {
+          "filename": "kokoro_onnx-0.6.1-py3-none-any.whl",
+          "bytes": 26084,
+          "sha256": "50c8de4950d601df41428ee5462a48c8a78bef441bf671f2492e070ef44d8a32",
+          "url": "https://files.pythonhosted.org/packages/60/e1/a27e5a70a525a5ee1fd5357596f07b724d02ff317f134e86cb6e3d9db968/kokoro_onnx-0.6.1-py3-none-any.whl"
+        }
+      ]
+    },
+    {
+      "name": "supertonic",
+      "version": "1.3.1",
+      "source": "https://pypi.org/pypi/supertonic/json",
+      "requires_dist": [
+        "onnxruntime>=1.19.0; python_version < \"3.13\"",
+        "onnxruntime>=1.20.0; python_version >= \"3.13\"",
+        "numpy>=1.21.0",
+        "soundfile>=0.10.0",
+        "huggingface-hub>=0.10.0",
+        "sounddevice>=0.4.0; extra == \"playback\"",
+        "fastapi>=0.110; extra == \"serve\"",
+        "uvicorn[standard]>=0.27; extra == \"serve\"",
+        "pydantic>=2.5; extra == \"serve\"",
+        "python-multipart>=0.0.9; extra == \"serve\"",
+        "pytest>=7.0; extra == \"dev\"",
+        "pytest-cov>=4.1.0; extra == \"dev\"",
+        "black>=25.0; extra == \"dev\"",
+        "ruff>=0.5; extra == \"dev\"",
+        "build>=1.0.0; extra == \"dev\"",
+        "twine>=4.0.0; extra == \"dev\"",
+        "httpx>=0.27; extra == \"dev\""
+      ],
+      "wheels": [
+        {
+          "filename": "supertonic-1.3.1-py3-none-any.whl",
+          "bytes": 51871,
+          "sha256": "0079c9d4166008b8a6eeae95f20c092148786b7232192dd3dd9f358960c6c077",
+          "url": "https://files.pythonhosted.org/packages/8f/9f/d3c0367115b378d09a3866502609841c283fbd48c5b8f58902a03f81b752/supertonic-1.3.1-py3-none-any.whl"
+        }
+      ]
+    },
+    {
+      "name": "onnxruntime",
+      "version": "1.32.0",
+      "source": "https://pypi.org/pypi/onnxruntime/json",
+      "requires_dist": [
+        "flatbuffers",
+        "numpy>=1.21.6",
+        "packaging",
+        "protobuf>=4.25.8",
+        "sympy; extra == \"symbolic\"",
+        "ml_dtypes; extra == \"quantization\""
+      ],
+      "wheels": [
+        {
+          "filename": "onnxruntime-1.32.0-cp311-cp311-manylinux_2_28_aarch64.whl",
+          "bytes": 23195070,
+          "sha256": "2303372a85299b6757b0e11e1cbf13e410ddf7e10c37f4b37e99d1c90e7daf7c",
+          "url": "https://files.pythonhosted.org/packages/b7/30/103820b32e9dc1d1fcfc5b519fd2de5bd699d25a25895caf5d726350d1b5/onnxruntime-1.32.0-cp311-cp311-manylinux_2_28_aarch64.whl"
+        },
+        {
+          "filename": "onnxruntime-1.32.0-cp311-cp311-manylinux_2_28_x86_64.whl",
+          "bytes": 27773237,
+          "sha256": "5a34fc4dfeb5a7b4a74c95dcba1e773d722abda720b474edf1b0c419dc6d163d",
+          "url": "https://files.pythonhosted.org/packages/1d/46/e6f356c9539d2eed44126de3421a81e217da2ad91b22dc11b379cb1e384f/onnxruntime-1.32.0-cp311-cp311-manylinux_2_28_x86_64.whl"
+        },
+        {
+          "filename": "onnxruntime-1.32.0-cp312-cp312-manylinux_2_28_aarch64.whl",
+          "bytes": 23196724,
+          "sha256": "e36c187006e7a7c8b8d6d57f1a209dd63f52430dca6c282b177718ad6b841054",
+          "url": "https://files.pythonhosted.org/packages/4a/8f/1e43fb994513c7c7a9c6965272ef89d963c1bd4080993a6267bf913701d1/onnxruntime-1.32.0-cp312-cp312-manylinux_2_28_aarch64.whl"
+        },
+        {
+          "filename": "onnxruntime-1.32.0-cp312-cp312-manylinux_2_28_x86_64.whl",
+          "bytes": 27780211,
+          "sha256": "99e1074c4b2197accd5073052a465361be17b89c093b8ffb6e6bd8f986c52df8",
+          "url": "https://files.pythonhosted.org/packages/a3/81/55845186c20cba59f614991f4065dea148e48eeb9749893768c85ce64327/onnxruntime-1.32.0-cp312-cp312-manylinux_2_28_x86_64.whl"
+        },
+        {
+          "filename": "onnxruntime-1.32.0-cp313-cp313-manylinux_2_28_aarch64.whl",
+          "bytes": 23195811,
+          "sha256": "54d02baff2df38777b4c3cc7af326406fe8b8a48f54720f4c446d2d327920a79",
+          "url": "https://files.pythonhosted.org/packages/96/c7/26be6be3ebe42597a521645a7bb18701ce0716af87af0cd2c9281d2e84a5/onnxruntime-1.32.0-cp313-cp313-manylinux_2_28_aarch64.whl"
+        },
+        {
+          "filename": "onnxruntime-1.32.0-cp313-cp313-manylinux_2_28_x86_64.whl",
+          "bytes": 27780404,
+          "sha256": "02ea12a28c069ea8510093d95a7f6ff8126bfd9fc5c0d3381c03b80fb2b424ba",
+          "url": "https://files.pythonhosted.org/packages/92/74/1f7c51522822e93aa91f633ebcd75688e2deebeca5901b2e6da8a8c5ad7c/onnxruntime-1.32.0-cp313-cp313-manylinux_2_28_x86_64.whl"
+        },
+        {
+          "filename": "onnxruntime-1.32.0-cp313-cp313t-manylinux_2_28_aarch64.whl",
+          "bytes": 23205671,
+          "sha256": "b01314ab8aa8176919818b19b899cd1cd72b5e4fc33e1127396f043206b6ceed",
+          "url": "https://files.pythonhosted.org/packages/08/3b/28be6dee643e29086c86b0b778e43d73e9c910aa044e8ac67856a9452131/onnxruntime-1.32.0-cp313-cp313t-manylinux_2_28_aarch64.whl"
+        },
+        {
+          "filename": "onnxruntime-1.32.0-cp313-cp313t-manylinux_2_28_x86_64.whl",
+          "bytes": 27797958,
+          "sha256": "926b6a87ffdcef56805b213807c28b97ae53763a630795baee1dfb420c2a5b68",
+          "url": "https://files.pythonhosted.org/packages/4a/b0/8cc346bc2113c51d185d5f6ecbf8962c28ae2dfbc5461d9d36b79a267c6e/onnxruntime-1.32.0-cp313-cp313t-manylinux_2_28_x86_64.whl"
+        },
+        {
+          "filename": "onnxruntime-1.32.0-cp314-cp314-manylinux_2_28_aarch64.whl",
+          "bytes": 23197888,
+          "sha256": "4135431395c1f37de0811f452c20a8b774f51812fda6c49611ed9899bbdbeeb4",
+          "url": "https://files.pythonhosted.org/packages/04/69/325c7e39e7000eadbbbfe39c07b42a3d2958a095cd46eeeb44cc235b2ed9/onnxruntime-1.32.0-cp314-cp314-manylinux_2_28_aarch64.whl"
+        },
+        {
+          "filename": "onnxruntime-1.32.0-cp314-cp314-manylinux_2_28_x86_64.whl",
+          "bytes": 27780528,
+          "sha256": "48b878f9551d465aa79ee94ecaf49a1f6b5d27f2975efa775ded374db14d0af1",
+          "url": "https://files.pythonhosted.org/packages/94/b5/cd55e7f1dfcf2e5fbf3a6915a8c6b4cf81df091e81de2db40e58357ffba4/onnxruntime-1.32.0-cp314-cp314-manylinux_2_28_x86_64.whl"
+        },
+        {
+          "filename": "onnxruntime-1.32.0-cp314-cp314t-manylinux_2_28_aarch64.whl",
+          "bytes": 23204967,
+          "sha256": "2c4338c899144fd055a86c1d89424001db60e48a474e198c0fd0d1d577e4b663",
+          "url": "https://files.pythonhosted.org/packages/f4/36/3a7a2333b88b7cb30b7b63185467f0476fd78e72ec33a51592edd3c3ead3/onnxruntime-1.32.0-cp314-cp314t-manylinux_2_28_aarch64.whl"
+        },
+        {
+          "filename": "onnxruntime-1.32.0-cp314-cp314t-manylinux_2_28_x86_64.whl",
+          "bytes": 27798510,
+          "sha256": "b224d11cfaecc95b85bdbd69f1673a984c7879af5823bb3ff377b9cb90b176fc",
+          "url": "https://files.pythonhosted.org/packages/c2/db/80ef2ff511eb24c21eebea2649a4d2db611107fb35171bf4fd2515ae1070/onnxruntime-1.32.0-cp314-cp314t-manylinux_2_28_x86_64.whl"
+        }
+      ]
+    },
+    {
+      "name": "numpy",
+      "version": "2.5.5",
+      "source": "https://pypi.org/pypi/numpy/json",
+      "requires_dist": null,
+      "wheels": [
+        {
+          "filename": "numpy-2.5.5-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl",
+          "bytes": 15284117,
+          "sha256": "a0750f2156d53446caca85663d0b65d67214e1664b9050454a731ea1418d176a",
+          "url": "https://files.pythonhosted.org/packages/c2/22/82184e9a5b50a4a298e9f8fe0bd8cfc483672dbfea8a3b57c78e2376b139/numpy-2.5.5-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl"
+        },
+        {
+          "filename": "numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+          "bytes": 15720599,
+          "sha256": "704d819265e5d1064d932968e9ee85fff2103ccc78c05b878c06943ba27b8507",
+          "url": "https://files.pythonhosted.org/packages/99/61/522b973ba38987b22a4a71beaed2ea6ac9fd4f687baaa2bc9a45100625e0/numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+        },
+        {
+          "filename": "numpy-2.5.5-cp313-cp313-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl",
+          "bytes": 15278148,
+          "sha256": "ae2b8285d0b4eed24739c3ca9ec0fa424a0247489c01e1d5fe2815a599e11d33",
+          "url": "https://files.pythonhosted.org/packages/57/06/de83b859944409bb9058bc6110581a3d7fc1f54d6df1222744911d7f6b19/numpy-2.5.5-cp313-cp313-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl"
+        },
+        {
+          "filename": "numpy-2.5.5-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+          "bytes": 15713899,
+          "sha256": "824025655df929268bfe6b47ed91a00d14209a6f760847cf150be446829e1ce4",
+          "url": "https://files.pythonhosted.org/packages/40/d6/68dd5a83914bbcaf32b3165993f7955979916708cb0156d1e28231e18803/numpy-2.5.5-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+        },
+        {
+          "filename": "numpy-2.5.5-cp314-cp314-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl",
+          "bytes": 15300777,
+          "sha256": "cc6eb7502facce90349b4097a26821af224aaa0ab36e78304711cdb544352882",
+          "url": "https://files.pythonhosted.org/packages/26/5b/5cd4b88a64bb57ca6d3bd6a9e057db445544a2179a2ebf985660e0454648/numpy-2.5.5-cp314-cp314-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl"
+        },
+        {
+          "filename": "numpy-2.5.5-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+          "bytes": 15718051,
+          "sha256": "c48960d420e90cf305cb1fde0d4e6082cc90512cda87a9acf0b6e04e91cf4abe",
+          "url": "https://files.pythonhosted.org/packages/a4/1f/fcdce1061fba2bfb2e9bfda01fbd8132d5f7522a4f7c8e2b2f629d54ee38/numpy-2.5.5-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+        },
+        {
+          "filename": "numpy-2.5.5-cp314-cp314t-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl",
+          "bytes": 15342131,
+          "sha256": "e99bf8a3d54693f2063fa6c7d13955d460a9f543d9dbc80e69a92da288259b28",
+          "url": "https://files.pythonhosted.org/packages/b1/ee/a0fb000c6a57602a7a2958f72a5d07837dd88cb9a158f1edb0a279126428/numpy-2.5.5-cp314-cp314t-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl"
+        },
+        {
+          "filename": "numpy-2.5.5-cp314-cp314t-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+          "bytes": 15751077,
+          "sha256": "479e43c183049ec1a820eeb36549e493924f56b3e893a1d5865d0fff12abad47",
+          "url": "https://files.pythonhosted.org/packages/93/43/85cfae380e4e2fe1d246c39a12c88c7a224e751604b6fa13236df3b86600/numpy-2.5.5-cp314-cp314t-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+        },
+        {
+          "filename": "numpy-2.5.5-cp315-cp315-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl",
+          "bytes": 15294336,
+          "sha256": "a207eb88a18e30add597c366c1db7e79f48fc94084b8e7dbd0eefb95a645db12",
+          "url": "https://files.pythonhosted.org/packages/08/64/c39a7b41df0d433ff37fd4fdd6e32b3fa3b51a82110bbcd386d0e37f5da6/numpy-2.5.5-cp315-cp315-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl"
+        },
+        {
+          "filename": "numpy-2.5.5-cp315-cp315-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+          "bytes": 15713633,
+          "sha256": "9c3e1ac3cd5d3329f4d38709ff4c21f0621bbe8779c094d6de8ec8347246fcdc",
+          "url": "https://files.pythonhosted.org/packages/d0/ce/ef0ca1a7dbf657a68ec52ce150cc477a7cdd8d09c7ef77662cdecbca39e4/numpy-2.5.5-cp315-cp315-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+        },
+        {
+          "filename": "numpy-2.5.5-cp315-cp315t-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl",
+          "bytes": 15340077,
+          "sha256": "178cb1eaed819b2cb4e398c554b0776d1499f307e30cb58b9bae1921de35dae6",
+          "url": "https://files.pythonhosted.org/packages/4f/a0/de0484dbe0665ae69cbf9c2bb777c2fa4f402e03a102384c54fe54048d44/numpy-2.5.5-cp315-cp315t-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl"
+        },
+        {
+          "filename": "numpy-2.5.5-cp315-cp315t-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+          "bytes": 15752447,
+          "sha256": "b6e30929e3443f46aa7be2749fb003fefbbad6b6a1e2168bf8850a55b657914a",
+          "url": "https://files.pythonhosted.org/packages/39/d8/60a70cb61b8063e4dfc5b8b55f93c247cb7f1a36515d810e70ca94446396/numpy-2.5.5-cp315-cp315t-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+        }
+      ]
+    },
+    {
+      "name": "flask",
+      "version": "3.1.3",
+      "source": "https://pypi.org/pypi/flask/json",
+      "requires_dist": [
+        "blinker>=1.9.0",
+        "click>=8.1.3",
+        "importlib-metadata>=3.6.0; python_version < \"3.10\"",
+        "itsdangerous>=2.2.0",
+        "jinja2>=3.1.2",
+        "markupsafe>=2.1.1",
+        "werkzeug>=3.1.0",
+        "asgiref>=3.2; extra == \"async\"",
+        "python-dotenv; extra == \"dotenv\""
+      ],
+      "wheels": [
+        {
+          "filename": "flask-3.1.3-py3-none-any.whl",
+          "bytes": 103424,
+          "sha256": "f4bcbefc124291925f1a26446da31a5178f9483862233b23c0c96a20701f670c",
+          "url": "https://files.pythonhosted.org/packages/7f/9c/34f6962f9b9e9c71f6e5ed806e0d0ff03c9d1b0b2340088a0cf4bce09b18/flask-3.1.3-py3-none-any.whl"
+        }
+      ]
+    }
+  ],
+  "models": [
+    {
+      "name": "hexgrad/Kokoro-82M",
+      "revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "source": "https://huggingface.co/api/models/hexgrad/Kokoro-82M",
+      "tree_source": "https://huggingface.co/api/models/hexgrad/Kokoro-82M/tree/f3ff3571791e39611d31c381e3a41a3af07b4987?recursive=true",
+      "files": [
+        {
+          "type": "directory",
+          "oid": "b2e65df8cbc39e5fa11ee92a313f03f432cf7576",
+          "size": 0,
+          "path": "eval"
+        },
+        {
+          "type": "directory",
+          "oid": "023e480044cc505599ebb24f37bb7dceeda3843d",
+          "size": 0,
+          "path": "samples"
+        },
+        {
+          "type": "directory",
+          "oid": "1861ef3fd405d6f50f35edc17e879d96f4616512",
+          "size": 0,
+          "path": "voices"
+        },
+        {
+          "type": "file",
+          "oid": "5e51cb80d60d400f8a6930b96feffb99f97fa5d5",
+          "size": 1913,
+          "path": ".gitattributes"
+        },
+        {
+          "type": "file",
+          "oid": "cd202d28b065e6d9eb396ca0c307d01520e1e296",
+          "size": 2562,
+          "path": "DONATE.md"
+        },
+        {
+          "type": "file",
+          "oid": "484ac8dcd971465258007528fb8bc4a99cf98633",
+          "size": 534,
+          "path": "EVAL.md"
+        },
+        {
+          "type": "file",
+          "oid": "d6dc124205ad567631d14cd8700f1af77a861c3f",
+          "size": 6348,
+          "path": "README.md"
+        },
+        {
+          "type": "file",
+          "oid": "d970051855ba0d8a16064c718af5dc29bcdd961a",
+          "size": 5956,
+          "path": "SAMPLES.md"
+        },
+        {
+          "type": "file",
+          "oid": "ed78a806ffa121525449a848624600eae34037c7",
+          "size": 7625,
+          "path": "VOICES.md"
+        },
+        {
+          "type": "file",
+          "oid": "14a726edd3718279eac426630879ff743955b16a",
+          "size": 2351,
+          "path": "config.json"
+        },
+        {
+          "type": "file",
+          "oid": "252249b9482520322f9f2a230eb476d232957d21",
+          "size": 939504,
+          "lfs": {
+            "oid": "a312447a7801982507545380cce5d5ab5ef60081a5edb2001ca096b19f8f4621",
+            "size": 939504,
+            "pointerSize": 131
+          },
+          "xetHash": "4d694be9a855840377fe8cf343d1f3bedf4d45909a31b7567d63499dd8bafc1c",
+          "path": "eval/ArtificialAnalysis-2025-02-26.jpeg"
+        },
+        {
+          "type": "file",
+          "oid": "1fe20f83a9a85451c0030f987248b69dcdf6d56e",
+          "size": 560066,
+          "lfs": {
+            "oid": "f2caf29f9ad1108cdbf892dc6713423882a8e006c99930f61a17e15a79c3ef6f",
+            "size": 560066,
+            "pointerSize": 131
+          },
+          "xetHash": "129f64e8477228d993243d6e94bea6944a458b2ba82257160acb34977fef4e9f",
+          "path": "eval/TTS_Arena-2025-02-26.jpeg"
+        },
+        {
+          "type": "file",
+          "oid": "6e8885e4860f968ead5f7ceb7013a0e013e23801",
+          "size": 515255,
+          "lfs": {
+            "oid": "b095b1048199fd2b23971595226c1c29200a779ff310c90273b766aa3f725fc9",
+            "size": 515255,
+            "pointerSize": 131
+          },
+          "xetHash": "dca006c9f6ff5d8231aeb3e7bb2f74a6dca2506655c9f41f48f7a2b47d693083",
+          "path": "eval/TTS_Spaces_Arena-2025-02-26.jpeg"
+        },
+        {
+          "type": "file",
+          "oid": "15769c415594dcb424579ba3dfae3085578aac4e",
+          "size": 327212226,
+          "lfs": {
+            "oid": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+            "size": 327212226,
+            "pointerSize": 134
+          },
+          "xetHash": "0c0ac263f5ae91312df578d1b6adfb4c6dfda401cc3696ba97042f835619c52f",
+          "path": "kokoro-v1_0.pth"
+        },
+        {
+          "type": "file",
+          "oid": "b5d5ac0109e1dbeadcec3071936dd3ee0f7228e9",
+          "size": 996044,
+          "path": "samples/HEARME.wav"
+        },
+        {
+          "type": "file",
+          "oid": "d74d88d983a628cb6848433dab8797b184e712d6",
+          "size": 237644,
+          "path": "samples/af_heart_0.wav"
+        },
+        {
+          "type": "file",
+          "oid": "92abcdd3c256d530ea8f1bee4a9ed19cd69b691b",
+          "size": 517244,
+          "path": "samples/af_heart_1.wav"
+        },
+        {
+          "type": "file",
+          "oid": "421bf43c7c0dccc433846cf9b2f0273bba8d8168",
+          "size": 496844,
+          "path": "samples/af_heart_2.wav"
+        },
+        {
+          "type": "file",
+          "oid": "f9b787da5b4ac0fc5c8e8f34f046f4582e6035b1",
+          "size": 1407644,
+          "lfs": {
+            "oid": "e758efcd852e77569772ee5a424df724695903db61a323a6021ee1c6a50ca616",
+            "size": 1407644,
+            "pointerSize": 132
+          },
+          "xetHash": "efe103aaf3e8a410d02506c0bee93ac4a924653e2fff02edf1d73b3da3a5093e",
+          "path": "samples/af_heart_3.wav"
+        },
+        {
+          "type": "file",
+          "oid": "1f4423f8369262d3bbad8ec3c7372bd3f0e83698",
+          "size": 1116044,
+          "lfs": {
+            "oid": "d50c90f447686200052f4375dee55a3406ec0aa140473cf946e98fdfe860989b",
+            "size": 1116044,
+            "pointerSize": 132
+          },
+          "xetHash": "3a20688218786ef7bedf16894298cc9a89f4b8590773de1c653b933c8768c1c8",
+          "path": "samples/af_heart_4.wav"
+        },
+        {
+          "type": "file",
+          "oid": "488c49532fe322dda735b85eac881526e5e5e779",
+          "size": 1033244,
+          "lfs": {
+            "oid": "bc4515b9479c219e4e9347463a859ea6716dd0eb45a520f5f42825a7662b5054",
+            "size": 1033244,
+            "pointerSize": 132
+          },
+          "xetHash": "09d82f8006640f02c79d6d03defd96509649822901c8d695ce39569e56566349",
+          "path": "samples/af_heart_5.wav"
+        },
+        {
+          "type": "file",
+          "oid": "c0f72034c4e1369e4d17990442ffe35aeceb21f3",
+          "size": 523425,
+          "lfs": {
+            "oid": "6d877149dd8b348fbad12e5845b7e43d975390e9f3b68a811d1d86168bef5aa3",
+            "size": 523425,
+            "pointerSize": 131
+          },
+          "xetHash": "2cf15552fe7e23890ba834d9e6f3f058f8cdfb37466ad6f81185c33b1bc893b2",
+          "path": "voices/af_alloy.pt"
+        },
+        {
+          "type": "file",
+          "oid": "047c8e54f2fac7b9175dd5a2f85ac45f1813a4e3",
+          "size": 523425,
+          "lfs": {
+            "oid": "c03bd1a4c3716c2d8eaa3d50022f62d5c31cfbd6e15933a00b17fefe13841cc4",
+            "size": 523425,
+            "pointerSize": 131
+          },
+          "xetHash": "0945d0dc0f97799805a80b430912f3edd7641d10a2799036bdf9db6bf49a95c4",
+          "path": "voices/af_aoede.pt"
+        },
+        {
+          "type": "file",
+          "oid": "67135fde4b0f0ab1d8bfe6d3b1ab46d37675279b",
+          "size": 523425,
+          "lfs": {
+            "oid": "8cb64e02fcc8de0327a8e13817e49c76c945ecf0052ceac97d3081480e8e48d6",
+            "size": 523425,
+            "pointerSize": 131
+          },
+          "xetHash": "359e602cbcd2506063b2fddd89a0644137c8c41fee30cf20a2751463db7bd56a",
+          "path": "voices/af_bella.pt"
+        },
+        {
+          "type": "file",
+          "oid": "23a296174457c31b22b694f6e07e4e1b558122bf",
+          "size": 523425,
+          "lfs": {
+            "oid": "0ab5709b8ffab19bfd849cd11d98f75b60af7733253ad0d67b12382a102cb4ff",
+            "size": 523425,
+            "pointerSize": 131
+          },
+          "xetHash": "feb6de2a4ed45b3653eee237b058d0a581547de52a2916835b2e5c3e75fd5795",
+          "path": "voices/af_heart.pt"
+        },
+        {
+          "type": "file",
+          "oid": "9740b43fd7ce43473fb5e673a16173136876ba04",
+          "size": 523435,
+          "lfs": {
+            "oid": "cdfdccb8cc975aa34ee6b89642963b0064237675de0e41a30ae64cc958dd4e87",
+            "size": 523435,
+            "pointerSize": 131
+          },
+          "xetHash": "6bdbb2e28f044d046e798859aa63bd4653cf615ee502588322ddb20a11d921a9",
+          "path": "voices/af_jessica.pt"
+        },
+        {
+          "type": "file",
+          "oid": "e5532ee773d500ac62cb2fdcc92e8847a867e8f8",
+          "size": 523420,
+          "lfs": {
+            "oid": "8bfbc512321c3db49dff984ac675fa5ac7eaed5a96cc31104d3a9080e179d69d",
+            "size": 523420,
+            "pointerSize": 131
+          },
+          "xetHash": "0b56691390f853faa13881a61739746342367f9c33894090b19b9f59e6a72358",
+          "path": "voices/af_kore.pt"
+        },
+        {
+          "type": "file",
+          "oid": "8be29483c47b630ec3ce1315be802c79126be9da",
+          "size": 523430,
+          "lfs": {
+            "oid": "c5561808bcf5250fe8c5f5de32caf2d94f27e57e95befdb098c5c85991d4c5da",
+            "size": 523430,
+            "pointerSize": 131
+          },
+          "xetHash": "24d1c769e95553fbfca561b3b21f9e52237959df44b8bd98dd0dab169644ec64",
+          "path": "voices/af_nicole.pt"
+        },
+        {
+          "type": "file",
+          "oid": "4f781bca452e06e7acd8c5a5f80d73bf5abca5f7",
+          "size": 523420,
+          "lfs": {
+            "oid": "e0233676ddc21908c37a1f102f6b88a59e4e5c1bd764983616eb9eda629dbcd2",
+            "size": 523420,
+            "pointerSize": 131
+          },
+          "xetHash": "3d4747e84df33e60c7f64fc07b4c705dd0aaf53ebeb9c6d2afa67975cd29a6ed",
+          "path": "voices/af_nova.pt"
+        },
+        {
+          "type": "file",
+          "oid": "78a4f7b3aba66fa78e82916f73028a3f24d894b8",
+          "size": 523425,
+          "lfs": {
+            "oid": "e149459bd9c084416b74756b9bd3418256a8b839088abb07d463730c369dab8f",
+            "size": 523425,
+            "pointerSize": 131
+          },
+          "xetHash": "03141288f440a71e1475cb920b44ce22bd31692258ad2d240392f23a481d1e21",
+          "path": "voices/af_river.pt"
+        },
+        {
+          "type": "file",
+          "oid": "6e64a6594789ae709973e5902b111b77d8b40043",
+          "size": 523425,
+          "lfs": {
+            "oid": "49bd364ea3be9eb3e9685e8f9a15448c4883112a7c0ff7ab139fa4088b08cef9",
+            "size": 523425,
+            "pointerSize": 131
+          },
+          "xetHash": "90b9da97f8dcda67ab0a3fc9b593f618bd1d937fa2d7f9b09fd34bf7b88613c2",
+          "path": "voices/af_sarah.pt"
+        },
+        {
+          "type": "file",
+          "oid": "097b254d4b6baf42efb838bf569d1064caeeeb86",
+          "size": 523351,
+          "lfs": {
+            "oid": "c799548aed06e0cb0d655a85a01b48e7f10484d71663f9a3045a5b9362e8512c",
+            "size": 523351,
+            "pointerSize": 131
+          },
+          "xetHash": "9bbc284626b619d6919073323107cf3f1cf99d9389225a7943f012cece6bfcd6",
+          "path": "voices/af_sky.pt"
+        },
+        {
+          "type": "file",
+          "oid": "bcadf28e7b574cdc1eb1f4df59bae0b0303bd9f7",
+          "size": 523420,
+          "lfs": {
+            "oid": "ced7e284aba12472891be1da3ab34db84cc05cc02b5889535796dbf2d8b0cb34",
+            "size": 523420,
+            "pointerSize": 131
+          },
+          "xetHash": "cc20454dba0771585374e35c6478f3d9be0e09178d07e35ecf54647f9c1415cb",
+          "path": "voices/am_adam.pt"
+        },
+        {
+          "type": "file",
+          "oid": "424d55379346413fdf0282ab65518a10eab27c2a",
+          "size": 523420,
+          "lfs": {
+            "oid": "8bcfdc852bc985fb45c396c561e571ffb9183930071f962f1b50df5c97b161e8",
+            "size": 523420,
+            "pointerSize": 131
+          },
+          "xetHash": "ac76ecaadc7312537a96a613565c05a4b3c1455d11bd20c6d747672c6b4830d9",
+          "path": "voices/am_echo.pt"
+        },
+        {
+          "type": "file",
+          "oid": "5c6a5e836ef7d9d104c5d42f8a48e6f95afc0365",
+          "size": 523420,
+          "lfs": {
+            "oid": "ada66f0eefff34ec921b1d7474d7ac8bec00cd863c170f1c534916e9b8212aae",
+            "size": 523420,
+            "pointerSize": 131
+          },
+          "xetHash": "7424942f729aef75329d5bbfff93fab2789e11f66c647fa4a9c9620306491c27",
+          "path": "voices/am_eric.pt"
+        },
+        {
+          "type": "file",
+          "oid": "78f7a7d984453b438d546bb6006dabbe565a9884",
+          "size": 523430,
+          "lfs": {
+            "oid": "98e507eca1db08230ae3b6232d59c10aec9630022d19accac4f5d12fcec3c37a",
+            "size": 523430,
+            "pointerSize": 131
+          },
+          "xetHash": "05fe393569bff5121957f6ff17a95f60e3e873dfcce8f4a04aa711cbeed757f6",
+          "path": "voices/am_fenrir.pt"
+        },
+        {
+          "type": "file",
+          "oid": "ee88bcc01c91aa7ae5c6687de4444d2107f8c4f9",
+          "size": 523420,
+          "lfs": {
+            "oid": "c82550757ddb31308b97f30040dda8c2d609a9e2de6135848d0a948368138518",
+            "size": 523420,
+            "pointerSize": 131
+          },
+          "xetHash": "fd82957d97d0ae57e49e9e707540b31c53ae29cd50bee19afdc029c372ccf7ad",
+          "path": "voices/am_liam.pt"
+        },
+        {
+          "type": "file",
+          "oid": "9e71bb84ce59989842ff0695f4119463fa72a35f",
+          "size": 523435,
+          "lfs": {
+            "oid": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+            "size": 523435,
+            "pointerSize": 131
+          },
+          "xetHash": "e8fdf4a6802791a80a614ae4f8a5db8295cc7c030bbe091379e8d26ec23db6c3",
+          "path": "voices/am_michael.pt"
+        },
+        {
+          "type": "file",
+          "oid": "258cfa7e3a745f9379453e06bd21d1aa397487b5",
+          "size": 523420,
+          "lfs": {
+            "oid": "e8452be16cd0f6da7b4579eaf7b1e4506e92524882053d86d72b96b9a7fed584",
+            "size": 523420,
+            "pointerSize": 131
+          },
+          "xetHash": "bc38dce397c72de4ef54cbf452ff34d45d7d6585b0c3a4971c05a43f1dbb9122",
+          "path": "voices/am_onyx.pt"
+        },
+        {
+          "type": "file",
+          "oid": "1bf5747ea6c19ef35d673a9ce066ff9cfa25295c",
+          "size": 523420,
+          "lfs": {
+            "oid": "dd1d8973f4ce4b7d8ae407c77a435f485dabc052081b80ea75c4f30b84f36223",
+            "size": 523420,
+            "pointerSize": 131
+          },
+          "xetHash": "456ae32dac1297f05863d69228b5c8e67248b3139e1bf48e32ad745633819abb",
+          "path": "voices/am_puck.pt"
+        },
+        {
+          "type": "file",
+          "oid": "a18e725bbe8790303fe5cb982457fd701a237bd8",
+          "size": 523425,
+          "lfs": {
+            "oid": "7f2f7582fa2b1f160e90aafe6d0b442a685e773608b6667e545d743b073e97a7",
+            "size": 523425,
+            "pointerSize": 131
+          },
+          "xetHash": "8f56b18020c7553ef16ded55bc6a6e3cf334fca70453d78eac50ebfbb8954cd1",
+          "path": "voices/am_santa.pt"
+        },
+        {
+          "type": "file",
+          "oid": "ae3a0a1db073ef34170583f2a55e8034bfa15932",
+          "size": 523425,
+          "lfs": {
+            "oid": "d292651b6af6c0d81705c2580dcb4463fccc0ff7b8d618a471dbb4e45655b3f3",
+            "size": 523425,
+            "pointerSize": 131
+          },
+          "xetHash": "3750b498bc11d28691cde8a57f43a078a59c03a3c043a4a478260b953d5046fa",
+          "path": "voices/bf_alice.pt"
+        },
+        {
+          "type": "file",
+          "oid": "6b75d4188b780acb738f89f662133be5e24e42a0",
+          "size": 523420,
+          "lfs": {
+            "oid": "d0a423deabf4a52b4f49318c51742c54e21bb89bbbe9a12141e7758ddb5da701",
+            "size": 523420,
+            "pointerSize": 131
+          },
+          "xetHash": "0b710dc085c412b32df00eb48fb89a9f091b8f1fb56041f3ff4453e87da52903",
+          "path": "voices/bf_emma.pt"
+        },
+        {
+          "type": "file",
+          "oid": "b08811a075e0212355bd1b283dda61b6ab5679d5",
+          "size": 523440,
+          "lfs": {
+            "oid": "cdd4c37003805104d1d08fb1e05855c8fb2c68de24ca6e71f264a30aaa59eefd",
+            "size": 523440,
+            "pointerSize": 131
+          },
+          "xetHash": "c06013890a574090f2410b8bbf9a80efd2fa206f53d07c85fe56f1da30519e4a",
+          "path": "voices/bf_isabella.pt"
+        },
+        {
+          "type": "file",
+          "oid": "7a57a8c0ae8f8b66c9db54b79faf6e1345e2ca20",
+          "size": 523420,
+          "lfs": {
+            "oid": "6e09c2e481e2d53004d7e5ae7d3a325369e130a6f45c35a6002de75084be9285",
+            "size": 523420,
+            "pointerSize": 131
+          },
+          "xetHash": "4d28786ad7d53dee17c10245bb474bf2396fa9377ad68060b625e4217ae0778a",
+          "path": "voices/bf_lily.pt"
+        },
+        {
+          "type": "file",
+          "oid": "91e84f5066a015f03e3b37cbf0a1917739c6dbd2",
+          "size": 523430,
+          "lfs": {
+            "oid": "fc3fce4e9c12ed4dbc8fa9680cfe51ee190a96444ce7c3ad647549a30823fc5d",
+            "size": 523430,
+            "pointerSize": 131
+          },
+          "xetHash": "a56ca519334c05b58592460bdc34b75c3425110d77cd370ab9ab5e8299b54dab",
+          "path": "voices/bm_daniel.pt"
+        },
+        {
+          "type": "file",
+          "oid": "fd7542dc771b77a7048d80d019a5dc2617d06325",
+          "size": 523425,
+          "lfs": {
+            "oid": "d44935f3135257a9064df99f007fc1342ff1aa767552b4a4fa4c3b2e6e59079c",
+            "size": 523425,
+            "pointerSize": 131
+          },
+          "xetHash": "ca41f70de38c9e318fc073d05c597a3140a48f6d08559f70fbb48d1c39537fef",
+          "path": "voices/bm_fable.pt"
+        },
+        {
+          "type": "file",
+          "oid": "5004f161fa9fa923f031d6e925c6f5fbce9a9baf",
+          "size": 523430,
+          "lfs": {
+            "oid": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+            "size": 523430,
+            "pointerSize": 131
+          },
+          "xetHash": "3ec68cd8f58b4670c2d2479074f89a46ef35674816c673229a3e63ec03673599",
+          "path": "voices/bm_george.pt"
+        },
+        {
+          "type": "file",
+          "oid": "5574f064d7aee6fafe88caa66000d7aa5f440c83",
+          "size": 523425,
+          "lfs": {
+            "oid": "b5204750dcba01029d2ac9cec17aec3b20a6d64073c579d694a23cb40effbd0e",
+            "size": 523425,
+            "pointerSize": 131
+          },
+          "xetHash": "fe4c5c78936b16bc0736c6d17f3497485498ffb43afaf83451ecb03e61451ced",
+          "path": "voices/bm_lewis.pt"
+        },
+        {
+          "type": "file",
+          "oid": "44cf5fc201c1f21711c24e46cc1053323959d9b5",
+          "size": 523420,
+          "lfs": {
+            "oid": "d9d69b0f8a2b87a345f269d89639f89dfbd1a6c9da0c498ae36dd34afcf35530",
+            "size": 523420,
+            "pointerSize": 131
+          },
+          "xetHash": "8e64be1348887dbd618d01163d2ee1a13daf6725262156c4e0baf0cf2522a722",
+          "path": "voices/ef_dora.pt"
+        },
+        {
+          "type": "file",
+          "oid": "c65475a0a9be83b6ffa0524cc79ac853e7371f9b",
+          "size": 523420,
+          "lfs": {
+            "oid": "5eac53f767c3f31a081918ba531969aea850bed18fe56419b804d642c6973431",
+            "size": 523420,
+            "pointerSize": 131
+          },
+          "xetHash": "0b9ba562aa510ba78eb10903569c885d8b1c862a3fcfcfbdf2e9fd397d8a1299",
+          "path": "voices/em_alex.pt"
+        },
+        {
+          "type": "file",
+          "oid": "a1bc30fe579c46ecb4abeed3498888580e45851c",
+          "size": 523430,
+          "lfs": {
+            "oid": "aa8620cb96cec705823efca0d956a63e158e09ad41aca934d354b7f0778f63cb",
+            "size": 523430,
+            "pointerSize": 131
+          },
+          "xetHash": "069b2adc07de9c0f558f099a5d913dcd81b64dea9361c768ab2ce3f6c9b8dced",
+          "path": "voices/em_santa.pt"
+        },
+        {
+          "type": "file",
+          "oid": "02cfd3620a285f8f08732c4ab41c1ab9ef50a35d",
+          "size": 523425,
+          "lfs": {
+            "oid": "8073bf2d2c4b9543a90f2f0fd2144de4ed157e2d4b79ddeb0d5123066171fbc9",
+            "size": 523425,
+            "pointerSize": 131
+          },
+          "xetHash": "b103e5d9e13f18e8b28b3b4a4decbae5ec1aaa08d5e6ae5b28185d974160b122",
+          "path": "voices/ff_siwis.pt"
+        },
+        {
+          "type": "file",
+          "oid": "f9b43af195be13769599d796465799c6ad73b64f",
+          "size": 523425,
+          "lfs": {
+            "oid": "06906fe05746d13a79c5c01e21fd7233b05027221a933c9ada650f5aafc8f044",
+            "size": 523425,
+            "pointerSize": 131
+          },
+          "xetHash": "da745260a3c2acd00d74ae112476fdcacb217dcbb82ef2a7c033f51cf355178c",
+          "path": "voices/hf_alpha.pt"
+        },
+        {
+          "type": "file",
+          "oid": "d70cb8bb354db58ca3b10b94cdd03a11507b530c",
+          "size": 523420,
+          "lfs": {
+            "oid": "63c0a1a6272e98d43f4511bba40e30dd9c8ceaf5f39af869509b9f51a71c503e",
+            "size": 523420,
+            "pointerSize": 131
+          },
+          "xetHash": "8c55417af3c46e7d63b037f5bb0638cb1f667dc6dc916f4099f776fd0e31d353",
+          "path": "voices/hf_beta.pt"
+        },
+        {
+          "type": "file",
+          "oid": "75db739db8c65a70f4ed5e456a92fe3387c2bab9",
+          "size": 523425,
+          "lfs": {
+            "oid": "b55f02a8e8483fffe0afa566e7d22ed8013acf47ad4f6bbee2795a840155703e",
+            "size": 523425,
+            "pointerSize": 131
+          },
+          "xetHash": "72981915401539d5f997be3e3434b8e2ed21f89437907e3ffcdf70180ef6b2dd",
+          "path": "voices/hm_omega.pt"
+        },
+        {
+          "type": "file",
+          "oid": "2a43144c80e9bf1a733676ad1b9d8367116f0d2e",
+          "size": 523351,
+          "lfs": {
+            "oid": "2f0f055cea4f1083f4ef127ece48d71606347f6557dbb961c0ca5740a2da485b",
+            "size": 523351,
+            "pointerSize": 131
+          },
+          "xetHash": "9e8ff11d4f2194050795e1e1a653c281afbd922d59379e15ae6dfaa69aeca6cd",
+          "path": "voices/hm_psi.pt"
+        },
+        {
+          "type": "file",
+          "oid": "b7a52593153d6711f7d6f245b9df7d4ad7eaf15d",
+          "size": 523425,
+          "lfs": {
+            "oid": "6c0b253b955fe32f1a1a86006aebe83d050ea95afd0e7be15182f087deedbf55",
+            "size": 523425,
+            "pointerSize": 131
+          },
+          "xetHash": "116889572ddcea470d5cbb3ac972038c93db70024efba1b19f800c4e9739b36a",
+          "path": "voices/if_sara.pt"
+        },
+        {
+          "type": "file",
+          "oid": "9249ede7c997408dd1bc56d16abedfc031b2aed6",
+          "size": 523341,
+          "lfs": {
+            "oid": "234ed06648649f9bd874b37508ea17560b9c993ef85b4ddb3e3a71e062bd2c12",
+            "size": 523341,
+            "pointerSize": 131
+          },
+          "xetHash": "ebc8dac4c6c8c49de5f3890af5bcf0d517e974ad872c4ef353c707a945c83c8e",
+          "path": "voices/im_nicola.pt"
+        },
+        {
+          "type": "file",
+          "oid": "90da6c92332481e222ddc5fa67c226f9ed4a7fdf",
+          "size": 523425,
+          "lfs": {
+            "oid": "1bf4c9dc69e45ee46183b071f4db766349aac5592acbcfeaf051018048a5d787",
+            "size": 523425,
+            "pointerSize": 131
+          },
+          "xetHash": "362860762a3287fadc1146e2260308556825fc9e4995ff2df964086f30ad3af6",
+          "path": "voices/jf_alpha.pt"
+        },
+        {
+          "type": "file",
+          "oid": "b806c5c2688b32b805ec266e29356f2d009ec7bf",
+          "size": 523351,
+          "lfs": {
+            "oid": "1b171917f18f351e65f2bf9657700cd6bfec4e65589c297525b9cf3c20105770",
+            "size": 523351,
+            "pointerSize": 131
+          },
+          "xetHash": "497a689c53e3da37039786a230c16c0940dabdeb999f25c9be6489076a7b7160",
+          "path": "voices/jf_gongitsune.pt"
+        },
+        {
+          "type": "file",
+          "oid": "0a93ba4639655cfba1d111a6273e4eca75aeacf7",
+          "size": 523420,
+          "lfs": {
+            "oid": "d83f007a7f01783b77014561a7d493d327a0210e143440e91c9b697590d27661",
+            "size": 523420,
+            "pointerSize": 131
+          },
+          "xetHash": "7c25529b2549a361509f0c813cd14fbd6d676e1790108c2d30dc73137fdf617d",
+          "path": "voices/jf_nezumi.pt"
+        },
+        {
+          "type": "file",
+          "oid": "e52eb2e40b0d6697a959c5a2b5dbd34bcc7bb903",
+          "size": 523435,
+          "lfs": {
+            "oid": "0d6917904438aec85f73a6fa1f7ac2be6481aae47c697834936930a91796c576",
+            "size": 523435,
+            "pointerSize": 131
+          },
+          "xetHash": "b1451bfe5686d6dacfa5aea7806a57749e303e9b9ae19e2172d96ff6d4928e38",
+          "path": "voices/jf_tebukuro.pt"
+        },
+        {
+          "type": "file",
+          "oid": "bb64b41e33422b9e522d90aa58e5f4501e9d9548",
+          "size": 523425,
+          "lfs": {
+            "oid": "98340afd68b1cee84fe0cd95528cfa6d4b39e416aa75a9df64049d52c8b55896",
+            "size": 523425,
+            "pointerSize": 131
+          },
+          "xetHash": "80ac4d27cd2bb4147704d9401468fe8295e56e6105dcf6332fcc61855a084a31",
+          "path": "voices/jm_kumo.pt"
+        },
+        {
+          "type": "file",
+          "oid": "887042c91adf283cb1a10b01f8ed9c50731e6cbb",
+          "size": 523425,
+          "lfs": {
+            "oid": "07e4ff987c5d5a8c3995efd15cc4f0db7c4c15e881b198d8ab7f67ecf51f5eb7",
+            "size": 523425,
+            "pointerSize": 131
+          },
+          "xetHash": "4c59e339e134f5d104d0ac974e3d9f545f70dc0a9d5d5ef0427a205d9a04f269",
+          "path": "voices/pf_dora.pt"
+        },
+        {
+          "type": "file",
+          "oid": "c2146a38bed0114ed76db751ea11ca1c8119e4d3",
+          "size": 523425,
+          "lfs": {
+            "oid": "cf0ba8c573c2480fc54123683a35cf1e2ae130428e441eb91f9149bdb188a526",
+            "size": 523425,
+            "pointerSize": 131
+          },
+          "xetHash": "8885fedffa1db36f2cbe8438e6f2bb51a8e9a6f1227711e5de80e3ee18af5d8e",
+          "path": "voices/pm_alex.pt"
+        },
+        {
+          "type": "file",
+          "oid": "0d25b990d6c2e29fcd0fc1dec3a68ec5f2ebd01d",
+          "size": 523430,
+          "lfs": {
+            "oid": "d42103169c5c872abbafb9129133af7e942bb9d272c3cc3b95c203e7d7198c29",
+            "size": 523430,
+            "pointerSize": 131
+          },
+          "xetHash": "c1fe14c765c42316a93c418bbc21bd4438efb3e340dc18984812098884d4316d",
+          "path": "voices/pm_santa.pt"
+        },
+        {
+          "type": "file",
+          "oid": "98d012c808d0c720f343605125b378c0390e7cfe",
+          "size": 523435,
+          "lfs": {
+            "oid": "9b76be63dab4f4f96962030acc0126a9aee9728608fbbe115e2b58a2bd504df6",
+            "size": 523435,
+            "pointerSize": 131
+          },
+          "xetHash": "8ad773315279776b5240b7762fa4f1d56bcd00016e2eda2223949a419261ad36",
+          "path": "voices/zf_xiaobei.pt"
+        },
+        {
+          "type": "file",
+          "oid": "042a3588212e7f44dfe8545c5a42bd1bc1df7473",
+          "size": 523430,
+          "lfs": {
+            "oid": "95b49f169bf1640f4f43c25e13daa39f7b98d15d00823e83ef5c14b3ced59e49",
+            "size": 523430,
+            "pointerSize": 131
+          },
+          "xetHash": "4538b47a1ba023509bd457f9d2d946c882e0dfc4ea7fc0a742289fc0ec288610",
+          "path": "voices/zf_xiaoni.pt"
+        },
+        {
+          "type": "file",
+          "oid": "009434acf1f3b1f6430a404af1612ba480b8344c",
+          "size": 523440,
+          "lfs": {
+            "oid": "cfaf6f2ded1ee56f1ff94fcd2b0e6cdf32e5b794bdc05b44e7439d44aef5887c",
+            "size": 523440,
+            "pointerSize": 131
+          },
+          "xetHash": "0730e75530375b252044ffea928e1872aeb515c2cad185c51aa75242025cbc6b",
+          "path": "voices/zf_xiaoxiao.pt"
+        },
+        {
+          "type": "file",
+          "oid": "4eab21f6b047099939d8dcab0684409d76dcffbe",
+          "size": 523430,
+          "lfs": {
+            "oid": "b5235dbaeef85a4c613bf78af9a88ff63c25bac5f26ba77e36186d8b7ebf05e2",
+            "size": 523430,
+            "pointerSize": 131
+          },
+          "xetHash": "6ea69ed9cccebd332470178a34b43536fb1e2167e7620374dcd2b9ab5a05941b",
+          "path": "voices/zf_xiaoyi.pt"
+        },
+        {
+          "type": "file",
+          "oid": "eca150f12119b9766fa063f658648dadfa5f42df",
+          "size": 523435,
+          "lfs": {
+            "oid": "76cbf8bad35901d011d9628a2fdceb7b4f1f127e7a3269cb393b3941eb7fc417",
+            "size": 523435,
+            "pointerSize": 131
+          },
+          "xetHash": "b84b818c4ac2a27774625c7e62367bc5ea362abdc46253220fa0d28051e12cd5",
+          "path": "voices/zm_yunjian.pt"
+        },
+        {
+          "type": "file",
+          "oid": "ab5b4af8e051d3940b7f265e0ff6a113a7a68f2a",
+          "size": 523425,
+          "lfs": {
+            "oid": "dbe6e1ce7c3dbaf2f5667432947b638b1c6831ccbe154c4610dbcc44f431e27b",
+            "size": 523425,
+            "pointerSize": 131
+          },
+          "xetHash": "6febdf2d2ee24b365ae477eee15a3bb69b29ebc85f313c9ad26082a05835e912",
+          "path": "voices/zm_yunxi.pt"
+        },
+        {
+          "type": "file",
+          "oid": "edfa288b4b47ddff15c37b00fa9810ec3079be2e",
+          "size": 523430,
+          "lfs": {
+            "oid": "bb2b03b08e84d64e1214440ce3b624987fac177f2eeb5bab8571799a3d980acd",
+            "size": 523430,
+            "pointerSize": 131
+          },
+          "xetHash": "ea4a8fc680949d002bf9c6c459c3142048c3c88f96e1e5d34280cc6d3df180a2",
+          "path": "voices/zm_yunxia.pt"
+        },
+        {
+          "type": "file",
+          "oid": "98a1f6e521fa581791c24c6f7c8845307a98cf02",
+          "size": 523435,
+          "lfs": {
+            "oid": "5238ac22e0c7f8b6cdd2eddd6e444b8a700b73c4674d9a047d59a94ff96379a2",
+            "size": 523435,
+            "pointerSize": 131
+          },
+          "xetHash": "790800afcb7fe9860590f223d76b6764e200737b33bcd6f6ff1ff8a4f7221321",
+          "path": "voices/zm_yunyang.pt"
+        }
+      ]
+    },
+    {
+      "name": "Supertone/supertonic-3",
+      "revision": "3cadd1ee6394adea1bd021217a0e650ede09a323",
+      "source": "https://huggingface.co/api/models/Supertone/supertonic-3",
+      "tree_source": "https://huggingface.co/api/models/Supertone/supertonic-3/tree/3cadd1ee6394adea1bd021217a0e650ede09a323?recursive=true",
+      "files": [
+        {
+          "type": "directory",
+          "oid": "16be2f17a7ec3645b4696c21afd632e1c664cebe",
+          "size": 0,
+          "path": "audio_samples"
+        },
+        {
+          "type": "directory",
+          "oid": "7637b5414a68749b36da3f850e57c00cea2f0c7e",
+          "size": 0,
+          "path": "img"
+        },
+        {
+          "type": "directory",
+          "oid": "6253a26a9f2b86c1fe7ad7d722ba63ad45f6826f",
+          "size": 0,
+          "path": "img/metrics"
+        },
+        {
+          "type": "directory",
+          "oid": "926fde520ff6e0b5dc229d07edbb372efdd0f377",
+          "size": 0,
+          "path": "onnx"
+        },
+        {
+          "type": "directory",
+          "oid": "938b4e1ebda66dae400f268a00cd687e4a8e54b6",
+          "size": 0,
+          "path": "voice_styles"
+        },
+        {
+          "type": "file",
+          "oid": "69a390eba92fec64d64e14437f94ca0db24f5e01",
+          "size": 127,
+          "path": ".gitattributes"
+        },
+        {
+          "type": "file",
+          "oid": "a10ff78e4cd0b13d3d44a0827a9701644e0a2c1a",
+          "size": 22,
+          "path": ".gitignore"
+        },
+        {
+          "type": "file",
+          "oid": "1e2cbe6cef94c8cdf3ed1fcebc0f5317ca7ad5a1",
+          "size": 15007,
+          "path": "LICENSE"
+        },
+        {
+          "type": "file",
+          "oid": "6f4f5c5d7afbe9d45bc107ebc9c6629c3ea5c135",
+          "size": 9189,
+          "path": "README.md"
+        },
+        {
+          "type": "file",
+          "oid": "efb54d905992d988f87fe53afc680e2df69705d3",
+          "size": 1152044,
+          "lfs": {
+            "oid": "09e613442124ee0cb31146431bbe0b3acd727569a55fc0ae4b4082b5de27c9f3",
+            "size": 1152044,
+            "pointerSize": 132
+          },
+          "xetHash": "16e06dc6de365a64bd56fbd34f57bfa6aa96c0916ea0f9c955ea78adc5156fb4",
+          "path": "audio_samples/alphonse_reference.wav"
+        },
+        {
+          "type": "file",
+          "oid": "26025aa45b690f9e6c6e42b94c1b23c9cd282840",
+          "size": 970796,
+          "lfs": {
+            "oid": "f3dacbfa5695d6416fb46a3ea72e202e16a467a4cb5ead9425073ef83596811c",
+            "size": 970796,
+            "pointerSize": 131
+          },
+          "xetHash": "8d823621f4ab408fc8513056ddc1dd0159997bfe0364ed716709dd901fa08beb",
+          "path": "audio_samples/alphonse_supertonic3.wav"
+        },
+        {
+          "type": "file",
+          "oid": "eac5f344100133a6d159389a22d3b3e7a4affbd2",
+          "size": 1152044,
+          "lfs": {
+            "oid": "8d7f3c2b15ee6ebafe88307658bf0787d3ca19f6347fd9e936e7bff786d1f70a",
+            "size": 1152044,
+            "pointerSize": 132
+          },
+          "xetHash": "d440a437f58a843ca1339999e643fe15331b27608b92eb418db83e84e16f4944",
+          "path": "audio_samples/keld_reference.wav"
+        },
+        {
+          "type": "file",
+          "oid": "f08ad3029161385224dc7479a61451dfe18609e2",
+          "size": 1148972,
+          "lfs": {
+            "oid": "818c2b25bbf3e568ae8d4aeea5441605ed3e124ab28d746928972066902b35d9",
+            "size": 1148972,
+            "pointerSize": 132
+          },
+          "xetHash": "8c0cc3aa11d736ed1dc77583a13b5fc509a295d5d86078d9c55404893c583319",
+          "path": "audio_samples/keld_supertonic3.wav"
+        },
+        {
+          "type": "file",
+          "oid": "f8241f543adfbcf832ae353d6e3bd75e1d870c53",
+          "size": 1152044,
+          "lfs": {
+            "oid": "1fcec63c22ad76711ec9835a6ca21cb84227045e3aad808f841bcbec455a9470",
+            "size": 1152044,
+            "pointerSize": 132
+          },
+          "xetHash": "63f86de349255cc9543b255542468fe37629df7d5036eb7c3bbb30ac67d8b46b",
+          "path": "audio_samples/luna_reference.wav"
+        },
+        {
+          "type": "file",
+          "oid": "ee881d2c7ecef7023820c3619171e9827b25e5c7",
+          "size": 712748,
+          "lfs": {
+            "oid": "34527bf7ed968ebc5024f985d48ccf06c5c4418fb2d7fc7e3fb7a873e367c273",
+            "size": 712748,
+            "pointerSize": 131
+          },
+          "xetHash": "5db132edbe10245ebe49d22c130d3dd95d81e0bb40b6d85e9de522eae27991f9",
+          "path": "audio_samples/luna_supertonic3.wav"
+        },
+        {
+          "type": "file",
+          "oid": "e9c0916d3ea3aac2bf67edd8479c216d1fa20da1",
+          "size": 480044,
+          "lfs": {
+            "oid": "ad50e1f13c18aa6af2e0f518714675c03ed98f0e85653a642527f56c2d181a56",
+            "size": 480044,
+            "pointerSize": 131
+          },
+          "xetHash": "2ffdad52d813cd03656562fafa76a6230961b0475096393a34ab799962e51595",
+          "path": "audio_samples/moka_reference.wav"
+        },
+        {
+          "type": "file",
+          "oid": "c842a1062a551f3a01c114a7e0bf15116a2f4283",
+          "size": 479276,
+          "lfs": {
+            "oid": "bec7d6a5261240935d8436f3ada17aa50774878e8e6ad1696d131e4ec4ecd5f3",
+            "size": 479276,
+            "pointerSize": 131
+          },
+          "xetHash": "c553fbcc362853d1350452b82291d111214a90e2c11008f170402bd099a01d00",
+          "path": "audio_samples/moka_supertonic3.wav"
+        },
+        {
+          "type": "file",
+          "oid": "84d8189d447d28e9c9f47b3666c71d8390338376",
+          "size": 264644,
+          "lfs": {
+            "oid": "a59576e7ffe84093439924f14d7070fb8174f8306c27049c00e63d747434a772",
+            "size": 264644,
+            "pointerSize": 131
+          },
+          "xetHash": "5ca76e7d9b105285597570bdccc3cbe7761eb3f82a05197da857ac95d69d7fc8",
+          "path": "audio_samples/nora_reference.wav"
+        },
+        {
+          "type": "file",
+          "oid": "4b1ef1440c9c2e5db6ea727233229657be1209da",
+          "size": 374828,
+          "lfs": {
+            "oid": "6d11415a428949df69191361b9dc5f567aaf6eccd89c13013c2fbb381b353321",
+            "size": 374828,
+            "pointerSize": 131
+          },
+          "xetHash": "ac8ffd781ef5fcb796fdb29e6bef4cdb397a7ad3272350eaf7ffebd855041b6b",
+          "path": "audio_samples/nora_supertonic3.wav"
+        },
+        {
+          "type": "file",
+          "oid": "7f27db275e0402264ae84628d428c5f2adfa1b72",
+          "size": 2304044,
+          "lfs": {
+            "oid": "5449908651219298eab47a32a04b96291baceea00e772ea9cb16853a93127c30",
+            "size": 2304044,
+            "pointerSize": 132
+          },
+          "xetHash": "341a3e1fcdc2d610b1f7247b7fce1ab2a0918510d6cba755c4cf49640250398f",
+          "path": "audio_samples/watson_reference.wav"
+        },
+        {
+          "type": "file",
+          "oid": "42c1cccd5b389716ded2f2a42b986c456aeb8b86",
+          "size": 1019948,
+          "lfs": {
+            "oid": "e8ffb0051f00e3f6476694604a3d21f6e87b3570b9b73fc2fdb9560c9e6f1c67",
+            "size": 1019948,
+            "pointerSize": 132
+          },
+          "xetHash": "59b4ced43e1c68592369c9db2388751a7f15388b4c93d3720b2437fc6ef9a817",
+          "path": "audio_samples/watson_supertonic3.wav"
+        },
+        {
+          "type": "file",
+          "oid": "19c2e8b0aa701c1017ca22a22cd519354854e4b1",
+          "size": 174,
+          "path": "config.json"
+        },
+        {
+          "type": "file",
+          "oid": "b8936f74a03530c0c8b16bdd268c3d3f4549ca2e",
+          "size": 1499338,
+          "lfs": {
+            "oid": "7498880b738494d758a6e37b0c730c46ad0f22775c5076cb0e3ad4062ef8e8be",
+            "size": 1499338,
+            "pointerSize": 132
+          },
+          "xetHash": "0350f528ad099982d88df0318368b4f509455a9b091d0078f5ead26dae5d2ed7",
+          "path": "img/Supertonic3_HeroImage.png"
+        },
+        {
+          "type": "file",
+          "oid": "7535c3f8b94b2205cd4cfe17535105b06c6dc861",
+          "size": 94546,
+          "lfs": {
+            "oid": "c7fcffffdb70b3850f3e3e9552eaf2c263749314f4e39ff9d88e189ce3593322",
+            "size": 94546,
+            "pointerSize": 130
+          },
+          "xetHash": "8a221bee80c748710538e28f88c4adc54d11ebe633b665de220615416a57381f",
+          "path": "img/metrics/model_size_comparison.png"
+        },
+        {
+          "type": "file",
+          "oid": "9d3b0a1d9e852d62f34b7985683c48c14cbee3f8",
+          "size": 262397,
+          "lfs": {
+            "oid": "a80c0def839ea570b207e06cc1d3d5aa99e58a24dc85b3dda2688b2dd2c79ec0",
+            "size": 262397,
+            "pointerSize": 131
+          },
+          "xetHash": "4274aa08b311fd2e135110eec99887af68c19a841d836342deb8de5f1e92b0d3",
+          "path": "img/metrics/runtime_cpu_gpu_latency_memory.png"
+        },
+        {
+          "type": "file",
+          "oid": "66bc01b65b3f9ec27ce323acd0c65ed07fcb372d",
+          "size": 197548,
+          "lfs": {
+            "oid": "b04a427ca1f7a97b6021ba4c518f3318104d2e85023ac0af3373b844021a1db1",
+            "size": 197548,
+            "pointerSize": 131
+          },
+          "xetHash": "0d56ff8e6159f18b247a041c1531d59cd824d7a37092f34bc1b30e9e23b7c409",
+          "path": "img/metrics/s3_vs_measured_wer_range_voxcpm2.png"
+        },
+        {
+          "type": "file",
+          "oid": "c79892bcb50d4325299c1c1adaf266f4e6f508fe",
+          "size": 161950,
+          "lfs": {
+            "oid": "b40da99bfe032f8ce4713bb18305842a1a9a23b01a9642992721a4172949fb28",
+            "size": 161950,
+            "pointerSize": 131
+          },
+          "xetHash": "fae66c15b2432bdf0216fa93755f65c5727c6eb10a2054bcc30af7bdc8ba074e",
+          "path": "img/metrics/supertonic2_vs_3_comparison.png"
+        },
+        {
+          "type": "file",
+          "oid": "3dc0f3ca70185b0ecb20ee812832fa8fd87d5f77",
+          "size": 3700147,
+          "lfs": {
+            "oid": "c3eb91414d5ff8a7a239b7fe9e34e7e2bf8a8140d8375ffb14718b1c639325db",
+            "size": 3700147,
+            "pointerSize": 132
+          },
+          "xetHash": "3f5f4dec9c9b3d9074a8d13141f3acc852dd6e97a07e156e9dc669fe98506b0a",
+          "path": "onnx/duration_predictor.onnx"
+        },
+        {
+          "type": "file",
+          "oid": "001b50875741258a8681a472d63929b2e18abe55",
+          "size": 36416150,
+          "lfs": {
+            "oid": "c7befd5ea8c3119769e8a6c1486c4edc6a3bc8365c67621c881bbb774b9902ff",
+            "size": 36416150,
+            "pointerSize": 133
+          },
+          "xetHash": "9303c918c4da455b341b200d061a82c6ac3b8ed1d678cda6d412e72acfdb936b",
+          "path": "onnx/text_encoder.onnx"
+        },
+        {
+          "type": "file",
+          "oid": "28575b0793c92607a0f0a292550df9bd17709a79",
+          "size": 8253,
+          "path": "onnx/tts.json"
+        },
+        {
+          "type": "file",
+          "oid": "3aaf4d33024aff0be455633c24b3636b3a810150",
+          "size": 277676,
+          "path": "onnx/unicode_indexer.json"
+        },
+        {
+          "type": "file",
+          "oid": "e5e45d221db3825dc28fe20039cfca7e329cfd18",
+          "size": 256534781,
+          "lfs": {
+            "oid": "883ac868ea0275ef0e991524dc64f16b3c0376efd7c320af6b53f5b780d7c61c",
+            "size": 256534781,
+            "pointerSize": 134
+          },
+          "xetHash": "c39cede05082f67b544b19a3b0c0fc273a71d0d8d38a9e06f2512789e3bad7fe",
+          "path": "onnx/vector_estimator.onnx"
+        },
+        {
+          "type": "file",
+          "oid": "b50be323eb0a124468b665e0e3e8380710090744",
+          "size": 101424195,
+          "lfs": {
+            "oid": "085de76dd8e8d5836d6ca66826601f615939218f90e519f70ee8a36ed2a4c4ba",
+            "size": 101424195,
+            "pointerSize": 134
+          },
+          "xetHash": "752c10c00131361ee3ff7de734566150cb26ae821a1245d177a7f682ed0cad4d",
+          "path": "onnx/vocoder.onnx"
+        },
+        {
+          "type": "file",
+          "oid": "421365f307ed1535d8da16845031d0e9fa3e60c5",
+          "size": 292046,
+          "path": "voice_styles/F1.json"
+        },
+        {
+          "type": "file",
+          "oid": "b09a3a433df8a4856d1d7d64736a56ddf37a4ea3",
+          "size": 292423,
+          "path": "voice_styles/F2.json"
+        },
+        {
+          "type": "file",
+          "oid": "a366f94c77c4b440404071f1a52bed3ccf83a5ff",
+          "size": 290794,
+          "path": "voice_styles/F3.json"
+        },
+        {
+          "type": "file",
+          "oid": "39c78a52795320c6101b7eaf984c0e2352fbdc18",
+          "size": 291808,
+          "path": "voice_styles/F4.json"
+        },
+        {
+          "type": "file",
+          "oid": "06983f8816ad00a8eeb7efd37a33d457587e16f8",
+          "size": 291479,
+          "path": "voice_styles/F5.json"
+        },
+        {
+          "type": "file",
+          "oid": "bddfff85a7c4c140c11620bd7005d86681dccdac",
+          "size": 291748,
+          "path": "voice_styles/M1.json"
+        },
+        {
+          "type": "file",
+          "oid": "602ff6c4d6d48cdb71c37461f7c175d71fe8b34b",
+          "size": 292055,
+          "path": "voice_styles/M2.json"
+        },
+        {
+          "type": "file",
+          "oid": "000b60436b77619b933fdc33628ad737595e6794",
+          "size": 290198,
+          "path": "voice_styles/M3.json"
+        },
+        {
+          "type": "file",
+          "oid": "aae253ae81185fa06a6469c3f1cdff04ed121ddf",
+          "size": 291522,
+          "path": "voice_styles/M4.json"
+        },
+        {
+          "type": "file",
+          "oid": "0536b252698830f8536c077edcb94e1ce4768ab6",
+          "size": 291469,
+          "path": "voice_styles/M5.json"
+        }
+      ]
+    },
+    {
+      "name": "supertone-oss-archive/supertonic-3",
+      "revision": "aafc6e32416a594460b32413efc49d7fe4ce6d46",
+      "source": "https://huggingface.co/api/models/supertone-oss-archive/supertonic-3",
+      "tree_source": "https://huggingface.co/api/models/supertone-oss-archive/supertonic-3/tree/aafc6e32416a594460b32413efc49d7fe4ce6d46?recursive=true",
+      "files": [
+        {
+          "type": "directory",
+          "oid": "16be2f17a7ec3645b4696c21afd632e1c664cebe",
+          "size": 0,
+          "path": "audio_samples"
+        },
+        {
+          "type": "directory",
+          "oid": "7637b5414a68749b36da3f850e57c00cea2f0c7e",
+          "size": 0,
+          "path": "img"
+        },
+        {
+          "type": "directory",
+          "oid": "6253a26a9f2b86c1fe7ad7d722ba63ad45f6826f",
+          "size": 0,
+          "path": "img/metrics"
+        },
+        {
+          "type": "directory",
+          "oid": "926fde520ff6e0b5dc229d07edbb372efdd0f377",
+          "size": 0,
+          "path": "onnx"
+        },
+        {
+          "type": "directory",
+          "oid": "938b4e1ebda66dae400f268a00cd687e4a8e54b6",
+          "size": 0,
+          "path": "voice_styles"
+        },
+        {
+          "type": "file",
+          "oid": "69a390eba92fec64d64e14437f94ca0db24f5e01",
+          "size": 127,
+          "path": ".gitattributes"
+        },
+        {
+          "type": "file",
+          "oid": "a10ff78e4cd0b13d3d44a0827a9701644e0a2c1a",
+          "size": 22,
+          "path": ".gitignore"
+        },
+        {
+          "type": "file",
+          "oid": "1e2cbe6cef94c8cdf3ed1fcebc0f5317ca7ad5a1",
+          "size": 15007,
+          "path": "LICENSE"
+        },
+        {
+          "type": "file",
+          "oid": "6f4f5c5d7afbe9d45bc107ebc9c6629c3ea5c135",
+          "size": 9189,
+          "path": "README.md"
+        },
+        {
+          "type": "file",
+          "oid": "efb54d905992d988f87fe53afc680e2df69705d3",
+          "size": 1152044,
+          "lfs": {
+            "oid": "09e613442124ee0cb31146431bbe0b3acd727569a55fc0ae4b4082b5de27c9f3",
+            "size": 1152044,
+            "pointerSize": 132
+          },
+          "xetHash": "16e06dc6de365a64bd56fbd34f57bfa6aa96c0916ea0f9c955ea78adc5156fb4",
+          "path": "audio_samples/alphonse_reference.wav"
+        },
+        {
+          "type": "file",
+          "oid": "26025aa45b690f9e6c6e42b94c1b23c9cd282840",
+          "size": 970796,
+          "lfs": {
+            "oid": "f3dacbfa5695d6416fb46a3ea72e202e16a467a4cb5ead9425073ef83596811c",
+            "size": 970796,
+            "pointerSize": 131
+          },
+          "xetHash": "8d823621f4ab408fc8513056ddc1dd0159997bfe0364ed716709dd901fa08beb",
+          "path": "audio_samples/alphonse_supertonic3.wav"
+        },
+        {
+          "type": "file",
+          "oid": "eac5f344100133a6d159389a22d3b3e7a4affbd2",
+          "size": 1152044,
+          "lfs": {
+            "oid": "8d7f3c2b15ee6ebafe88307658bf0787d3ca19f6347fd9e936e7bff786d1f70a",
+            "size": 1152044,
+            "pointerSize": 132
+          },
+          "xetHash": "d440a437f58a843ca1339999e643fe15331b27608b92eb418db83e84e16f4944",
+          "path": "audio_samples/keld_reference.wav"
+        },
+        {
+          "type": "file",
+          "oid": "f08ad3029161385224dc7479a61451dfe18609e2",
+          "size": 1148972,
+          "lfs": {
+            "oid": "818c2b25bbf3e568ae8d4aeea5441605ed3e124ab28d746928972066902b35d9",
+            "size": 1148972,
+            "pointerSize": 132
+          },
+          "xetHash": "8c0cc3aa11d736ed1dc77583a13b5fc509a295d5d86078d9c55404893c583319",
+          "path": "audio_samples/keld_supertonic3.wav"
+        },
+        {
+          "type": "file",
+          "oid": "f8241f543adfbcf832ae353d6e3bd75e1d870c53",
+          "size": 1152044,
+          "lfs": {
+            "oid": "1fcec63c22ad76711ec9835a6ca21cb84227045e3aad808f841bcbec455a9470",
+            "size": 1152044,
+            "pointerSize": 132
+          },
+          "xetHash": "63f86de349255cc9543b255542468fe37629df7d5036eb7c3bbb30ac67d8b46b",
+          "path": "audio_samples/luna_reference.wav"
+        },
+        {
+          "type": "file",
+          "oid": "ee881d2c7ecef7023820c3619171e9827b25e5c7",
+          "size": 712748,
+          "lfs": {
+            "oid": "34527bf7ed968ebc5024f985d48ccf06c5c4418fb2d7fc7e3fb7a873e367c273",
+            "size": 712748,
+            "pointerSize": 131
+          },
+          "xetHash": "5db132edbe10245ebe49d22c130d3dd95d81e0bb40b6d85e9de522eae27991f9",
+          "path": "audio_samples/luna_supertonic3.wav"
+        },
+        {
+          "type": "file",
+          "oid": "e9c0916d3ea3aac2bf67edd8479c216d1fa20da1",
+          "size": 480044,
+          "lfs": {
+            "oid": "ad50e1f13c18aa6af2e0f518714675c03ed98f0e85653a642527f56c2d181a56",
+            "size": 480044,
+            "pointerSize": 131
+          },
+          "xetHash": "2ffdad52d813cd03656562fafa76a6230961b0475096393a34ab799962e51595",
+          "path": "audio_samples/moka_reference.wav"
+        },
+        {
+          "type": "file",
+          "oid": "c842a1062a551f3a01c114a7e0bf15116a2f4283",
+          "size": 479276,
+          "lfs": {
+            "oid": "bec7d6a5261240935d8436f3ada17aa50774878e8e6ad1696d131e4ec4ecd5f3",
+            "size": 479276,
+            "pointerSize": 131
+          },
+          "xetHash": "c553fbcc362853d1350452b82291d111214a90e2c11008f170402bd099a01d00",
+          "path": "audio_samples/moka_supertonic3.wav"
+        },
+        {
+          "type": "file",
+          "oid": "84d8189d447d28e9c9f47b3666c71d8390338376",
+          "size": 264644,
+          "lfs": {
+            "oid": "a59576e7ffe84093439924f14d7070fb8174f8306c27049c00e63d747434a772",
+            "size": 264644,
+            "pointerSize": 131
+          },
+          "xetHash": "5ca76e7d9b105285597570bdccc3cbe7761eb3f82a05197da857ac95d69d7fc8",
+          "path": "audio_samples/nora_reference.wav"
+        },
+        {
+          "type": "file",
+          "oid": "4b1ef1440c9c2e5db6ea727233229657be1209da",
+          "size": 374828,
+          "lfs": {
+            "oid": "6d11415a428949df69191361b9dc5f567aaf6eccd89c13013c2fbb381b353321",
+            "size": 374828,
+            "pointerSize": 131
+          },
+          "xetHash": "ac8ffd781ef5fcb796fdb29e6bef4cdb397a7ad3272350eaf7ffebd855041b6b",
+          "path": "audio_samples/nora_supertonic3.wav"
+        },
+        {
+          "type": "file",
+          "oid": "7f27db275e0402264ae84628d428c5f2adfa1b72",
+          "size": 2304044,
+          "lfs": {
+            "oid": "5449908651219298eab47a32a04b96291baceea00e772ea9cb16853a93127c30",
+            "size": 2304044,
+            "pointerSize": 132
+          },
+          "xetHash": "341a3e1fcdc2d610b1f7247b7fce1ab2a0918510d6cba755c4cf49640250398f",
+          "path": "audio_samples/watson_reference.wav"
+        },
+        {
+          "type": "file",
+          "oid": "42c1cccd5b389716ded2f2a42b986c456aeb8b86",
+          "size": 1019948,
+          "lfs": {
+            "oid": "e8ffb0051f00e3f6476694604a3d21f6e87b3570b9b73fc2fdb9560c9e6f1c67",
+            "size": 1019948,
+            "pointerSize": 132
+          },
+          "xetHash": "59b4ced43e1c68592369c9db2388751a7f15388b4c93d3720b2437fc6ef9a817",
+          "path": "audio_samples/watson_supertonic3.wav"
+        },
+        {
+          "type": "file",
+          "oid": "19c2e8b0aa701c1017ca22a22cd519354854e4b1",
+          "size": 174,
+          "path": "config.json"
+        },
+        {
+          "type": "file",
+          "oid": "b8936f74a03530c0c8b16bdd268c3d3f4549ca2e",
+          "size": 1499338,
+          "lfs": {
+            "oid": "7498880b738494d758a6e37b0c730c46ad0f22775c5076cb0e3ad4062ef8e8be",
+            "size": 1499338,
+            "pointerSize": 132
+          },
+          "xetHash": "0350f528ad099982d88df0318368b4f509455a9b091d0078f5ead26dae5d2ed7",
+          "path": "img/Supertonic3_HeroImage.png"
+        },
+        {
+          "type": "file",
+          "oid": "7535c3f8b94b2205cd4cfe17535105b06c6dc861",
+          "size": 94546,
+          "lfs": {
+            "oid": "c7fcffffdb70b3850f3e3e9552eaf2c263749314f4e39ff9d88e189ce3593322",
+            "size": 94546,
+            "pointerSize": 130
+          },
+          "xetHash": "8a221bee80c748710538e28f88c4adc54d11ebe633b665de220615416a57381f",
+          "path": "img/metrics/model_size_comparison.png"
+        },
+        {
+          "type": "file",
+          "oid": "9d3b0a1d9e852d62f34b7985683c48c14cbee3f8",
+          "size": 262397,
+          "lfs": {
+            "oid": "a80c0def839ea570b207e06cc1d3d5aa99e58a24dc85b3dda2688b2dd2c79ec0",
+            "size": 262397,
+            "pointerSize": 131
+          },
+          "xetHash": "4274aa08b311fd2e135110eec99887af68c19a841d836342deb8de5f1e92b0d3",
+          "path": "img/metrics/runtime_cpu_gpu_latency_memory.png"
+        },
+        {
+          "type": "file",
+          "oid": "66bc01b65b3f9ec27ce323acd0c65ed07fcb372d",
+          "size": 197548,
+          "lfs": {
+            "oid": "b04a427ca1f7a97b6021ba4c518f3318104d2e85023ac0af3373b844021a1db1",
+            "size": 197548,
+            "pointerSize": 131
+          },
+          "xetHash": "0d56ff8e6159f18b247a041c1531d59cd824d7a37092f34bc1b30e9e23b7c409",
+          "path": "img/metrics/s3_vs_measured_wer_range_voxcpm2.png"
+        },
+        {
+          "type": "file",
+          "oid": "c79892bcb50d4325299c1c1adaf266f4e6f508fe",
+          "size": 161950,
+          "lfs": {
+            "oid": "b40da99bfe032f8ce4713bb18305842a1a9a23b01a9642992721a4172949fb28",
+            "size": 161950,
+            "pointerSize": 131
+          },
+          "xetHash": "fae66c15b2432bdf0216fa93755f65c5727c6eb10a2054bcc30af7bdc8ba074e",
+          "path": "img/metrics/supertonic2_vs_3_comparison.png"
+        },
+        {
+          "type": "file",
+          "oid": "3dc0f3ca70185b0ecb20ee812832fa8fd87d5f77",
+          "size": 3700147,
+          "lfs": {
+            "oid": "c3eb91414d5ff8a7a239b7fe9e34e7e2bf8a8140d8375ffb14718b1c639325db",
+            "size": 3700147,
+            "pointerSize": 132
+          },
+          "xetHash": "3f5f4dec9c9b3d9074a8d13141f3acc852dd6e97a07e156e9dc669fe98506b0a",
+          "path": "onnx/duration_predictor.onnx"
+        },
+        {
+          "type": "file",
+          "oid": "001b50875741258a8681a472d63929b2e18abe55",
+          "size": 36416150,
+          "lfs": {
+            "oid": "c7befd5ea8c3119769e8a6c1486c4edc6a3bc8365c67621c881bbb774b9902ff",
+            "size": 36416150,
+            "pointerSize": 133
+          },
+          "xetHash": "9303c918c4da455b341b200d061a82c6ac3b8ed1d678cda6d412e72acfdb936b",
+          "path": "onnx/text_encoder.onnx"
+        },
+        {
+          "type": "file",
+          "oid": "28575b0793c92607a0f0a292550df9bd17709a79",
+          "size": 8253,
+          "path": "onnx/tts.json"
+        },
+        {
+          "type": "file",
+          "oid": "3aaf4d33024aff0be455633c24b3636b3a810150",
+          "size": 277676,
+          "path": "onnx/unicode_indexer.json"
+        },
+        {
+          "type": "file",
+          "oid": "e5e45d221db3825dc28fe20039cfca7e329cfd18",
+          "size": 256534781,
+          "lfs": {
+            "oid": "883ac868ea0275ef0e991524dc64f16b3c0376efd7c320af6b53f5b780d7c61c",
+            "size": 256534781,
+            "pointerSize": 134
+          },
+          "xetHash": "c39cede05082f67b544b19a3b0c0fc273a71d0d8d38a9e06f2512789e3bad7fe",
+          "path": "onnx/vector_estimator.onnx"
+        },
+        {
+          "type": "file",
+          "oid": "b50be323eb0a124468b665e0e3e8380710090744",
+          "size": 101424195,
+          "lfs": {
+            "oid": "085de76dd8e8d5836d6ca66826601f615939218f90e519f70ee8a36ed2a4c4ba",
+            "size": 101424195,
+            "pointerSize": 134
+          },
+          "xetHash": "752c10c00131361ee3ff7de734566150cb26ae821a1245d177a7f682ed0cad4d",
+          "path": "onnx/vocoder.onnx"
+        },
+        {
+          "type": "file",
+          "oid": "421365f307ed1535d8da16845031d0e9fa3e60c5",
+          "size": 292046,
+          "path": "voice_styles/F1.json"
+        },
+        {
+          "type": "file",
+          "oid": "b09a3a433df8a4856d1d7d64736a56ddf37a4ea3",
+          "size": 292423,
+          "path": "voice_styles/F2.json"
+        },
+        {
+          "type": "file",
+          "oid": "a366f94c77c4b440404071f1a52bed3ccf83a5ff",
+          "size": 290794,
+          "path": "voice_styles/F3.json"
+        },
+        {
+          "type": "file",
+          "oid": "39c78a52795320c6101b7eaf984c0e2352fbdc18",
+          "size": 291808,
+          "path": "voice_styles/F4.json"
+        },
+        {
+          "type": "file",
+          "oid": "06983f8816ad00a8eeb7efd37a33d457587e16f8",
+          "size": 291479,
+          "path": "voice_styles/F5.json"
+        },
+        {
+          "type": "file",
+          "oid": "bddfff85a7c4c140c11620bd7005d86681dccdac",
+          "size": 291748,
+          "path": "voice_styles/M1.json"
+        },
+        {
+          "type": "file",
+          "oid": "602ff6c4d6d48cdb71c37461f7c175d71fe8b34b",
+          "size": 292055,
+          "path": "voice_styles/M2.json"
+        },
+        {
+          "type": "file",
+          "oid": "000b60436b77619b933fdc33628ad737595e6794",
+          "size": 290198,
+          "path": "voice_styles/M3.json"
+        },
+        {
+          "type": "file",
+          "oid": "aae253ae81185fa06a6469c3f1cdff04ed121ddf",
+          "size": 291522,
+          "path": "voice_styles/M4.json"
+        },
+        {
+          "type": "file",
+          "oid": "0536b252698830f8536c077edcb94e1ce4768ab6",
+          "size": 291469,
+          "path": "voice_styles/M5.json"
+        }
+      ]
+    }
+  ],
+  "model_releases": [
+    {
+      "source": "https://api.github.com/repos/thewh1teagle/kokoro-onnx/releases/tags/model-files-v1.1",
+      "tag": "model-files-v1.1",
+      "assets": [
+        {
+          "name": "kokoro-v1.0.fp16.onnx",
+          "bytes": 163527961,
+          "url": "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/kokoro-v1.0.fp16.onnx",
+          "digest": "sha256:f3a290d384fbb27966d462905c71a46cef9e5fd00516b40df32a0b4afe77ac96"
+        },
+        {
+          "name": "kokoro-v1.0.int8.onnx",
+          "bytes": 114119327,
+          "url": "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/kokoro-v1.0.int8.onnx",
+          "digest": "sha256:ae315a79b623f244700e4afb9246c46a26066782e049ba174bf3ba433970ee9c"
+        },
+        {
+          "name": "kokoro-v1.0.onnx",
+          "bytes": 325505369,
+          "url": "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/kokoro-v1.0.onnx",
+          "digest": "sha256:beb0d1848dee9a49da392cc3df26958d46cfa35d321edf434f52949153f0df3a"
+        },
+        {
+          "name": "kokoro-v1.1-zh.fp16.onnx",
+          "bytes": 163528759,
+          "url": "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/kokoro-v1.1-zh.fp16.onnx",
+          "digest": "sha256:a628ea5d6fbde96d1a85f691a6a00847829937f9e488021ba2c5359bc6ea08b5"
+        },
+        {
+          "name": "kokoro-v1.1-zh.int8.onnx",
+          "bytes": 114120125,
+          "url": "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/kokoro-v1.1-zh.int8.onnx",
+          "digest": "sha256:11751c087b4bbeed031e2b687b11dda698bd27ba0509472f960b57f835a999f7"
+        },
+        {
+          "name": "kokoro-v1.1-zh.onnx",
+          "bytes": 325506167,
+          "url": "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/kokoro-v1.1-zh.onnx",
+          "digest": "sha256:859f9ded9f53be16c24857cdab3254a45da53c3afd5ba6ef134c7de3f822e326"
+        },
+        {
+          "name": "voices-v1.0.bin",
+          "bytes": 28214398,
+          "url": "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/voices-v1.0.bin",
+          "digest": "sha256:bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d"
+        },
+        {
+          "name": "voices-v1.1-zh.bin",
+          "bytes": 53815880,
+          "url": "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/voices-v1.1-zh.bin",
+          "digest": null
+        }
+      ]
+    }
+  ]
+}

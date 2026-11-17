@@ -1,0 +1,8 @@
+{
+  "voice": "supertonic-F1",
+  "sample": "C",
+  "date": "2026-11-17",
+  "source": "explicit owner selection in chat",
+  "compression": "owner accepted mono MP3 32 kbps",
+  "scope": "voice preference; Vercel deployment/capacity is not yet validated"
+}

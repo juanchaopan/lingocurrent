@@ -1,0 +1,4 @@
+assets/
+requirements.txt
+.vercel/
+__pycache__/
