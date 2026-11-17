@@ -1,6 +1,6 @@
 # R1 环境搭建：陪同操作说明
 
-状态：路线图配套操作稿，**尚未创建云资源、设置凭据或启用部署**。配置名按当前已提交 workflow/脚本核对；R1 实现新增项时同步本文。按下面三个阶段推进，每次聊天只指导当前一步，完成并验证再继续。
+当前实际状态见[环境搭建记录](r1-status.md)：账号、云资源和 GitHub 配置已准备，`DEPLOY_ENABLED=true`、`PREVIEW_ENABLED=false`；仅有 staging、production 两个 GitHub 环境，Vercel Token 按用户选择存仓库级 Secret。下文保留原从零搭建计划作参考，涉及 preview、Claude 认证、业务表和页面的步骤尚未交付，不应重复要求用户配置，也不作为本次合并范围。额外代码保留在草稿 PR #12 的 GitHub 分支，位置及原因已在记录中说明。
 
 ## 第一阶段：先把配置集中放进 GitHub
 

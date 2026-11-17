@@ -1,5 +1,7 @@
 # LingoCurrent 文档
 
+当前环境与交接见[环境搭建记录](operations/r1-status.md)：其中明确记录“我多做了”、额外代码所在的 GitHub 分支和草稿 PR #12。额外业务代码未合并到 main，本次只交付环境事实与说明；下文路线图中的业务路径不代表已经实现或获准在本次合并。
+
 2026-11-16 Roadmap：用户已确认[五个 issue 的合并路线图](roadmap.md)，GitHub 已创建 #6–#10 和 M0/M1；配套有[GitHub 配置逐步操作说明](operations/setup-walkthrough.md)与[频道候选交接清单](product/channel-candidates.md)，后续复用精确feed及证据，不重做初筛。Scaffold/GitHub/CI 已完成，证据见[scaffold](scaffold.md)；下一阶段为云端环境与产品实现。历史文档中“分别创建 TTS/Speak/RSS issue”的任务组织方式由本路线图覆盖，三组验证范围及各自选型门槛保留，尚未执行。
 
 状态：Kickoff与Architecture于2026-11-15确认，Design于2026-11-16（America/Toronto）获用户“ok, finalize design”确认并定稿。
