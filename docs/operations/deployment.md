@@ -1,8 +1,8 @@
 # Deployment setup
 
-For guided setup and the GitHub-only source of static configuration, follow [the R1 walkthrough](setup-walkthrough.md). The [five-issue roadmap](../roadmap.md) groups environment, staging, pipeline and channel-input work in R1; source selection comes from the combined R2 spike. These are plans, not completed hosted setup.
+For guided setup and the GitHub-only source of static configuration, follow [the R1 walkthrough](setup-walkthrough.md). The [environment record](r1-status.md) gives the actual resources, deferred checks and the GitHub location of extra business code retained outside main. The [five-issue roadmap](../roadmap.md) remains the feature plan; it does not prove implementation or authorize merging the draft business code.
 
-No hosted environments or credentials have been created. Workflows are disabled until repository variable DEPLOY_ENABLED=true is set deliberately after setup.
+The staging/production resources and GitHub configuration have been prepared. Repository variables are DEPLOY_ENABLED=true and PREVIEW_ENABLED=false. The applications have not yet been deployed or accepted on these resources. Preview and Claude review authentication remain deferred by the user.
 
 ## Environments and release
 
@@ -22,11 +22,11 @@ The production build/CLI command uses environment-scoped credentials; it never r
 
 ## Variables and secrets
 
-| Scope                | Variables                                                                                                                                                                | Secrets                                                                              |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| Repository           | DEPLOY_ENABLED and PREVIEW_ENABLED (false initially)                                                                                                                     | OPENAI_API_KEY (one shared key inherited by environment jobs)                        |
-| staging / production | VERCEL_ORG_ID, VERCEL_PROJECT_ID, NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY, S3_ENDPOINT, S3_REGION, S3_BUCKET                                                                   | VERCEL_TOKEN, DATABASE_URL, CLERK_SECRET_KEY, S3_ACCESS_KEY_ID, S3_SECRET_ACCESS_KEY |
-| preview              | VERCEL_ORG_ID, VERCEL_PROJECT_ID (staging project), NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY, NEON_PROJECT_ID (testing project), NEON_SEED_BRANCH (nonpersonal seed), S3_BUCKET | VERCEL_TOKEN, NEON_API_KEY, CLERK_SECRET_KEY (testing)                               |
+| Scope                | Variables                                                                                                                                                                | Secrets                                                                     |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- |
+| Repository           | DEPLOY_ENABLED=true, PREVIEW_ENABLED=false                                                                                                                               | OPENAI_API_KEY, VERCEL_TOKEN (one of each shared by environment jobs)       |
+| staging / production | VERCEL_ORG_ID, VERCEL_PROJECT_ID, NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY, S3_ENDPOINT, S3_REGION, S3_BUCKET                                                                   | DATABASE_URL, CLERK_SECRET_KEY, S3_ACCESS_KEY_ID, S3_SECRET_ACCESS_KEY      |
+| preview (deferred)   | VERCEL_ORG_ID, VERCEL_PROJECT_ID (staging project), NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY, NEON_PROJECT_ID (testing project), NEON_SEED_BRANCH (nonpersonal seed), S3_BUCKET | NEON_API_KEY, CLERK_SECRET_KEY (testing); repository VERCEL_TOKEN inherited |
 
 Keep production and testing Clerk/DB/storage credentials isolated. Only public Clerk configuration belongs in NEXT_PUBLIC_*.
 Neon storage credentials are branch-scoped: token_id maps to S3_ACCESS_KEY_ID and s3_secret_access_key to S3_SECRET_ACCESS_KEY.
