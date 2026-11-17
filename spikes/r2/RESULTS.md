@@ -2,8 +2,8 @@
 
 RSS checked 2026-11-16; free listening round 2026-11-17, America/Toronto.
 Issue #7 remains open. The owner selected sample C / Supertonic F1 for its voice.
-Compression acceptance, production deployment/capacity and source configuration
-remain undecided.
+The owner also accepted mono MP3 at 32 kbps. Production deployment/capacity,
+Speak quality and source configuration remain undecided.
 
 ## Free original samples ready for owner listening
 
@@ -33,7 +33,8 @@ a synthetic microphone only and saved no owner corpus or voice preference. All
 four audio files load; mobile layout and recording/playback/recognition were checked.
 
 Real correct/wrong/invalid recordings, actual Vercel deployment/resource evidence,
-compression listening acceptance and final source selection remain unfinished.
+final source selection remain unfinished. Voice and compression listening choices
+are confirmed.
 No OpenAI model call or cloud probe deployment has occurred.
 
 ## Selected C compression comparison (2026-11-17)
@@ -53,8 +54,10 @@ and browser playback timing are separate considerations; this is not full timeli
 or device compatibility certification. The [receipt](evidence/compression/measurements.json)
 records encoder/version, reproducible commands, sizes, SHA-256 and per-encode wall
 time. The two single encodes are observations, not a latency distribution or cloud
-benchmark. File reduction does not establish acceptable sound quality; the owner
-must compare clarity against the original before choosing a setting.
+benchmark. After listening, the owner explicitly chose **32 kbps** in chat; the
+[selection receipt](evidence/compression/owner-choice.json) records that choice.
+This confirms sample listening acceptance, not Vercel suitability or every-device
+playback/timeline behavior.
 
 ## RSS observations
 

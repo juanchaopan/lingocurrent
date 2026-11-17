@@ -2,7 +2,7 @@
 
 2026-11-16 Roadmap组织更新：用户要求尽量合并spike，TTS/Speak与全文RSS共用[GitHub #7](https://github.com/juanchaopan/lingocurrent/issues/7)（[R2规格](../roadmap/02-spikes.md)），各自验证与选择仍分别完成。本文旧文中的“分别创建issue”安排被覆盖；引擎/音色状态仍为提议，未取得实测结论。
 
-- 状态：提议（须经 spike 证据及用户选择后定引擎/音色）
+- 状态：部分确认（TTS 听感与压缩已选；Vercel 适用性与 Speak 仍待验证）
 - 日期：2026-11-15
 - 相关需求：REQ-005、REQ-023、REQ-029、REQ-031–REQ-033
 
@@ -10,9 +10,24 @@
 
 用户已接受 TTS/Speak 分别 spike，Speak 不能在手机浏览器做本地模型测试，须核对 Vercel 免费硬件与月容量；本地不足则用 OpenAI。压缩可以降低音频体积，但要自然清晰。
 
+## 已确认的试听选择（2026-11-17）
+
+用户先试听免费 Kokoro 与 Supertonic 的四段同文原音，选择 C / Supertonic F1；
+随后对照原音和两个压缩版，明确选择单声道 MP3 32 kbps（保持 44.1 kHz）。
+本次 17.41 秒样本由 1,536,044 字节减至 70,025 字节，减少 95.44%。
+代码、原音、压缩样本与选择记录保存在
+[独立实验分支](https://github.com/juanchaopan/lingocurrent/tree/codex/spike-7-validation/spikes/r2)。
+
+这是用户对实际样音的选择，不代表已证明 Supertonic 可在 Vercel Hobby 满足部署、
+CPU、内存和月容量要求。Speak 尚需用户真实录音与负样本，#7 保持打开。
+OpenAI 朗读仅为免费方案效果不满意后的后备，目前没有运行收费调用。
+
 ## 候选与验证顺序
 
-TTS 先用当前 OpenAI 音频方案作自然度对照，再验证 Kokoro-82M、Supertonic 3 的实际 Vercel 可行性；不是已证明前者最佳。OpenAI 模型/API 生命周期在实施时复核，不能将旧 Speech API 示例直接套到 Realtime。
+TTS 按用户最新要求先比较免费第三方库原音，用户选音色后才测试压缩；只有免费方案
+效果不满意时才考虑付费 OpenAI，不能将它作为默认先行参照。当前已选 Supertonic F1
+及 MP3 32 kbps，实际 Vercel 可行性仍须验证。后备 OpenAI 模型/API 生命周期在需要时
+复核，不能将旧 Speech API 示例直接套到 Realtime。
 
 Speak 研究 Vosk 小型可调词图候选与更小模型的质量/兼容性取舍，和 OpenAI 原始录音对照；PocketSphinx 仅备选。Top-K 命中是用户允许的产品路线，K、大小写/拼写规范化、短语和近音误通过率需负样本证据。不得只给识别器唯一目标再以命中率证明效果，路径分数也不当成校准概率。
 

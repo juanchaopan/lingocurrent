@@ -18,8 +18,8 @@ Keep this branch after the experiment, as requested by the owner.
    checks and CI cannot complete the quality gate or replace participation.
 
 Four real free samples and the local microphone lab are available. The owner
-selected Supertonic F1; compression acceptance and deployment fit remain undecided,
-and the spike remains open.
+selected Supertonic F1 and mono MP3 32 kbps. Deployment fit, owner Speak samples
+and the rest of the spike remain unfinished.
 
 ## Questions and gates
 
@@ -100,7 +100,8 @@ free weights. The local model directories and runtime stay ignored.
 `compress_selected.py` encodes the chosen original at 32/48 kbps mono MP3, retaining
 44.1 kHz. Its receipt records file sizes, encoder wall time, hashes and decoded
 frame counts. The local page offers original/32/48 kbps listening and an explicit
-compression choice. No compression setting is adopted before the owner responds.
+compression choice. The owner explicitly accepted 32 kbps after this comparison;
+the selection is preserved in `evidence/compression/owner-choice.json`.
 
 Read [interim results](RESULTS.md) before approval. The branch's
 `.github/workflows/deploy.yml` is an **experimental replacement**, not a main
