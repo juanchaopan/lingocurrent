@@ -1,6 +1,7 @@
 """Isolated speech measurements; never a production application module."""
 
 import base64
+from contextlib import closing
 import io
 import json
 import os
@@ -136,10 +137,10 @@ def realtime(content, instructions, voice=None):
         raise ValueError("OpenAI credential not configured")
     model = "gpt-realtime-2.1"
     audio, text, transcript, usage = [], [], [], None
-    with websocket.create_connection(
+    with closing(websocket.create_connection(
         f"wss://api.openai.com/v1/realtime?model={model}",
         header=[f"Authorization: Bearer {key}"], timeout=90,
-    ) as connection:
+    )) as connection:
         connection.send(json.dumps({"type": "session.update", "session": {
             "type": "realtime", "model": model, "output_modalities": ["audio" if voice else "text"],
             "audio": {"input": {"format": {"type": "audio/pcm", "rate": 24000}, "turn_detection": None},
