@@ -9,10 +9,10 @@ on:
         required: true
         type: string
       engine:
-        description: One isolated engine deployment (OpenAI makes six paid demo calls)
+        description: One isolated engine; openai-speak permits assessment only and makes no automatic calls
         required: true
         type: choice
-        options: [vosk-lgraph, vosk-small, kokoro, openai]
+        options: [vosk-lgraph, vosk-small, kokoro, openai, openai-speak]
       operation:
         description: Run a probe, or remove one matching retained deployment
         required: true
@@ -77,7 +77,7 @@ jobs:
         run: |
           python spikes/r2/prepare_cloud.py "$ENGINE"
           python -m pip install -r spikes/r2/cloud/requirements.txt
-          python -m unittest discover -s spikes/r2/cloud -p test_auth.py
+          python -m unittest discover -s spikes/r2/cloud -p 'test_*.py'
           node --check spikes/r2/runner.mjs
           node --check spikes/r2/deploy_probe.mjs
           node spikes/r2/runner.mjs init
@@ -90,10 +90,10 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
-          OPENAI_API_KEY: ${{ inputs.engine == 'openai' && secrets.OPENAI_API_KEY || '' }}
+          OPENAI_API_KEY: ${{ (inputs.engine == 'openai' || inputs.engine == 'openai-speak') && secrets.OPENAI_API_KEY || '' }}
         run: node spikes/r2/deploy_probe.mjs
       - name: Collect synthetic smoke or original-text demos
-        if: inputs.operation == 'run'
+        if: inputs.operation == 'run' && inputs.engine != 'openai-speak'
         env:
           PROBE_URL: ${{ steps.deploy.outputs.url }}
           ENGINE: ${{ inputs.engine }}

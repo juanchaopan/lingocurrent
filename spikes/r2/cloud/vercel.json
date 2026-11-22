@@ -6,7 +6,7 @@
     "app.py": {
       "maxDuration": 300,
       "memory": 2048,
-      "excludeFiles": "{test_auth.py,__pycache__/**}"
+      "excludeFiles": "{test_*.py,__pycache__/**}"
     }
   }
 }

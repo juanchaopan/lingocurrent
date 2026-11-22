@@ -30,7 +30,7 @@ function initialize() {
   }
 }
 
-async function invoke(url, payload, id) {
+export async function invoke(url, payload, id) {
   const parsed = new URL(url);
   if (parsed.protocol !== 'https:' || !parsed.hostname.endsWith('.vercel.app')) {
     throw new Error('Use the reviewed HTTPS Vercel deployment URL.');
@@ -80,7 +80,7 @@ async function invoke(url, payload, id) {
   return record;
 }
 
-function silentWav() {
+export function silentWav() {
   const pcm = Buffer.alloc(32_000);
   const header = Buffer.alloc(44);
   header.write('RIFF');
@@ -108,7 +108,10 @@ const normalize = (text) =>
 
 export function accepted(record, target, k) {
   if (record.http_status !== 200) return null;
-  if (record.result.decision) return record.result.decision.verdict === 'match';
+  if (record.result.decision) {
+    if (record.result.decision.verdict === 'uncertain') return null;
+    return record.result.decision.verdict === 'match';
+  }
   if (record.result.invalid) return false;
   const alternatives = record.result.segments[0]?.alternatives ?? [];
   return alternatives.slice(0, k).some((item) => normalize(item.text) === normalize(target));

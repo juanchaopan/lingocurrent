@@ -21,6 +21,10 @@ test('K changes near-word acceptance without treating path scores as probabiliti
   assert.equal(accepted(record, 'SHIP', 3), true);
   assert.equal(accepted({ http_status: 422 }, 'ship', 3), null);
   assert.equal(accepted({ http_status: 200, result: { invalid: 'no_speech' } }, 'ship', 3), false);
+  assert.equal(
+    accepted({ http_status: 200, result: { decision: { verdict: 'uncertain' } } }, 'ship', 1),
+    null,
+  );
 });
 
 function fixture() {

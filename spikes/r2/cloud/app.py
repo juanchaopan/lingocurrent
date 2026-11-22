@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 import platform
+import re
 import threading
 import time
 import uuid
@@ -86,7 +87,7 @@ def load_model():
     elif ENGINE == "kokoro":
         from kokoro_onnx import Kokoro
         MODEL = Kokoro(str(ROOT / "assets" / "kokoro.onnx"), str(ROOT / "assets" / "voices.bin"))
-    elif ENGINE != "openai":
+    elif ENGINE not in ["openai", "openai-speak"]:
         raise ValueError("Unknown engine")
     else:
         MODEL = True
@@ -153,7 +154,7 @@ def realtime(content, instructions, voice=None):
         connection.send(json.dumps({"type": "response.create", "response": {
             "conversation": "none", "instructions": instructions,
             "input": [{"type": "message", "role": "user", "content": content}],
-            "max_output_tokens": 3000,
+            "max_output_tokens": 3000 if voice else 512,
         }}))
         deadline = time.monotonic() + 100
         while time.monotonic() < deadline:
@@ -177,23 +178,48 @@ def realtime(content, instructions, voice=None):
 
 
 def openai_probe(payload):
-    if payload.get("mode") == "speak":
+    mode = payload.get("mode")
+    if ENGINE == "openai-speak" and mode not in ["speak", "speak_transcribe"]:
+        raise ValueError("This deployment permits audio assessment only")
+    if mode in ["speak", "speak_transcribe"]:
         import audioop
         pcm, duration = decode_recording(payload)
-        target = payload.get("target", "")
-        if not isinstance(target, str) or not 1 <= len(target) <= 80:
-            raise ValueError("Invalid target")
+        content = []
+        if mode == "speak":
+            target = payload.get("target", "")
+            if not isinstance(target, str) or not re.fullmatch(r"[A-Za-z][A-Za-z' -]{0,79}", target):
+                raise ValueError("Invalid target")
+            instructions = (
+                "Listen to the recording itself; the target is not evidence of what was said. "
+                "Return only JSON with transcript (what you actually hear), verdict "
+                "(match, different, invalid, or uncertain), pronunciation "
+                "(acceptable, incorrect, invalid, or uncertain), and a short reason. "
+                "Verdict concerns the entire audible word/phrase matching the target's sound; "
+                "pronunciation concerns intelligible pronunciation of that target. "
+                "Accept understandable accents and genuine homophones; do not use spelling "
+                "alone as a pronunciation error. Reject near-sounding different words. "
+                "Silence, noise-only and truncated words are invalid, not correct. "
+                "Use uncertain if the audio cannot support a decision. Never produce a score."
+            )
+            content.append({"type": "input_text", "text": "Target: " + target})
+        else:
+            if "target" in payload:
+                raise ValueError("Blind transcription must not receive a target")
+            instructions = (
+                "Transcribe exactly the audible English word or phrase. Do not invent words "
+                "or add articles. Return only JSON with transcript, using an empty string "
+                "if no intelligible speech is audible. You are not given a target."
+            )
         converted, _ = audioop.ratecv(pcm, 2, 1, 16000, 24000, None)
-        result = realtime([
-            {"type": "input_audio", "audio": base64.b64encode(converted).decode()},
-            {"type": "input_text", "text": "Target: " + target},
-        ], "Listen to the actual recording. Do not infer words from the supplied target. "
-           "Return only JSON with transcript and verdict (match, different, or invalid). "
-           "Judge whether the entire audible word or phrase matches the target. "
-           "Silence, noise and truncated words are invalid. Accept understandable accents.")
+        content.insert(0, {"type": "input_audio", "audio": base64.b64encode(converted).decode()})
+        result = realtime(content, instructions)
         decision = json.loads(result["text"])
-        if decision.get("verdict") not in ["match", "different", "invalid"]:
+        if not isinstance(decision.get("transcript"), str):
             raise ValueError("Invalid model decision")
+        if mode == "speak" and (decision.get("verdict") not in ["match", "different", "invalid", "uncertain"]
+                                or decision.get("pronunciation") not in ["acceptable", "incorrect", "invalid", "uncertain"]
+                                or not isinstance(decision.get("reason"), str)):
+            raise ValueError("Invalid audio judgment")
         return {"decision": decision, "usage": result["usage"], "model": result["model"],
                 "duration_seconds": duration}
     voice = payload.get("voice", "marin")

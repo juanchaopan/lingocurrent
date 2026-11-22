@@ -130,7 +130,7 @@ const args = [
   '--env',
   'PROBE_RUNNER_PUBLIC_KEY=' + process.env.PROBE_RUNNER_PUBLIC_KEY,
 ];
-if (process.env.PROBE_ENGINE === 'openai') {
+if (['openai', 'openai-speak'].includes(process.env.PROBE_ENGINE)) {
   if (!process.env.OPENAI_API_KEY) throw new Error('Shared model credential missing.');
   args.push('--env', 'OPENAI_API_KEY=' + process.env.OPENAI_API_KEY);
 }

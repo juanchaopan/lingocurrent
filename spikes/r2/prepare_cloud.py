@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 CLOUD = Path(__file__).parent / "cloud"
 CACHE = ROOT / ".ai-review-context" / "r2-models"
 EVIDENCE = Path(__file__).parent / "evidence"
-ENGINES = ["vosk-lgraph", "vosk-small", "kokoro", "openai"]
+ENGINES = ["vosk-lgraph", "vosk-small", "kokoro", "openai", "openai-speak"]
 MODELS = {
     "vosk-lgraph": "https://alphacephei.com/vosk/models/vosk-model-en-us-0.22-lgraph.zip",
     "vosk-small": "https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip",
