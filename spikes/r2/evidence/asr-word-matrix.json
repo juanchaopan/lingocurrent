@@ -102,7 +102,7 @@
       "name": "OpenAI GPT-Realtime-2.1",
       "cells": {
         "ship": {
-          "status": "接口技术失败，未取得候选",
+          "status": "客户端解析失败，未取得候选",
           "rank": null,
           "candidates": []
         },

@@ -37,6 +37,14 @@ The client now retains bounded error code/parameter/stage, whether it observed
 provider error messages. Tests verify error preservation, socket closure and no
 retry. Any new error stops the authorized recovery without another retry.
 
+The authorized recovery stopped on its first request with `JSONDecodeError`.
+No valid candidate result or usage was preserved; the retained exception does
+not establish whether parsing failed on a socket event or on model JSON. Two
+audio requests have now been attempted in total. No further request is authorized
+by the one-use recovery. OpenAI quality remains unmeasured. The client now saves
+returned provider text and usage privately before model-JSON interpretation;
+this audit change has not been exercised with another paid request.
+
 ## Scope
 
 Reuse the five saved, human-labeled recordings for ship, avocado, see, seed and

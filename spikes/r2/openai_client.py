@@ -106,6 +106,15 @@ def execute(ticket_path, recover=False):
     spec = importlib.util.spec_from_file_location("direct_audio_probe", ROOT / "spikes/r2/cloud/app.py")
     probe = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(probe)
+    provider = probe.realtime
+    response_path = None
+    def audited_realtime(*args, **kwargs):
+        result = provider(*args, **kwargs)
+        # Preserve returned text and usage before interpreting model JSON.
+        response_path.write_text(json.dumps({name: result[name] for name in ["text", "usage", "model"]},
+                                           ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        return result
+    probe.realtime = audited_realtime
     spent, results = 0, []
     corpus = (ROOT / ".ai-review-context/r2-owner-corpus").resolve()
     try:
@@ -127,6 +136,8 @@ def execute(ticket_path, recover=False):
             with ledger.open("a", encoding="utf-8") as log:
                 log.write(json.dumps({"id": item["id"], "state": "pending"}) + "\n")
             started = time.perf_counter()
+            response_path = PRIVATE / "responses" / (item["id"] + ".json")
+            response_path.parent.mkdir(parents=True, exist_ok=True)
             try:
                 response = probe.openai_probe(payload)
             except Exception as error:
