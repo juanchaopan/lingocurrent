@@ -3,7 +3,27 @@
 RSS checked 2026-11-16; free listening round 2026-11-17, America/Toronto.
 Issue #7 remains open. The owner selected sample C / Supertonic F1 for its voice.
 The owner also accepted mono MP3 at 32 kbps. Production deployment/capacity,
-Speak quality and source configuration remain undecided.
+source configuration remain undecided. The owner rejected the current
+Vosk lgraph + Top-K Speak approach on 2026-11-21; its quality testing is stopped.
+
+## Speak decision: current candidate rejected (2026-11-21)
+
+After trying real recordings, the owner concluded that a word which the tool
+cannot reliably recognize makes this approach unsuitable for the intended use,
+and explicitly stopped further testing. Do not request the remainder of the
+10/10/3 corpus for this candidate or treat that earlier sample gate as a reason
+to continue. The reported `seed` and `currant` matching misses are preserved below.
+
+Decision: **do not adopt the tested Vosk lgraph + strict Top-K text matching
+prototype for this feature**. The page also lacks an independent pronunciation
+correctness assessment. No recognition pass, pronunciation pass, quality rate or
+cloud-capacity result is claimed. This is a rejection of the tested approach for
+this product, not a measured assertion about every Vosk configuration or model.
+
+Existing private samples and the experimental branch are preserved. No further
+candidate test, paid call or deployment is started by this decision. A replacement
+Speak solution remains unselected. Supertonic F1 / mono MP3 32 kbps listening
+acceptance remains separate and confirmed; #7 as a whole is not complete.
 
 ## Free original samples ready for owner listening
 
@@ -32,8 +52,9 @@ explicit human labeling. Recordings remain private and untracked. Browser QA use
 a synthetic microphone only and saved no owner corpus or voice preference. All
 four audio files load; mobile layout and recording/playback/recognition were checked.
 
-Real correct/wrong/invalid recordings, actual Vercel deployment/resource evidence,
-final source selection remain unfinished. Voice and compression listening choices
+The full planned recording corpus was not collected before the owner rejected
+this Speak candidate. Actual Vercel evidence and final source selection remain
+unfinished. Voice and compression listening choices
 are confirmed.
 No OpenAI model call or cloud probe deployment has occurred.
 
@@ -49,8 +70,8 @@ initialization failure, checks cleanup/retry, and validates captured mono 16 kHz
 PCM16 WAV. A separate synthetic-microphone run against the real loopback Flask
 server completed recording, playback and local Vosk recognition. These synthetic
 runs saved no owner samples and do not establish recognition or pronunciation
-quality. The embedded page was refreshed; the owner's real recording retry is
-still required.
+quality. The embedded page was refreshed, the owner subsequently tried real
+recordings, and the rejection above ends this candidate's testing.
 
 ### Human labels and model matching are separate
 

@@ -4,6 +4,16 @@ Status: in progress. Experimental code stays on `codex/spike-7-validation`;
 only conclusions and selected evidence may reach main through a reviewed PR.
 Keep this branch after the experiment, as requested by the owner.
 
+## Speak stop decision (2026-11-21)
+
+The owner rejected the tested Vosk lgraph + Top-K text matching prototype after
+real word recordings and instructed us to stop testing. The candidate is not
+adopted. The earlier 10/10/3 collection and 9/10 acceptance plan below is historical
+for this candidate, not an outstanding request to the owner. Keep the recorded
+misses and private recordings as evidence; no replacement or paid run is selected
+or started. Independent pronunciation assessment was not implemented. TTS's
+Supertonic F1 / MP3 32 kbps listening choice is retained. Other #7 work remains open.
+
 ## Owner's execution order (2026-11-17)
 
 1. Generate native, uncompressed listening samples from different **free third-party
@@ -18,8 +28,9 @@ Keep this branch after the experiment, as requested by the owner.
    checks and CI cannot complete the quality gate or replace participation.
 
 Four real free samples and the local microphone lab are available. The owner
-selected Supertonic F1 and mono MP3 32 kbps. Deployment fit, owner Speak samples
-and the rest of the spike remain unfinished.
+selected Supertonic F1 and mono MP3 32 kbps, and rejected the current Speak
+candidate after participating. Deployment fit and the rest of the spike remain
+unfinished; do not resume this candidate's sample collection.
 
 ## Questions and gates
 

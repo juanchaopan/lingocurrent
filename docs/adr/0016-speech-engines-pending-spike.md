@@ -2,7 +2,7 @@
 
 2026-11-16 Roadmap组织更新：用户要求尽量合并spike，TTS/Speak与全文RSS共用[GitHub #7](https://github.com/juanchaopan/lingocurrent/issues/7)（[R2规格](../roadmap/02-spikes.md)），各自验证与选择仍分别完成。本文旧文中的“分别创建issue”安排被覆盖；引擎/音色状态仍为提议，未取得实测结论。
 
-- 状态：部分确认（TTS 听感与压缩已选；Vercel 适用性与 Speak 仍待验证）
+- 状态：部分确认（TTS 听感与压缩已选；当前 Vosk + Top-K Speak 方案否决；替代方案与 Vercel 适用性未定）
 - 日期：2026-11-15
 - 相关需求：REQ-005、REQ-023、REQ-029、REQ-031–REQ-033
 
@@ -19,8 +19,20 @@
 [独立实验分支](https://github.com/juanchaopan/lingocurrent/tree/codex/spike-7-validation/spikes/r2)。
 
 这是用户对实际样音的选择，不代表已证明 Supertonic 可在 Vercel Hobby 满足部署、
-CPU、内存和月容量要求。Speak 尚需用户真实录音与负样本，#7 保持打开。
+CPU、内存和月容量要求。用户随后参与了 Speak 真实录音测试并否决当前候选，见下文；#7 保持打开。
 OpenAI 朗读仅为免费方案效果不满意后的后备，目前没有运行收费调用。
+
+## Speak 当前候选否决（2026-11-21）
+
+用户实测后明确认为：存在反复无法识别的单词，就不能满足该功能的使用要求，并要求停止测试。
+据此否决本次 Vosk lgraph + 严格 Top-K 文字匹配原型，不再要求用户为它补齐原定 10/10/3 样本。
+已观察到 seed 的候选为 the cd、the seed 等，currant 的首选为 current，均未通过当前文字匹配。
+同音词的拼写不匹配不能直接作为发音错误；本原型没有实现独立的发音正确性判断。
+
+人工标签计数不等于模型通过数。保留已有私人录音、否决依据及独立实验分支，不将实验代码合入 main。
+本结论是该已测方案对本产品不适用，不是对所有模型配置的普遍准确率断言。
+Speak 替代方案尚未选定，不据此自动启动其他测试、付费调用或云端部署。
+TTS 的 Supertonic F1 / 单声道 MP3 32 kbps 听感选择单独保留。
 
 ## 候选与验证顺序
 
