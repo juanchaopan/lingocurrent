@@ -1,0 +1,243 @@
+{
+  "date": "2026-11-21",
+  "timezone": "America/Toronto",
+  "engines": [
+    {
+      "engine": "pocketsphinx",
+      "versions": {
+        "pocketsphinx": "5.0.4"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "python": "3.12.10",
+      "model_load_wall_ms": 1864.3169002607465,
+      "at_utc": "2026-11-22T04:48:19.161596+00:00",
+      "target_matches": {
+        "1": 0,
+        "3": 0,
+        "5": 0
+      },
+      "sample_count": 5,
+      "cases": [
+        {
+          "target": "ship",
+          "candidates": ["up to she", "up to she", "up to she", "up that she", "the up to she"],
+          "matches": {
+            "1": false,
+            "3": false,
+            "5": false
+          },
+          "retargeted_control": {
+            "target": "avocado",
+            "accepted": false
+          },
+          "wall_ms": 7392.414700239897,
+          "process_cpu_ms": 6453.125
+        },
+        {
+          "target": "avocado",
+          "candidates": [
+            "how to cancun",
+            "i have to cancun",
+            "how to cancun",
+            "i have a clue",
+            "i have a cartoon"
+          ],
+          "matches": {
+            "1": false,
+            "3": false,
+            "5": false
+          },
+          "retargeted_control": {
+            "target": "see",
+            "accepted": false
+          },
+          "wall_ms": 8591.094400268048,
+          "process_cpu_ms": 7328.125
+        },
+        {
+          "target": "see",
+          "candidates": ["fact sheet", "fact she", "i fact sheet", "fact she'd", "a fact sheet"],
+          "matches": {
+            "1": false,
+            "3": false,
+            "5": false
+          },
+          "retargeted_control": {
+            "target": "seed",
+            "accepted": false
+          },
+          "wall_ms": 11863.326400052756,
+          "process_cpu_ms": 9765.625
+        },
+        {
+          "target": "seed",
+          "candidates": ["see you", "c u", "see your", "c you", "see you in"],
+          "matches": {
+            "1": false,
+            "3": false,
+            "5": false
+          },
+          "retargeted_control": {
+            "target": "currant",
+            "accepted": false
+          },
+          "wall_ms": 14082.171299960464,
+          "process_cpu_ms": 12343.75
+        },
+        {
+          "target": "currant",
+          "candidates": ["collins", "colleagues", "goodness", "koontz", "going to"],
+          "matches": {
+            "1": false,
+            "3": false,
+            "5": false
+          },
+          "retargeted_control": {
+            "target": "ship",
+            "accepted": false
+          },
+          "wall_ms": 6157.430599909276,
+          "process_cpu_ms": 5609.375
+        }
+      ],
+      "synthetic_silence_candidates": ["it"],
+      "candidate_count_note": "Top five uncalibrated hypotheses"
+    },
+    {
+      "engine": "whisper-base.en",
+      "versions": {
+        "faster-whisper": "1.2.1",
+        "ctranslate2": "4.9.0",
+        "numpy": "2.5.5"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "python": "3.12.10",
+      "model_load_wall_ms": 9047.690800391138,
+      "at_utc": "2026-11-22T04:49:40.056920+00:00",
+      "target_matches": {
+        "1": 2,
+        "3": 2,
+        "5": 2
+      },
+      "sample_count": 5,
+      "cases": [
+        {
+          "target": "ship",
+          "candidates": ["Shit."],
+          "matches": {
+            "1": false,
+            "3": false,
+            "5": false
+          },
+          "retargeted_control": {
+            "target": "avocado",
+            "accepted": false
+          },
+          "wall_ms": 2176.2811997905374,
+          "process_cpu_ms": 2375
+        },
+        {
+          "target": "avocado",
+          "candidates": ["Avocado"],
+          "matches": {
+            "1": true,
+            "3": true,
+            "5": true
+          },
+          "retargeted_control": {
+            "target": "see",
+            "accepted": false
+          },
+          "wall_ms": 1849.3750002235174,
+          "process_cpu_ms": 1765.625
+        },
+        {
+          "target": "see",
+          "candidates": ["See?"],
+          "matches": {
+            "1": true,
+            "3": true,
+            "5": true
+          },
+          "retargeted_control": {
+            "target": "seed",
+            "accepted": false
+          },
+          "wall_ms": 1835.3446000255644,
+          "process_cpu_ms": 1906.25
+        },
+        {
+          "target": "seed",
+          "candidates": ["C.D."],
+          "matches": {
+            "1": false,
+            "3": false,
+            "5": false
+          },
+          "retargeted_control": {
+            "target": "currant",
+            "accepted": false
+          },
+          "wall_ms": 2029.772900044918,
+          "process_cpu_ms": 1984.375
+        },
+        {
+          "target": "currant",
+          "candidates": ["Cowerings"],
+          "matches": {
+            "1": false,
+            "3": false,
+            "5": false
+          },
+          "retargeted_control": {
+            "target": "ship",
+            "accepted": false
+          },
+          "wall_ms": 1822.9620000347495,
+          "process_cpu_ms": 1765.625
+        }
+      ],
+      "synthetic_silence_candidates": ["You"],
+      "candidate_count_note": "Whisper exposes one transcript; K=3/5 adds no candidates"
+    }
+  ],
+  "whisper_model": {
+    "repository": "Systran/faster-whisper-base.en",
+    "revision": "3d3d5dee26484f91867d81cb899cfcf72b96be6c",
+    "files": [
+      {
+        "file": "config.json",
+        "bytes": 2227,
+        "sha256": "f3bc3821e9fc76a27bae538e11ae5b677dcdd352b4600429ce7951d398569aeb",
+        "expected_lfs_sha256": null
+      },
+      {
+        "file": "model.bin",
+        "bytes": 145216508,
+        "sha256": "2a166925539a16005f14ff328359f9b9adb9dc4fb631bb3b227526862e93e2ef",
+        "expected_lfs_sha256": "2a166925539a16005f14ff328359f9b9adb9dc4fb631bb3b227526862e93e2ef"
+      },
+      {
+        "file": "tokenizer.json",
+        "bytes": 2128466,
+        "sha256": "929c5252409436dce1b38a75d1abbcb5e132d170d8e324e4e04ed915fa2d22df",
+        "expected_lfs_sha256": null
+      },
+      {
+        "file": "vocabulary.txt",
+        "bytes": 422309,
+        "sha256": "ff77588746d3a2595d32ab5b69ffd7b95ce2441ac57533cb66fc3eb575a115cf",
+        "expected_lfs_sha256": null
+      }
+    ]
+  },
+  "scope": "One local screening pass on the same five owner-labeled target-word recordings. No target supplied to either decoder. No owner audio/file identifiers published.",
+  "limitations": [
+    "Sample-specific spelling-match counts, not population accuracy or pronunciation scores.",
+    "Retargeted controls reuse the same recordings; they are not five independently spoken negative samples.",
+    "Synthetic silence is not an owner invalid recording. Timings are single observations, not latency distributions.",
+    "No Vercel deployment, Linux bundle, cloud CPU, free capacity or independent pronunciation-assessment evidence.",
+    "PocketSphinx 5.1.1 had no compatible binary distribution for this runtime; tested version is 5.0.4."
+  ],
+  "decision": "Neither tested free configuration meets the owner criterion. Other configurations and paid raw-audio assessment remain untested."
+}

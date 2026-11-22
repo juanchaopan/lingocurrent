@@ -4,14 +4,27 @@ Status: in progress. Experimental code stays on `codex/spike-7-validation`;
 only conclusions and selected evidence may reach main through a reviewed PR.
 Keep this branch after the experiment, as requested by the owner.
 
+## Follow-up free-candidate comparison (2026-11-21)
+
+The owner clarified that the Vosk rejection does not stop evaluation of other
+recognizers. Reused the five saved owner-labeled recordings for one screening pass
+each with PocketSphinx 5.0.4 and faster-whisper 1.2.1 / Whisper base.en CPU INT8.
+Their target matches were 0/5 and 2/5 respectively; see RESULTS.md and the sanitized
+receipt. Neither tested configuration satisfies the owner's criterion. No new
+owner recording, audio upload, paid call or deployment was needed. Independent
+pronunciation assessment remains a separate uncompleted task. Vosk small and
+OpenAI raw-audio assessment remain untested; do not restart the rejected Vosk
+lgraph collection or equate transcriptions with pronunciation verdicts.
+
 ## Speak stop decision (2026-11-21)
 
 The owner rejected the tested Vosk lgraph + Top-K text matching prototype after
 real word recordings and instructed us to stop testing. The candidate is not
 adopted. The earlier 10/10/3 collection and 9/10 acceptance plan below is historical
 for this candidate, not an outstanding request to the owner. Keep the recorded
-misses and private recordings as evidence; no replacement or paid run is selected
-or started. Independent pronunciation assessment was not implemented. TTS's
+misses and private recordings as evidence; no replacement or paid run was selected
+or started at that point. The later owner-requested free comparison is recorded
+above. Independent pronunciation assessment was not implemented. TTS's
 Supertonic F1 / MP3 32 kbps listening choice is retained. Other #7 work remains open.
 
 ## Owner's execution order (2026-11-17)
@@ -92,6 +105,20 @@ used official CPython 3.12.10's isolated embeddable runtime under ignored
 BeautifulSoup/httpx versions. No global Python installation was changed.
 
 ## Review and run
+
+Free follow-up screening reuses the existing private corpus:
+
+```powershell
+.ai-review-context/python-embed/python.exe -m pip install --target .ai-review-context/r2-pocketsphinx-runtime --only-binary=:all: pocketsphinx==5.0.4
+.ai-review-context/python-embed/python.exe -m pip install --target .ai-review-context/r2-whisper-runtime --only-binary=:all: faster-whisper==1.2.1
+.ai-review-context/python-embed/python.exe spikes/r2/compare_speech.py pocketsphinx
+.ai-review-context/python-embed/python.exe spikes/r2/download_whisper.py
+.ai-review-context/python-embed/python.exe spikes/r2/compare_speech.py whisper-base.en --model .ai-review-context/r2-models/faster-whisper-base.en/3d3d5dee26484f91867d81cb899cfcf72b96be6c
+```
+
+These commands write full reports only under the ignored `r2-output` directory.
+Review before publishing any derived summary; never publish raw clips or their
+private identifiers. The committed receipt is a reviewed five-clip summary.
 
 Start with the local listening/recording page:
 

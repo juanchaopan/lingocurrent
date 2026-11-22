@@ -6,6 +6,50 @@ The owner also accepted mono MP3 at 32 kbps. Production deployment/capacity,
 source configuration remain undecided. The owner rejected the current
 Vosk lgraph + Top-K Speak approach on 2026-11-21; its quality testing is stopped.
 
+## Follow-up: other free recognizers screened (2026-11-21)
+
+The owner clarified that rejecting one candidate must not end the whole Speak
+comparison. The same five saved recordings were reused without another microphone
+session, changing their labels, sending target hints to the decoder, or uploading
+audio. The [sanitized receipt](evidence/free-asr-comparison.json) records versions,
+the immutable Whisper model revision/hashes, hypotheses, exact-match counts and
+single-run local timings. Complete private reports remain ignored locally.
+
+| Target  | PocketSphinx 5.0.4 first hypothesis | Whisper base.en first transcript |
+| ------- | ----------------------------------- | -------------------------------- |
+| ship    | up to she                           | Shit.                            |
+| avocado | how to cancun                       | Avocado                          |
+| see     | fact sheet                          | See?                             |
+| seed    | see you                             | C.D.                             |
+| currant | collins                             | Cowerings                        |
+
+PocketSphinx matched 0/5 targets at K=1/3/5; Whisper base.en matched 2/5 after the
+same case/punctuation normalization. Whisper's API exposes one transcript, so
+beam size five is **not** five available transcript candidates. Five derived
+wrong-target controls were rejected by both; those reuse these same recordings
+and are not independently spoken negative examples. One second of synthetic
+silence produced `it` and `You` respectively, an additional warning against
+treating arbitrary transcript text as reliable speech validation.
+
+Neither tested configuration meets the owner's criterion. This is not a judgment
+on every PocketSphinx or Whisper model/configuration. The owner can review these
+actual outputs before any adoption decision; the prototype is not accepted.
+Independent pronunciation correctness assessment remains unimplemented.
+
+Sources: [PocketSphinx API](https://pocketsphinx.readthedocs.io/en/latest/pocketsphinx.html),
+[faster-whisper CPU INT8 API](https://github.com/SYSTRAN/faster-whisper),
+[base.en model](https://huggingface.co/Systran/faster-whisper-base.en).
+PocketSphinx 5.1.1 had no compatible binary distribution in the local install;
+the actual tested wheel is 5.0.4. Whisper used faster-whisper 1.2.1 / CTranslate2
+4.9.0, CPU INT8, one thread, no VAD or target prompt. The 147,769,510 downloaded
+Whisper model bytes are not a built Linux function size. No cloud/free-capacity
+result is claimed.
+
+Vosk small was the original resource fallback, not a measured quality improvement;
+it remains untested. OpenAI raw-audio-plus-target judgment remains an unexecuted
+paid fallback, separate from paid TTS. No paid call or cloud deployment occurred.
+The original Vosk rejection remains in force; the Speak spike is not complete.
+
 ## Speak decision: current candidate rejected (2026-11-21)
 
 After trying real recordings, the owner concluded that a word which the tool
@@ -20,8 +64,9 @@ correctness assessment. No recognition pass, pronunciation pass, quality rate or
 cloud-capacity result is claimed. This is a rejection of the tested approach for
 this product, not a measured assertion about every Vosk configuration or model.
 
-Existing private samples and the experimental branch are preserved. No further
-candidate test, paid call or deployment is started by this decision. A replacement
+Existing private samples and the experimental branch are preserved. At that point,
+no further candidate test, paid call or deployment was started by that decision.
+The subsequent free comparison above was requested by the owner. A replacement
 Speak solution remains unselected. Supertonic F1 / mono MP3 32 kbps listening
 acceptance remains separate and confirmed; #7 as a whole is not complete.
 

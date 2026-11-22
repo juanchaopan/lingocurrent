@@ -34,6 +34,17 @@ OpenAI 朗读仅为免费方案效果不满意后的后备，目前没有运行�
 Speak 替代方案尚未选定，不据此自动启动其他测试、付费调用或云端部署。
 TTS 的 Supertonic F1 / 单声道 MP3 32 kbps 听感选择单独保留。
 
+## 其他免费识别候选复测（2026-11-21）
+
+用户明确要求继续比较其他方案。复用原来的 5 条私人录音，本机运行 PocketSphinx 5.0.4
+及 faster-whisper 1.2.1 的 Whisper base.en（CPU INT8、单线程、不给目标提示）。
+严格文字匹配分别为 0/5 和 2/5；后者识别出 avocado 与 see，seed 返回 C.D.，currant 返回 Cowerings。
+两种已测配置均不满足用户标准，不推广为对其全部模型或配置的否决。
+完整对比及合成静音、换目标对照、模型版本和局限见实验分支的
+[RESULTS.md](https://github.com/juanchaopan/lingocurrent/blob/codex/spike-7-validation/spikes/r2/RESULTS.md)。
+原始录音仍在本机，没有重新要求用户录音、上传音频或发起付费调用。
+两种方案均只做转写；独立发音正确性判断仍未实现。OpenAI 原始音频判定尚未执行。
+
 ## 候选与验证顺序
 
 TTS 按用户最新要求先比较免费第三方库原音，用户选音色后才测试压缩；只有免费方案
