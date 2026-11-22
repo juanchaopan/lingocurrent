@@ -5,6 +5,29 @@ The owner's requested scheme-by-word Top 1 / Top 5 summary is in
 The direct Whisper five-hypothesis configuration is separate from the earlier
 one-transcript wrapper below. OpenAI is not marked failed while unexecuted.
 
+## OpenAI attempt status (2026-11-22)
+
+The owner requested an OpenAI trial. The local client and CI-validated plan are
+ready for the same five recordings, at most 14 text responses including controls,
+with a 512-token output cap, usage stop and no automatic retry. Blind responses
+request up to five model-proposed candidates; these are not decoder beam scores.
+
+Actual audio execution was rejected by automatic approval before the process
+started: the review requires explicit permission to send these five specific
+private recordings to OpenAI. No audio was uploaded and no paid model response
+was requested. The attempt ledger and model-results file are absent. Do not fill
+OpenAI cells with failures or fabricate matches while this permission is pending.
+
+The initial Vercel relay reached READY but its external **Neon branching** check
+failed. That exact nonproduction deployment was subsequently deleted by the
+project/SHA ownership guard (cleanup run 44989915961). The staging branch rule
+created for the trial (67741966) was removed; the original main-only policy
+(66995757) was verified restored. No protection was disabled. The alternate
+official ten-minute Realtime client-credential flow works; only ciphertext was
+returned through GitHub, and the permanent API key remains a Repository Secret.
+The user recordings remain local. Renew the short-lived credential only after
+the specific audio-upload approval arrives; do not treat setup as a model test.
+
 RSS checked 2026-11-16; free listening round 2026-11-17, America/Toronto.
 Issue #7 remains open. The owner selected sample C / Supertonic F1 for its voice.
 The owner also accepted mono MP3 at 32 kbps. Production deployment/capacity,

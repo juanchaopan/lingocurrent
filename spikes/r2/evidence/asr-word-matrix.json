@@ -99,30 +99,30 @@
       }
     },
     {
-      "name": "OpenAI",
+      "name": "OpenAI（尚未执行）",
       "cells": {
         "ship": {
-          "status": "尚未实际识别",
+          "status": "待明确录音上传授权",
           "rank": null,
           "candidates": []
         },
         "avocado": {
-          "status": "尚未实际识别",
+          "status": "待明确录音上传授权",
           "rank": null,
           "candidates": []
         },
         "see": {
-          "status": "尚未实际识别",
+          "status": "待明确录音上传授权",
           "rank": null,
           "candidates": []
         },
         "seed": {
-          "status": "尚未实际识别",
+          "status": "待明确录音上传授权",
           "rank": null,
           "candidates": []
         },
         "currant": {
-          "status": "尚未实际识别",
+          "status": "待明确录音上传授权",
           "rank": null,
           "candidates": []
         }
