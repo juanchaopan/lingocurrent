@@ -67,7 +67,23 @@ def cost_upper(usage):
     return (usage["input_tokens"] * 32 + usage["output_tokens"] * 24) / 1_000_000
 
 
-def execute(ticket_path):
+def execution_cases(plan, ledger, recover):
+    if not ledger.exists():
+        if recover:
+            raise ValueError("Recovery requires the preserved failed attempt")
+        return plan["cases"]
+    records = [json.loads(line) for line in ledger.read_text(encoding="utf-8").splitlines()]
+    if not recover or len(records) != 2 or [row.get("state") for row in records] != ["pending", "failed_unreconciled"]:
+        raise ValueError("An attempt exists. No automatic or repeated recovery")
+    if any(row.get("id") != plan["cases"][0]["id"] for row in records):
+        raise ValueError("Recovery does not match the first failed request")
+    cases = [item for item in plan["cases"] if item["id"] != "control-seed-see"]
+    if len(cases) != 13:
+        raise ValueError("Recovery must preserve the original total of 14 attempts")
+    return cases
+
+
+def execute(ticket_path, recover=False):
     plan = json.loads((PRIVATE / "plan.json").read_text(encoding="utf-8"))
     sha = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     ticket = json.loads(Path(ticket_path).read_text(encoding="utf-8"))
@@ -78,8 +94,11 @@ def execute(ticket_path):
     if plan["max_calls"] != 14 or len(plan["cases"]) != 14:
         raise ValueError("Unexpected paid plan")
     ledger = PRIVATE / "attempts.jsonl"
-    if ledger.exists():
-        raise ValueError("An attempt exists. Inspect it; never automatically rerun paid work")
+    cases = execution_cases(plan, ledger, recover)
+    if recover:
+        with ledger.open("a", encoding="utf-8") as log:
+            log.write(json.dumps({"state": "manual_recovery_started", "prior_attempts": 1,
+                                  "remaining_max": 13, "prior_usage": "unknown"}) + "\n")
     # This is a short-lived Realtime credential, not the permanent repository key.
     os.environ["OPENAI_API_KEY"] = secret["value"]
     os.environ["PROBE_ENGINE"] = "openai-speak"
@@ -90,7 +109,7 @@ def execute(ticket_path):
     spent, results = 0, []
     corpus = (ROOT / ".ai-review-context/r2-owner-corpus").resolve()
     try:
-        for item in plan["cases"]:
+        for item in cases:
             if spent >= 0.75:
                 raise ValueError("Conservative spending stop reached")
             if item.get("sample"):
@@ -121,12 +140,13 @@ def execute(ticket_path):
                             "expected": item["expected"], "decision": response["decision"], "usage": response["usage"],
                             "wall_ms": (time.perf_counter() - started) * 1000})
             (PRIVATE / "results.json").write_text(json.dumps({"sha": sha, "model": response["model"],
-                "conservative_upper_usd": spent, "complete": len(results) == 14, "results": results,
+                "conservative_upper_usd": spent, "complete": len(results) == len(cases), "results": results,
+                "planned_responses": len(cases), "prior_attempt_usage": "unknown" if recover else "none",
                 "note": "Same recordings sent directly to OpenAI; judgments are model opinions, not calibrated scores."},
                 indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
             with ledger.open("a", encoding="utf-8") as log:
                 log.write(json.dumps({"id": item["id"], "state": "returned", "upper_usd": spent}) + "\n")
-            print(f"Completed {len(results)}/14; conservative USD {spent:.4f}", flush=True)
+            print(f"Completed {len(results)}/{len(cases)}; known responses conservative USD {spent:.4f}", flush=True)
     finally:
         os.environ.pop("OPENAI_API_KEY", None)
 
@@ -139,6 +159,8 @@ if __name__ == "__main__":
             mint()
         elif len(sys.argv) == 3 and sys.argv[1] == "execute":
             execute(sys.argv[2])
+        elif len(sys.argv) == 3 and sys.argv[1] == "recover":
+            execute(sys.argv[2], recover=True)
         else:
             raise ValueError("Commands: init | mint | execute <encrypted-ticket.json>")
     except Exception as error:

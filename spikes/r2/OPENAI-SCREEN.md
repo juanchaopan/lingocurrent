@@ -24,12 +24,18 @@ The private ledger preserves that attempt as unresolved. No audio request was
 automatically retried and later cases have not run. This is an integration failure,
 not an ASR miss or a quality verdict. The matrix reports that distinction.
 
+The owner subsequently authorized one manual recovery within the original total
+of 14 requests. The first unresolved attempt consumes one slot. Recovery makes
+at most 13 requests: all five blind and five target cases, ship → sheep and
+see → seed controls, and synthetic silence. The seed → see control is omitted.
+The `recover` command preserves the ledger and records a one-use recovery marker;
+it cannot be executed again. Unknown prior usage is reported separately from
+the conservative cost subtotal for returned responses.
+
 The client now retains bounded error code/parameter/stage, whether it observed
 `response.created`, and any terminal usage. It excludes audio, credentials and
 provider error messages. Tests verify error preservation, socket closure and no
-retry. Executing another paid attempt requires an explicit recovery decision
-under the agreed stop-on-failure rule; the previous attempt still consumes one
-of the original 14 request slots.
+retry. Any new error stops the authorized recovery without another retry.
 
 ## Scope
 

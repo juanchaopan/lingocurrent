@@ -133,9 +133,10 @@ def synthesize_kokoro(payload):
 class RealtimeFailure(RuntimeError):
     def __init__(self, stage, event, response_created=False):
         super().__init__("Realtime request stopped without retry")
-        error = event.get("error", {})
         response = event.get("response", {})
-        safe = lambda value: value if isinstance(value, str) and re.fullmatch(r"[A-Za-z0-9_.\[\]-]{1,120}", value) else None
+        error = event.get("error") or (response.get("status_details") or {}).get("error") or {}
+        def safe(value):
+            return value if isinstance(value, str) and re.fullmatch(r"[A-Za-z0-9_.\[\]-]{1,120}", value) else None
         self.diagnostic = {"stage": stage, "event_type": safe(event.get("type")),
                            "code": safe(error.get("code")), "param": safe(error.get("param")),
                            "response_created": response_created, "status": safe(response.get("status")),

@@ -39,6 +39,22 @@ class ClientTicketTests(unittest.TestCase):
             client.cost_upper(None)
         self.assertEqual(client.cost_upper({"input_tokens": 1000, "output_tokens": 100}), 0.0344)
 
+    def test_manual_recovery_preserves_one_failed_slot_and_cannot_repeat(self):
+        with tempfile.TemporaryDirectory(dir=client.ROOT / ".ai-review-context") as temporary:
+            ledger = Path(temporary) / "attempts.jsonl"
+            cases = [{"id": "sample-1-blind"}, {"id": "control-seed-see"}] + [{"id": str(i)} for i in range(12)]
+            ledger.write_text('\n'.join(json.dumps({"id": "sample-1-blind", "state": state})
+                                        for state in ["pending", "failed_unreconciled"]), encoding="utf-8")
+            with self.assertRaises(ValueError):
+                client.execution_cases({"cases": cases}, ledger, False)
+            result = client.execution_cases({"cases": cases}, ledger, True)
+            self.assertEqual(len(result), 13)
+            self.assertEqual(result[0]["id"], "sample-1-blind")
+            with ledger.open('a', encoding='utf-8') as output:
+                output.write('\n' + json.dumps({"state": "manual_recovery_started"}))
+            with self.assertRaises(ValueError):
+                client.execution_cases({"cases": cases}, ledger, True)
+
 
 if __name__ == "__main__":
     unittest.main()
