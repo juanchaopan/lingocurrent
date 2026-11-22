@@ -47,6 +47,24 @@ this audit change has not been exercised with another paid request.
 
 ## Scope
 
+Reporting correction: OpenAI's documented transcription response provides one
+transcript, with token logprobs on supported models; it does not expose a native
+five-word N-best ranking. See the [official transcription reference](https://developers.openai.com/api/reference/resources/audio/subresources/transcriptions/methods/create).
+Prompting Realtime to propose five alternatives is a different experimental task,
+not a comparable decoder Top-5 result. Report any future successful transcription
+as Top-1 match/miss and native Top-5 as not provided. Keep audio-plus-target match
+and pronunciation judgments separate. Neither task has a valid result from this
+run. The original protocol below describes the retained experiment code, not an
+equivalent Top-5 benchmark or an authorization for another request.
+
+The existing repository API key successfully minted short-lived credentials and
+a session connection accepted configuration. A missing API key is therefore not
+the observed blocker. This does not establish that inference or billing completed.
+Here, missing candidates/usage means the client did not successfully parse and
+retain a usable response, not that OpenAI returned an empty ranked list or that
+the account has no credit. The retained errors cannot establish the exact parsing
+stage or total charge.
+
 Reuse the five saved, human-labeled recordings for ship, avocado, see, seed and
 currant. Preserve labels, check each WAV's SHA-256 locally and send no human label
 or intended spoken-text annotation to the model. At most **14 paid responses**:

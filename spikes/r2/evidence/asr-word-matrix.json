@@ -104,29 +104,40 @@
         "ship": {
           "status": "客户端解析失败，未取得候选",
           "rank": null,
-          "candidates": []
+          "candidates": [],
+          "top1_status": "not_measured",
+          "native_top5_status": "not_provided"
         },
         "avocado": {
           "status": "因首条错误停止，尚未执行",
           "rank": null,
-          "candidates": []
+          "candidates": [],
+          "top1_status": "not_measured",
+          "native_top5_status": "not_provided"
         },
         "see": {
           "status": "因首条错误停止，尚未执行",
           "rank": null,
-          "candidates": []
+          "candidates": [],
+          "top1_status": "not_measured",
+          "native_top5_status": "not_provided"
         },
         "seed": {
           "status": "因首条错误停止，尚未执行",
           "rank": null,
-          "candidates": []
+          "candidates": [],
+          "top1_status": "not_measured",
+          "native_top5_status": "not_provided"
         },
         "currant": {
           "status": "因首条错误停止，尚未执行",
           "rank": null,
-          "candidates": []
+          "candidates": [],
+          "top1_status": "not_measured",
+          "native_top5_status": "not_provided"
         }
-      }
+      },
+      "candidate_kind": "Native Top-5 not provided; prompted model alternatives are not comparable decoder N-best."
     }
   ],
   "normalization": "The requested word must occur as a whole word in the candidate; ignore case/punctuation/extra whitespace. the seed contains seed; seedy does not. No homophone substitution.",
@@ -134,6 +145,7 @@
     "Same five saved recordings, no new microphone session.",
     "This requested word-presence matrix differs from the prototype whole-candidate equality rule. It is not a production matching-policy change.",
     "Whisper row uses genuine five hypotheses returned by CTranslate2 beam search, without target prompt; differs from prior one-transcript wrapper.",
-    "OpenAI raw-audio judgments are a different task from Top-K transcript spelling matches. Never present a single-transcript miss as a Top-5 miss."
+    "OpenAI raw-audio judgments are a different task from Top-K transcript spelling matches. Never present a single-transcript miss as a Top-5 miss.",
+    "OpenAI currently has no valid Top-1 result. Native Top-5 is not provided by the documented transcription API; model-proposed alternatives must not be counted as decoder Top-5."
   ]
 }
