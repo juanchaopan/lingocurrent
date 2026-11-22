@@ -14,6 +14,23 @@ The owner explicitly requested an OpenAI trial after the free recognizers failed
 the intended use. This run assesses the original recordings, not paid TTS.
 Code remains on the isolated experiment branch; no main merge or production run.
 
+## Current execution evidence
+
+The owner explicitly approved sending these five private recordings to OpenAI.
+The first blind request stopped on a Realtime `error` event; no candidates or
+completed response usage were returned. The original client discarded the error
+code, so neither its cause nor any charge can be asserted from the saved evidence.
+The private ledger preserves that attempt as unresolved. No audio request was
+automatically retried and later cases have not run. This is an integration failure,
+not an ASR miss or a quality verdict. The matrix reports that distinction.
+
+The client now retains bounded error code/parameter/stage, whether it observed
+`response.created`, and any terminal usage. It excludes audio, credentials and
+provider error messages. Tests verify error preservation, socket closure and no
+retry. Executing another paid attempt requires an explicit recovery decision
+under the agreed stop-on-failure rule; the previous attempt still consumes one
+of the original 14 request slots.
+
 ## Scope
 
 Reuse the five saved, human-labeled recordings for ship, avocado, see, seed and

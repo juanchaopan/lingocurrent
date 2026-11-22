@@ -99,30 +99,30 @@
       }
     },
     {
-      "name": "OpenAI（尚未执行）",
+      "name": "OpenAI GPT-Realtime-2.1",
       "cells": {
         "ship": {
-          "status": "待明确录音上传授权",
+          "status": "接口技术失败，未取得候选",
           "rank": null,
           "candidates": []
         },
         "avocado": {
-          "status": "待明确录音上传授权",
+          "status": "因首条错误停止，尚未执行",
           "rank": null,
           "candidates": []
         },
         "see": {
-          "status": "待明确录音上传授权",
+          "status": "因首条错误停止，尚未执行",
           "rank": null,
           "candidates": []
         },
         "seed": {
-          "status": "待明确录音上传授权",
+          "status": "因首条错误停止，尚未执行",
           "rank": null,
           "candidates": []
         },
         "currant": {
-          "status": "待明确录音上传授权",
+          "status": "因首条错误停止，尚未执行",
           "rank": null,
           "candidates": []
         }

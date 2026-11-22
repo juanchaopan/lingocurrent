@@ -130,6 +130,18 @@ def synthesize_kokoro(payload):
             "mapping": "Each sentence is synthesized separately; offsets follow actual PCM frames."}
 
 
+class RealtimeFailure(RuntimeError):
+    def __init__(self, stage, event, response_created=False):
+        super().__init__("Realtime request stopped without retry")
+        error = event.get("error", {})
+        response = event.get("response", {})
+        safe = lambda value: value if isinstance(value, str) and re.fullmatch(r"[A-Za-z0-9_.\[\]-]{1,120}", value) else None
+        self.diagnostic = {"stage": stage, "event_type": safe(event.get("type")),
+                           "code": safe(error.get("code")), "param": safe(error.get("param")),
+                           "response_created": response_created, "status": safe(response.get("status")),
+                           "usage": response.get("usage")}
+
+
 def realtime(content, instructions, voice=None):
     import websocket
     key = os.environ.get("OPENAI_API_KEY")
@@ -149,7 +161,7 @@ def realtime(content, instructions, voice=None):
         while True:
             event = json.loads(connection.recv())
             if event["type"] == "error":
-                raise RuntimeError("Realtime session configuration failed")
+                raise RealtimeFailure("session", event)
             if event["type"] == "session.updated":
                 break
         connection.send(json.dumps({"type": "response.create", "response": {
@@ -158,11 +170,14 @@ def realtime(content, instructions, voice=None):
             "max_output_tokens": 3000 if voice else 512,
         }}))
         deadline = time.monotonic() + 100
+        response_created = False
         while time.monotonic() < deadline:
             event = json.loads(connection.recv())
             kind = event["type"]
             if kind == "error":
-                raise RuntimeError("Realtime request failed; usage is unknown")
+                raise RealtimeFailure("response", event, response_created)
+            if kind == "response.created":
+                response_created = True
             if kind == "response.output_audio.delta":
                 audio.append(base64.b64decode(event["delta"]))
             elif kind == "response.output_text.delta":
@@ -172,7 +187,7 @@ def realtime(content, instructions, voice=None):
             elif kind == "response.done":
                 usage = event["response"].get("usage")
                 if event["response"]["status"] != "completed":
-                    raise RuntimeError("Realtime response incomplete; usage requires reconciliation")
+                    raise RealtimeFailure("response", event, response_created)
                 return {"pcm": b"".join(audio), "text": "".join(text),
                         "transcript": "".join(transcript), "usage": usage, "model": model}
         raise TimeoutError("Realtime deadline; usage is unknown")

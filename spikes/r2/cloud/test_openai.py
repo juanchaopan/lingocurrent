@@ -74,6 +74,29 @@ class OpenAiAudioTests(unittest.TestCase):
         self.assertEqual(json.loads(result["text"])["transcript"], "seed")
         self.assertEqual(socket.sent[1]["response"]["max_output_tokens"], 512)
 
+    def test_provider_error_is_preserved_without_private_message_or_retry(self):
+        events = iter([
+            {"type": "session.updated"},
+            {"type": "error", "error": {"code": "invalid_request", "param": "response.input[0]",
+                                         "message": "Private provider message and recording"}},
+        ])
+        sent = []
+        closed = []
+        socket = SimpleNamespace(send=lambda data: sent.append(json.loads(data)),
+                                 recv=lambda: json.dumps(next(events)), close=lambda: closed.append(True))
+        module = SimpleNamespace(create_connection=lambda *args, **kwargs: socket)
+        with patch.dict(sys.modules, {"websocket": module}), \
+             patch.dict(probe.os.environ, {"OPENAI_API_KEY": "mock"}):
+            with self.assertRaises(probe.RealtimeFailure) as failure:
+                probe.realtime([{"type": "input_audio", "audio": "private audio"}], "test")
+        self.assertEqual(len(sent), 2)
+        self.assertEqual(closed, [True])
+        self.assertEqual(failure.exception.diagnostic["code"], "invalid_request")
+        self.assertEqual(failure.exception.diagnostic["param"], "response.input[0]")
+        self.assertFalse(failure.exception.diagnostic["response_created"])
+        self.assertNotIn("Private", json.dumps(failure.exception.diagnostic))
+        self.assertNotIn("private audio", json.dumps(failure.exception.diagnostic))
+
 
 if __name__ == "__main__":
     unittest.main()

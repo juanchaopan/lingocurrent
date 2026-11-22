@@ -108,7 +108,14 @@ def execute(ticket_path):
             with ledger.open("a", encoding="utf-8") as log:
                 log.write(json.dumps({"id": item["id"], "state": "pending"}) + "\n")
             started = time.perf_counter()
-            response = probe.openai_probe(payload)
+            try:
+                response = probe.openai_probe(payload)
+            except Exception as error:
+                diagnostic = getattr(error, "diagnostic", {"exception": type(error).__name__, "usage": None})
+                with ledger.open("a", encoding="utf-8") as log:
+                    log.write(json.dumps({"id": item["id"], "state": "failed", "diagnostic": diagnostic}) + "\n")
+                print("Stopped diagnostic: " + json.dumps(diagnostic), flush=True)
+                raise
             spent += cost_upper(response["usage"])
             results.append({"id": item["id"], "target": item.get("target", item.get("sample", {}).get("target")),
                             "expected": item["expected"], "decision": response["decision"], "usage": response["usage"],
