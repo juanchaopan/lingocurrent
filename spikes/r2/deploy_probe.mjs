@@ -45,6 +45,18 @@ function cli(args) {
     maxBuffer: 10_000_000,
   });
   if (result.status !== 0) {
+    // Vercel can create a failed deployment before the CLI exits unsuccessfully.
+    // Persist its URL so the failure cleanup still owns a concrete target.
+    if (args[0] === 'deploy') {
+      const failedUrl = `${result.stdout ?? ''}\n${result.stderr ?? ''}`
+        .match(/https:\/\/[a-z0-9-]+\.vercel\.app/g)
+        ?.at(-1);
+      if (failedUrl)
+        writeFileSync(
+          path.join(reportRoot, 'pending-deployment.json'),
+          JSON.stringify({ url: failedUrl, sha: process.env.GITHUB_SHA }) + '\n',
+        );
+    }
     let diagnostic = result.stderr ?? '';
     for (const value of [token, process.env.OPENAI_API_KEY]) {
       if (value) diagnostic = diagnostic.replaceAll(value, '[redacted]');
@@ -79,13 +91,41 @@ if (process.argv[2] === 'cleanup') {
   }
   const identifier = record.id ?? new URL(record.url).hostname;
   const remote = await api(`/v13/deployments/${identifier}?teamId=${team}`);
+  const expectedSha = process.env.PROBE_CLEANUP_SHA || process.env.GITHUB_SHA;
+  if (!/^[a-f0-9]{40}$/.test(expectedSha ?? '')) throw new Error('Exact cleanup SHA required.');
   if (
     remote.projectId !== project ||
     remote.target === 'production' ||
-    remote.meta?.r2ProbeSha !== process.env.GITHUB_SHA
+    remote.meta?.r2ProbeSha !== expectedSha
   ) {
     throw new Error('Cleanup ownership check failed.');
   }
+  const diagnostic = {
+    deployment_id: remote.id,
+    ready_state: remote.readyState,
+    error_code: remote.errorCode,
+    error_message: remote.errorMessage,
+    checks_state: remote.checksState,
+    checks_conclusion: remote.checksConclusion,
+  };
+  try {
+    const checkResult = await api(`/v1/deployments/${remote.id}/checks?teamId=${team}`);
+    diagnostic.checks = (checkResult.checks ?? []).map((check) => ({
+      name: check.name,
+      status: check.status,
+      conclusion: check.conclusion,
+      title: check.output?.title,
+      summary: check.output?.summary,
+    }));
+  } catch {
+    diagnostic.checks_lookup = 'unavailable';
+  }
+  let diagnosticText = JSON.stringify(diagnostic, null, 2);
+  for (const secret of [token, process.env.OPENAI_API_KEY]) {
+    if (secret) diagnosticText = diagnosticText.replaceAll(secret, '[redacted]');
+  }
+  writeFileSync(path.join(reportRoot, 'cleanup-diagnostic.json'), diagnosticText + '\n');
+  console.log(diagnosticText);
   const result = await fetch(`https://api.vercel.com/v13/deployments/${remote.id}?teamId=${team}`, {
     method: 'DELETE',
     headers: { Authorization: 'Bearer ' + token },

@@ -27,6 +27,10 @@ on:
         description: Exact retained probe URL, used only for cleanup
         required: false
         type: string
+      cleanup_sha:
+        description: Exact original probe SHA when cleaning a deployment from an older experiment head
+        required: false
+        type: string
 permissions:
   contents: read
   checks: read
@@ -109,6 +113,7 @@ jobs:
           VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
           PROBE_CLEANUP_URL: ${{ inputs.operation == 'cleanup' && inputs.cleanup_url || '' }}
+          PROBE_CLEANUP_SHA: ${{ inputs.operation == 'cleanup' && inputs.cleanup_sha || '' }}
         run: node spikes/r2/deploy_probe.mjs cleanup
       - uses: actions/upload-artifact@v7
         if: always()
