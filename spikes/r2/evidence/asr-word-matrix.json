@@ -6,8 +6,8 @@
       "name": "Vosk lgraph",
       "cells": {
         "ship": {
-          "status": "Top 5 内匹配",
-          "rank": 2,
+          "status": "Top 1 匹配",
+          "rank": 1,
           "candidates": ["the ship", "ship", "the sheep", "sheep", "cheap"]
         },
         "avocado": {
@@ -21,8 +21,8 @@
           "candidates": []
         },
         "seed": {
-          "status": "Top 5 未匹配",
-          "rank": null,
+          "status": "Top 5 内匹配",
+          "rank": 2,
           "candidates": ["the cd", "the seed", "the scene", "the seedy", "the seat"]
         },
         "currant": {
@@ -129,9 +129,10 @@
       }
     }
   ],
-  "normalization": "Case/punctuation/whitespace only; whole candidate must match, no article removal or homophone substitution.",
+  "normalization": "The requested word must occur as a whole word in the candidate; ignore case/punctuation/extra whitespace. the seed contains seed; seedy does not. No homophone substitution.",
   "notes": [
     "Same five saved recordings, no new microphone session.",
+    "This requested word-presence matrix differs from the prototype whole-candidate equality rule. It is not a production matching-policy change.",
     "Whisper row uses genuine five hypotheses returned by CTranslate2 beam search, without target prompt; differs from prior one-transcript wrapper.",
     "OpenAI raw-audio judgments are a different task from Top-K transcript spelling matches. Never present a single-transcript miss as a Top-5 miss."
   ]

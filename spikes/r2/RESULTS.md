@@ -4,6 +4,10 @@ The owner's requested scheme-by-word Top 1 / Top 5 summary is in
 [MATRIX.md](MATRIX.md), with [actual candidates](evidence/asr-word-matrix.json).
 The direct Whisper five-hypothesis configuration is separate from the earlier
 one-transcript wrapper below. OpenAI is not marked failed while unexecuted.
+The owner asked whether a target word occurs in the candidates. This matrix now
+uses whole-word presence: `the seed` contains `seed`, while `seedy` does not.
+The earlier whole-candidate-equality table was too strict for that requested
+statistic. This reporting correction does not adopt or change a production matcher.
 
 ## OpenAI attempt status (2026-11-22)
 
