@@ -1,0 +1,14 @@
+{
+  "voice": "supertonic-F1",
+  "sample": "C",
+  "container": "mp3",
+  "bitrate_kbps": 32,
+  "channels": 1,
+  "sample_rate": 44100,
+  "date": "2026-11-17",
+  "source": "explicit owner selections in chat: C, then 32kb",
+  "file": "supertonic-F1-32k.mp3",
+  "bytes": 70025,
+  "sha256": "c690a9a80fa558ad10e5f01f92b821c798f4f98e150a835fb4aa971484cae5f0",
+  "scope": "listening and compression accepted; Vercel fit and Speak quality remain unverified"
+}

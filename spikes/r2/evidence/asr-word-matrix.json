@@ -1,0 +1,151 @@
+{
+  "date": "2026-11-22",
+  "targets": ["ship", "avocado", "see", "seed", "currant"],
+  "schemes": [
+    {
+      "name": "Vosk lgraph",
+      "cells": {
+        "ship": {
+          "status": "Top 1 匹配",
+          "rank": 1,
+          "candidates": ["the ship", "ship", "the sheep", "sheep", "cheap"]
+        },
+        "avocado": {
+          "status": "Top 1 匹配",
+          "rank": 1,
+          "candidates": ["avocado", "the avocado"]
+        },
+        "see": {
+          "status": "Top 5 未匹配",
+          "rank": null,
+          "candidates": []
+        },
+        "seed": {
+          "status": "Top 5 内匹配",
+          "rank": 2,
+          "candidates": ["the cd", "the seed", "the scene", "the seedy", "the seat"]
+        },
+        "currant": {
+          "status": "Top 5 未匹配",
+          "rank": null,
+          "candidates": ["current", "curried", "courage", "koreans", "currents"]
+        }
+      }
+    },
+    {
+      "name": "PocketSphinx 5.0.4",
+      "cells": {
+        "ship": {
+          "status": "Top 5 未匹配",
+          "rank": null,
+          "candidates": ["up to she", "up to she", "up to she", "up that she", "the up to she"]
+        },
+        "avocado": {
+          "status": "Top 5 未匹配",
+          "rank": null,
+          "candidates": [
+            "how to cancun",
+            "i have to cancun",
+            "how to cancun",
+            "i have a clue",
+            "i have a cartoon"
+          ]
+        },
+        "see": {
+          "status": "Top 5 未匹配",
+          "rank": null,
+          "candidates": ["fact sheet", "fact she", "i fact sheet", "fact she'd", "a fact sheet"]
+        },
+        "seed": {
+          "status": "Top 5 未匹配",
+          "rank": null,
+          "candidates": ["see you", "c u", "see your", "c you", "see you in"]
+        },
+        "currant": {
+          "status": "Top 5 未匹配",
+          "rank": null,
+          "candidates": ["collins", "colleagues", "goodness", "koontz", "going to"]
+        }
+      }
+    },
+    {
+      "name": "Whisper base.en（CTranslate2 真实前5候选）",
+      "cells": {
+        "ship": {
+          "status": "Top 5 内匹配",
+          "rank": 2,
+          "candidates": ["Shit.", "Ship.", "Shit...", "Shit!", "Ship!"]
+        },
+        "avocado": {
+          "status": "Top 1 匹配",
+          "rank": 1,
+          "candidates": ["Avocado", "Avocado.", "Avocado!", "avocado", "avocado."]
+        },
+        "see": {
+          "status": "Top 1 匹配",
+          "rank": 1,
+          "candidates": ["See.", "See?", "See...", "See!", "See"]
+        },
+        "seed": {
+          "status": "Top 5 未匹配",
+          "rank": null,
+          "candidates": ["See you.", "See you!", "Seedy.", "CD.", "Seedy"]
+        },
+        "currant": {
+          "status": "Top 5 未匹配",
+          "rank": null,
+          "candidates": ["Carings.", "Corings.", "Currents.", "Cowerings", "Carings!"]
+        }
+      }
+    },
+    {
+      "name": "OpenAI GPT-Realtime-2.1",
+      "cells": {
+        "ship": {
+          "status": "客户端解析失败，未取得候选",
+          "rank": null,
+          "candidates": [],
+          "top1_status": "not_measured",
+          "native_top5_status": "not_provided"
+        },
+        "avocado": {
+          "status": "因首条错误停止，尚未执行",
+          "rank": null,
+          "candidates": [],
+          "top1_status": "not_measured",
+          "native_top5_status": "not_provided"
+        },
+        "see": {
+          "status": "因首条错误停止，尚未执行",
+          "rank": null,
+          "candidates": [],
+          "top1_status": "not_measured",
+          "native_top5_status": "not_provided"
+        },
+        "seed": {
+          "status": "因首条错误停止，尚未执行",
+          "rank": null,
+          "candidates": [],
+          "top1_status": "not_measured",
+          "native_top5_status": "not_provided"
+        },
+        "currant": {
+          "status": "因首条错误停止，尚未执行",
+          "rank": null,
+          "candidates": [],
+          "top1_status": "not_measured",
+          "native_top5_status": "not_provided"
+        }
+      },
+      "candidate_kind": "Native Top-5 not provided; prompted model alternatives are not comparable decoder N-best."
+    }
+  ],
+  "normalization": "The requested word must occur as a whole word in the candidate; ignore case/punctuation/extra whitespace. the seed contains seed; seedy does not. No homophone substitution.",
+  "notes": [
+    "Same five saved recordings, no new microphone session.",
+    "This requested word-presence matrix differs from the prototype whole-candidate equality rule. It is not a production matching-policy change.",
+    "Whisper row uses genuine five hypotheses returned by CTranslate2 beam search, without target prompt; differs from prior one-transcript wrapper.",
+    "OpenAI raw-audio judgments are a different task from Top-K transcript spelling matches. Never present a single-transcript miss as a Top-5 miss.",
+    "OpenAI currently has no valid Top-1 result. Native Top-5 is not provided by the documented transcription API; model-proposed alternatives must not be counted as decoder Top-5."
+  ]
+}
