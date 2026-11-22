@@ -1,5 +1,10 @@
 # R2 interim evidence — not a completed spike
 
+The owner's requested scheme-by-word Top 1 / Top 5 summary is in
+[MATRIX.md](MATRIX.md), with [actual candidates](evidence/asr-word-matrix.json).
+The direct Whisper five-hypothesis configuration is separate from the earlier
+one-transcript wrapper below. OpenAI is not marked failed while unexecuted.
+
 RSS checked 2026-11-16; free listening round 2026-11-17, America/Toronto.
 Issue #7 remains open. The owner selected sample C / Supertonic F1 for its voice.
 The owner also accepted mono MP3 at 32 kbps. Production deployment/capacity,
