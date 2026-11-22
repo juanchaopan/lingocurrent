@@ -99,7 +99,7 @@ const account = await api('/v2/teams/' + team);
 if (account.billing?.plan !== 'hobby')
   throw new Error('Actual account is not Hobby; inspect before claiming Hobby evidence.');
 // Build without the shared model credential. This also exposes the actual function footprint.
-cli(['build', '--yes', '--target', 'preview']);
+cli(['build', '--yes', '--environment', 'preview']);
 const functionRoot = path.join(cloud, '.vercel/output/functions');
 if (!existsSync(functionRoot)) throw new Error('No Python function was built.');
 const functionBytes = sizes(functionRoot);

@@ -77,6 +77,7 @@ jobs:
         run: |
           python spikes/r2/prepare_cloud.py "$ENGINE"
           python -m pip install -r spikes/r2/cloud/requirements.txt
+          python -m pip install uv==0.9.10
           python -m unittest discover -s spikes/r2/cloud -p 'test_*.py'
           node --check spikes/r2/runner.mjs
           node --check spikes/r2/deploy_probe.mjs
