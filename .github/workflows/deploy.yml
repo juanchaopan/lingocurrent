@@ -18,7 +18,7 @@ on:
         required: true
         default: run
         type: choice
-        options: [run, cleanup]
+        options: [run, cleanup, client]
       keep_deployment:
         description: Keep the signed probe temporarily for private owner-corpus requests
         default: false
@@ -97,6 +97,13 @@ jobs:
           VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
           OPENAI_API_KEY: ${{ (inputs.engine == 'openai' || inputs.engine == 'openai-speak') && secrets.OPENAI_API_KEY || '' }}
         run: node spikes/r2/deploy_probe.mjs
+      - name: Mint encrypted short-lived Realtime credential without audio
+        if: inputs.operation == 'client'
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python -m pip install cryptography==50.0.2
+          python spikes/r2/openai_client.py mint
       - name: Collect synthetic smoke or original-text demos
         if: inputs.operation == 'run' && inputs.engine != 'openai-speak'
         env:

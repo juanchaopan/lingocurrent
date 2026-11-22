@@ -1,5 +1,15 @@
 # OpenAI raw-audio screening — 2026-11-22
 
+Current quality-test transport: the permanent repository key mints one ten-minute
+Realtime client credential, encrypted to a local-only RSA private identity.
+GitHub publishes ciphertext only. The local client decrypts it in memory and
+sends the same WAVs directly to OpenAI, preserving the 14-response/usage guards.
+No recording or long-lived key is sent through GitHub artifacts. Vercel's failed
+deployment is cleaned separately; it is not a prerequisite for this quality test.
+See the [official client-secret API](https://developers.openai.com/api/reference/resources/realtime/subresources/client_secrets/methods/create).
+The earlier signed-relay design below remains experimental deployment work, not
+an executed model result or an instruction to disable failed deployment checks.
+
 The owner explicitly requested an OpenAI trial after the free recognizers failed
 the intended use. This run assesses the original recordings, not paid TTS.
 Code remains on the isolated experiment branch; no main merge or production run.
