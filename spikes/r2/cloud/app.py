@@ -207,8 +207,11 @@ def openai_probe(payload):
                 raise ValueError("Blind transcription must not receive a target")
             instructions = (
                 "Transcribe exactly the audible English word or phrase. Do not invent words "
-                "or add articles. Return only JSON with transcript, using an empty string "
-                "if no intelligible speech is audible. You are not given a target."
+                "or add articles. Return only JSON with transcript (your best transcript) "
+                "and candidates (up to five plausible alternative whole-word/phrase "
+                "transcripts, ranked from most to least likely). The first candidate must "
+                "equal transcript. Do not pad with implausible guesses. Use empty transcript "
+                "and an empty list if no intelligible speech is audible. You are not given a target."
             )
         converted, _ = audioop.ratecv(pcm, 2, 1, 16000, 24000, None)
         content.insert(0, {"type": "input_audio", "audio": base64.b64encode(converted).decode()})
@@ -216,6 +219,12 @@ def openai_probe(payload):
         decision = json.loads(result["text"])
         if not isinstance(decision.get("transcript"), str):
             raise ValueError("Invalid model decision")
+        if mode == "speak_transcribe":
+            candidates = decision.get("candidates")
+            if (not isinstance(candidates, list) or len(candidates) > 5
+                    or not all(isinstance(item, str) and item for item in candidates)
+                    or (candidates[0] if candidates else "") != decision["transcript"]):
+                raise ValueError("Invalid ranked candidate list")
         if mode == "speak" and (decision.get("verdict") not in ["match", "different", "invalid", "uncertain"]
                                 or decision.get("pronunciation") not in ["acceptable", "incorrect", "invalid", "uncertain"]
                                 or not isinstance(decision.get("reason"), str)):

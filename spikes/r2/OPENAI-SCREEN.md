@@ -20,7 +20,9 @@ Reuse the five saved, human-labeled recordings for ship, avocado, see, seed and
 currant. Preserve labels, check each WAV's SHA-256 locally and send no human label
 or intended spoken-text annotation to the model. At most **14 paid responses**:
 
-- Five blind transcripts: no target supplied.
+- Five blind ranked candidate lists: no target supplied. OpenAI proposes up to
+  five plausible transcripts in order; these are model-generated alternatives,
+  not decoder beam-search N-best scores. Keep that distinction in the matrix.
 - Five independent audio + target judgments, returning transcript, whole-target
   sound match, pronunciation opinion and a short explanation. Accept genuine
   homophones; a transcript's spelling alone is not a pronunciation error.

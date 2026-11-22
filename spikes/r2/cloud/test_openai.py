@@ -22,7 +22,7 @@ class OpenAiAudioTests(unittest.TestCase):
             provider.assert_not_called()
 
     def test_blind_transcription_does_not_send_target_or_label(self):
-        response = {"text": json.dumps({"transcript": "current"}), "usage": {}, "model": "mock"}
+        response = {"text": json.dumps({"transcript": "current", "candidates": ["current", "currant"]}), "usage": {}, "model": "mock"}
         with patch.object(probe, "realtime", return_value=response) as provider:
             result = probe.openai_probe({**self.payload, "mode": "speak_transcribe"})
             self.assertEqual(result["decision"]["transcript"], "current")
