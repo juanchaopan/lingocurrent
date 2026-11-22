@@ -50,11 +50,6 @@ def javascript():
     return send_file(DIRECTORY / "lab.js", mimetype="text/javascript")
 
 
-@app.get("/capture.js")
-def capture():
-    return send_file(DIRECTORY / "capture.js", mimetype="text/javascript")
-
-
 @app.get("/audio/<voice>")
 def audio(voice):
     if voice not in VOICES or not (LISTENING / (voice + ".wav")).exists():

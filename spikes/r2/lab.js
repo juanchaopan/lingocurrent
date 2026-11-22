@@ -5,6 +5,19 @@ let currentAudio;
 let playbackUrl;
 let recording = false;
 
+// Keep the processor in the page bundle: embedded browsers may not fetch a
+// separate loopback URL from the AudioWorklet's loader.
+const captureModule = `
+class MicrophoneCapture extends AudioWorkletProcessor {
+  process(inputs) {
+    const channel = inputs[0]?.[0];
+    if (channel) this.port.postMessage(new Float32Array(channel));
+    return true;
+  }
+}
+registerProcessor('microphone-capture', MicrophoneCapture);
+`;
+
 for (const player of document.querySelectorAll('audio')) {
   player.addEventListener('play', () => {
     for (const other of document.querySelectorAll('audio')) {
@@ -105,11 +118,7 @@ async function stop() {
   clearTimeout(timer);
   element('stop').disabled = true;
   const rate = context.sampleRate;
-  source.disconnect();
-  capture.disconnect();
-  mute.disconnect();
-  stream.getTracks().forEach((track) => track.stop());
-  await context.close();
+  await releaseMicrophone();
   const samples = new Float32Array(chunks.reduce((length, chunk) => length + chunk.length, 0));
   let offset = 0;
   for (const chunk of chunks) {
@@ -138,14 +147,31 @@ async function stop() {
   }
 }
 
+async function releaseMicrophone() {
+  stream?.getTracks().forEach((track) => track.stop());
+  source?.disconnect();
+  capture?.disconnect();
+  mute?.disconnect();
+  if (context && context.state !== 'closed') await context.close();
+  stream = context = source = capture = mute = undefined;
+}
+
 element('record').addEventListener('click', async () => {
+  element('record').disabled = true;
+  element('record-status').textContent = '正在启动麦克风……';
   try {
     stream = await navigator.mediaDevices.getUserMedia({
       audio: { channelCount: 1 },
       video: false,
     });
     context = new AudioContext();
-    await context.audioWorklet.addModule('/capture.js');
+    const moduleUrl = URL.createObjectURL(new Blob([captureModule], { type: 'text/javascript' }));
+    try {
+      await context.audioWorklet.addModule(moduleUrl);
+    } finally {
+      URL.revokeObjectURL(moduleUrl);
+    }
+    await context.resume();
     chunks = [];
     source = context.createMediaStreamSource(stream);
     capture = new AudioWorkletNode(context, 'microphone-capture');
@@ -163,9 +189,14 @@ element('record').addEventListener('click', async () => {
     element('record-status').textContent = '录音中，最多 8 秒……';
     timer = setTimeout(stop, 8000);
   } catch (error) {
-    stream?.getTracks().forEach((track) => track.stop());
+    await releaseMicrophone();
+    element('record').disabled = false;
     element('record-status').textContent = '没有开始录音：' + error.message;
   }
+});
+window.addEventListener('pagehide', () => {
+  clearTimeout(timer);
+  void releaseMicrophone();
 });
 element('stop').addEventListener('click', stop);
 element('again').addEventListener('click', async () => {

@@ -37,6 +37,21 @@ final source selection remain unfinished. Voice and compression listening choice
 are confirmed.
 No OpenAI model call or cloud probe deployment has occurred.
 
+### Recorder loading fix (2026-11-21)
+
+The owner's embedded browser failed to load `/capture.js` through the worklet
+loader before recording started. The processor now ships inside `lab.js` and is
+loaded from a temporary Blob URL; there is no separate worklet network request.
+Failed starts close the microphone tracks and AudioContext and permit retry.
+
+The browser regression test blocks the old external module URL, injects one
+initialization failure, checks cleanup/retry, and validates captured mono 16 kHz
+PCM16 WAV. A separate synthetic-microphone run against the real loopback Flask
+server completed recording, playback and local Vosk recognition. These synthetic
+runs saved no owner samples and do not establish recognition or pronunciation
+quality. The embedded page was refreshed; the owner's real recording retry is
+still required.
+
 ## Selected C compression comparison (2026-11-17)
 
 The [owner's selection](evidence/listening/voice-choice.json) is Supertonic F1.

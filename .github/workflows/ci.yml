@@ -30,7 +30,7 @@ jobs:
       - run: pnpm arch
       - run: pnpm typecheck
       - run: pnpm test
-      - run: node --test spikes/r2/runner.test.mjs
+      - run: node --test spikes/r2/*.test.mjs
       - run: pnpm build
       - run: pnpm build-storybook
       - run: pnpm test:e2e
