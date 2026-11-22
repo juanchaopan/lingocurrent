@@ -214,24 +214,31 @@
         <div id="result" role="status">
           录音后会显示：它听成了什么，以及前 1 / 3 / 5 个候选中是否包含目标词。
         </div>
-        <label for="truth">你确认这次实际录音属于</label>
+        <p class="muted">
+          “未匹配”只表示候选文字没有匹配目标。模型可能漏词、加词或写成同音词，不能据此认定你发音错误。本页尚未提供独立的发音正确性判定。
+        </p>
+        <label for="truth">人工标注：你实际读了什么（与模型识别是否成功分开记录）</label>
         <select id="truth">
           <option value="">请选择人工判断</option>
-          <option value="correct">我读的是完整目标词 / 短语</option>
-          <option value="wrong">我读的是其他词 / 短语</option>
+          <option value="correct">我读的是目标词 / 短语，即使模型没有识别出来</option>
+          <option value="wrong">我实际读的是其他词 / 短语</option>
           <option value="invalid">无效：静音、噪声或只读了一半</option>
         </select>
+        <p class="muted">
+          例如目标是 seed，你也读了 seed，但模型显示 the
+          seed：人工标注选“读的是目标词”，模型结果仍是“未匹配”。保存样本不代表模型通过，也不代表已验证发音正确。
+        </p>
         <label for="spoken">实际读出的词（可选）</label
         ><input id="spoken" maxlength="100" placeholder="例如 sheep" />
         <label><input id="control" type="checkbox" /> 我改了目标词，正在用同一录音做反例</label>
         <div class="row">
           <button id="save" class="secondary" disabled>保存这条人工标注样本</button
           ><button id="again" class="secondary" disabled>用当前目标重新识别同一录音</button
-          ><span id="save-status" role="status"></span>
+          ><span id="save-status" role="status" style="white-space: pre-line"></span>
         </div>
         <p class="muted">
-          正式判断需要 10 条读对、10 条读错、至少 3
-          条无效录音，以及换目标反例。未收齐前不宣布识别方案通过；技术失败也不算读错。原始录音只保存在本机忽略目录，不上传公开
+          正式评估需要人工标注的 10 条目标词样本、10 条其他词样本、至少 3
+          条无效录音，以及换目标反例。这些数量是测试样本数，不是模型识别通过数。未收齐并检查模型结果前不宣布识别方案通过。原始录音只保存在本机忽略目录，不上传公开
           GitHub。
         </p>
       </section>

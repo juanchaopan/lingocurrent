@@ -4,21 +4,41 @@ import { createServer } from 'node:http';
 import { test } from 'node:test';
 import { chromium } from '@playwright/test';
 
-test('recorder survives blocked external worklet loading and cleans up failed starts', async () => {
+test('recorder retries safely and keeps human labels separate from model matches', async () => {
   const html = await readFile(new URL('./lab.html', import.meta.url));
   const javascript = await readFile(new URL('./lab.js', import.meta.url));
   const recordings = [];
+  const savedLabels = [];
   const server = createServer(async (request, response) => {
     if (request.url === '/' || request.url === '/lab.js') {
       response.setHeader('Content-Type', request.url === '/' ? 'text/html' : 'text/javascript');
       response.end(request.url === '/' ? html : javascript);
-    } else if (request.url === '/recognize') {
+    } else if (['/recognize', '/save-sample'].includes(request.url)) {
       const parts = [];
       for await (const part of request) parts.push(part);
-      recordings.push(JSON.parse(Buffer.concat(parts).toString()));
+      const payload = JSON.parse(Buffer.concat(parts).toString());
       response.setHeader('Content-Type', 'application/json');
-      // Only the browser recording boundary is under test here, not ASR quality.
-      response.end(JSON.stringify({ result: { segments: [] }, matches: {} }));
+      // Fixed responses test UI semantics, not ASR quality or the owner's corpus.
+      if (request.url === '/recognize') {
+        recordings.push(payload);
+        response.end(
+          JSON.stringify({
+            result: {
+              segments: [
+                {
+                  alternatives: ['the cd', 'the seed', 'the scene', 'the seedy', 'the seat'].map(
+                    (text) => ({ text }),
+                  ),
+                },
+              ],
+            },
+            matches: { 1: false, 3: false, 5: false },
+          }),
+        );
+      } else {
+        savedLabels.push(payload.label);
+        response.end(JSON.stringify({ counts: { correct: 4, wrong: 0, invalid: 0 } }));
+      }
     } else {
       response.writeHead(404).end();
     }
@@ -58,6 +78,7 @@ test('recorder survives blocked external worklet loading and cleans up failed st
       };
     });
     await page.goto(`http://127.0.0.1:${server.address().port}`);
+    await page.locator('#target').fill('seed');
     const record = page.getByRole('button', { name: '开始录音', exact: true });
     await record.click();
     await page
@@ -101,6 +122,18 @@ test('recorder survives blocked external worklet loading and cleans up failed st
       await page.evaluate(() => window.testContexts.every((c) => c.state === 'closed')),
       true,
     );
+
+    const modelResult = await page.locator('#result').innerText();
+    assert.ok(modelResult.includes('2. the seed'));
+    for (const k of [1, 3, 5]) assert.ok(modelResult.includes(`前 ${k} 个候选：未匹配目标词`));
+    await page.locator('#truth').selectOption('correct');
+    await page.locator('#save').click();
+    await page.getByText('已保存人工标注，未判定模型通过。', { exact: false }).waitFor();
+    assert.deepEqual(savedLabels, ['correct']);
+    assert.match(await page.locator('#save-status').innerText(), /累计人工样本：读目标词 4/);
+    assert.equal(await page.locator('#result').innerText(), modelResult);
+    await page.locator('#again').click();
+    assert.equal(await page.locator('#save-status').innerText(), '');
   } finally {
     await browser?.close();
     await new Promise((resolve) => server.close(resolve));

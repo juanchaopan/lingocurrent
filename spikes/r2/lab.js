@@ -92,6 +92,7 @@ function encodeWav(samples, inputRate) {
 }
 
 async function recognize() {
+  element('save-status').textContent = '';
   element('result').textContent = '本机正在识别……首次需要加载免费模型。';
   const data = await post('/recognize', {
     target: element('target').value.trim(),
@@ -105,6 +106,7 @@ async function recognize() {
     : ['没有识别到完整语音，请重录。'];
   lines.push(
     '',
+    '模型识别结果（不是发音评分）：',
     ...[1, 3, 5].map((k) => `前 ${k} 个候选：${data.matches[k] ? '包含目标词' : '未匹配目标词'}`),
   );
   if (data.result.invalid === 'multiple_segments')
@@ -157,6 +159,7 @@ async function releaseMicrophone() {
 }
 
 element('record').addEventListener('click', async () => {
+  element('save-status').textContent = '';
   element('record').disabled = true;
   element('record-status').textContent = '正在启动麦克风……';
   try {
@@ -221,7 +224,8 @@ element('save').addEventListener('click', async () => {
       control: element('control').checked,
     });
     element('save-status').textContent =
-      `本机已保存：读对 ${data.counts.correct} / 读错 ${data.counts.wrong} / 无效 ${data.counts.invalid}`;
+      `已保存人工标注，未判定模型通过。\n` +
+      `累计人工样本：读目标词 ${data.counts.correct} / 读其他词 ${data.counts.wrong} / 无效 ${data.counts.invalid}。`;
   } catch (error) {
     element('save-status').textContent = error.message;
   }

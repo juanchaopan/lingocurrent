@@ -52,6 +52,22 @@ runs saved no owner samples and do not establish recognition or pronunciation
 quality. The embedded page was refreshed; the owner's real recording retry is
 still required.
 
+### Human labels and model matching are separate
+
+The owner reported `seed` returning `the cd`, `the seed`, `the scene`, `the seedy`,
+`the seat`; another target `currant` returned `current`, `curried`, `courage`,
+`koreans`, `currents`. Both missed the strict whole-candidate spelling match at
+K=1/3/5. These observations are not recognition passes. The second also shows
+why spelling mismatch must not be presented as a pronunciation error.
+
+The former “读对” saved counter counted **human labels** (the owner says they read
+the target), not model successes. The UI now names those counts as human-labeled
+target/other/invalid samples and explicitly separates them from model matching.
+No existing human labels or match rules were changed. A browser regression uses
+the reported `seed` candidates to verify that saving a target-word label leaves
+all three model misses visible. This experiment has no independent pronunciation
+correctness assessment yet; transcription/Top-K matches do not establish it.
+
 ## Selected C compression comparison (2026-11-17)
 
 The [owner's selection](evidence/listening/voice-choice.json) is Supertonic F1.
