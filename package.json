@@ -44,7 +44,7 @@
     "@storybook/addon-docs": "10.6.7",
     "@storybook/addon-vitest": "10.6.7",
     "@storybook/nextjs-vite": "10.6.7",
-    "@tailwindcss/turbopack": "4.3.3",
+    "@tailwindcss/turbopack": "4.3.5",
     "@tailwindcss/vite": "4.3.3",
     "@testing-library/dom": "10.4.2",
     "@testing-library/jest-dom": "7.0.1",
